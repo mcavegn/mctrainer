@@ -1,0 +1,299 @@
+[
+  {
+    "question": "Warum werden Two-stage Recommender Systeme eingesetzt?",
+    "options": [
+      "Um nur Ranking zu verbessern",
+      "Um Skalierungsprobleme zu lösen",
+      "Um weniger Features zu nutzen",
+      "Um Modelle zu vereinfachen"
+    ],
+    "correct_index": 1,
+    "explanation": "Two-stage Systeme vermeiden das Scoring des gesamten Katalogs und skalieren besser bei großen Datenmengen."
+  },
+  {
+    "question": "Was ist die Hauptaufgabe des Candidate Generators?",
+    "options": [
+      "Exakte Reihenfolge bestimmen",
+      "Feature Engineering durchführen",
+      "Kleine Menge relevanter Kandidaten finden",
+      "Training durchführen"
+    ],
+    "correct_index": 2,
+    "explanation": "Der Candidate Generator erzeugt eine kleinere Menge an potenziell relevanten Items mit hoher Recall."
+  },
+  {
+    "question": "Was ist die Aufgabe des Rankers?",
+    "options": [
+      "Alle Items durchsuchen",
+      "Kandidaten exakt sortieren",
+      "Neue Features generieren",
+      "Daten sammeln"
+    ],
+    "correct_index": 1,
+    "explanation": "Der Ranker ordnet die Kandidaten präzise nach Relevanz."
+  },
+  {
+    "question": "Warum ist Candidate Recall ein kritischer Faktor?",
+    "options": [
+      "Er beeinflusst nur Training",
+      "Er bestimmt die Featureanzahl",
+      "Er ist obere Grenze der Gesamtleistung",
+      "Er reduziert Speicherbedarf"
+    ],
+    "correct_index": 2,
+    "explanation": "Wenn ein relevantes Item nicht im Kandidatenset ist, kann der Ranker es nicht mehr berücksichtigen."
+  },
+  {
+    "question": "Wie ist Recall@K (Recall at K) definiert?",
+    "options": [
+      "$\\frac{K}{N}$",
+      "$\\frac{\\text{relevante Treffer}}{K}$",
+      "$\\frac{\\# \\text{relevante Items im Set}}{\\# \\text{relevante Items}}$",
+      "$\\sum_i r_i$"
+    ],
+    "correct_index": 2,
+    "explanation": "Recall@K misst, wie viele relevante Items im Kandidatenset enthalten sind."
+  },
+  {
+    "question": "Was beschreibt die Pipeline-Eigenschaft $\\text{final}_u \\subseteq C_u$?",
+    "options": [
+      "Alle Items werden verwendet",
+      "Ranker erzeugt neue Items",
+      "Ranker arbeitet nur auf Kandidaten",
+      "Nur Training wird beeinflusst"
+    ],
+    "correct_index": 2,
+    "explanation": "Der Ranker kann nur Items aus dem Kandidatenset $C_u$ sortieren."
+  },
+  {
+    "question": "Was ist ein typisches Ziel des Retrievals?",
+    "options": [
+      "Maximale Präzision",
+      "Minimale Diversität",
+      "Hohe Recall bei niedriger Latenz",
+      "Maximale Modellkomplexität"
+    ],
+    "correct_index": 2,
+    "explanation": "Retrieval soll schnell viele relevante Kandidaten finden."
+  },
+  {
+    "question": "Welche Formel beschreibt Retrieval als Similarity-Suche?",
+    "options": [
+      "$s(u,i) = \\|x_i\\|$",
+      "$s(u,i) = p_u^\\top q_i$",
+      "$s(u,i) = \\sum_i r_i$",
+      "$s(u,i) = \\mu + b_u$"
+    ],
+    "correct_index": 1,
+    "explanation": "Retrieval basiert oft auf Dot Product zwischen Nutzer- und Item-Vektoren."
+  },
+  {
+    "question": "Was ist eine Alternative zum Dot Product?",
+    "options": [
+      "Addition",
+      "Cosine Similarity",
+      "Division",
+      "Subtraktion"
+    ],
+    "correct_index": 1,
+    "explanation": "Cosine Similarity misst den Winkel zwischen Vektoren statt deren Länge."
+  },
+  {
+    "question": "Warum ist Approximate Nearest Neighbor (ANN) wichtig?",
+    "options": [
+      "Verbessert nur Genauigkeit",
+      "Erhöht Speicherbedarf",
+      "Reduziert Suchzeit stark",
+      "Vermeidet Training"
+    ],
+    "correct_index": 2,
+    "explanation": "ANN reduziert die Rechenzeit, indem nicht alle Items durchsucht werden."
+  },
+  {
+    "question": "Was ist die Grundidee von Locality-Sensitive Hashing (LSH)?",
+    "options": [
+      "Alle Items vergleichen",
+      "Ähnliche Vektoren in gleiche Buckets",
+      "Zufällige Sortierung",
+      "Nur Top-K speichern"
+    ],
+    "correct_index": 1,
+    "explanation": "LSH ordnet ähnliche Vektoren in denselben Hash-Bucket ein."
+  },
+  {
+    "question": "Was beschreibt die Funktion $\\text{sign}(r^\\top v)$ in LSH?",
+    "options": [
+      "Norm eines Vektors",
+      "Projektion auf Hyperplane",
+      "Addition von Vektoren",
+      "Sortierung"
+    ],
+    "correct_index": 1,
+    "explanation": "Die Projektion auf zufällige Hyperplanes erzeugt Bits für den Hashcode."
+  },
+  {
+    "question": "Was ist ein Trade-off bei ANN?",
+    "options": [
+      "Speicher vs Features",
+      "Recall vs Latenz",
+      "Training vs Test",
+      "User vs Item"
+    ],
+    "correct_index": 1,
+    "explanation": "ANN tauscht etwas Genauigkeit gegen deutlich schnellere Suche."
+  },
+  {
+    "question": "Welche Retrieval-Quelle ist besonders robust?",
+    "options": [
+      "Matrix Factorization (MF)",
+      "Content-based",
+      "Popularity",
+      "Graph"
+    ],
+    "correct_index": 2,
+    "explanation": "Popularity ist schnell und funktioniert auch bei wenig Nutzerdaten."
+  },
+  {
+    "question": "Was ist ein Nachteil von Popularity?",
+    "options": [
+      "Langsam",
+      "Schlechte Skalierung",
+      "Wenig Personalisierung",
+      "Hoher Speicher"
+    ],
+    "correct_index": 2,
+    "explanation": "Popularity bevorzugt häufige Items und ignoriert individuelle Präferenzen."
+  },
+  {
+    "question": "Was bedeutet Negative Sampling?",
+    "options": [
+      "Nur positive Beispiele nutzen",
+      "Auswahl irrelevanter Items zum Training",
+      "Daten löschen",
+      "Feature-Selektion"
+    ],
+    "correct_index": 1,
+    "explanation": "Negative Samples helfen, relevante von irrelevanten Items zu unterscheiden."
+  },
+  {
+    "question": "Warum sind harte Negative wichtig?",
+    "options": [
+      "Einfacher zu trainieren",
+      "Bessere feine Unterscheidung",
+      "Weniger Daten nötig",
+      "Schneller"
+    ],
+    "correct_index": 1,
+    "explanation": "Harte Negative sind ähnlich zu positiven und verbessern die Modellqualität."
+  },
+  {
+    "question": "Was ist ein typisches Problem bei negativen Samples?",
+    "options": [
+      "Zu viele positive Beispiele",
+      "Nicht alle Negativen sind wirklich negativ",
+      "Zu wenig Daten",
+      "Zu viele Features"
+    ],
+    "correct_index": 1,
+    "explanation": "Viele negative Samples sind nur nicht beobachtet, aber nicht wirklich irrelevant."
+  },
+  {
+    "question": "Was ist ein typisches Evaluationsziel für Retrieval?",
+    "options": [
+      "Precision@1",
+      "Recall@K",
+      "Loss minimieren",
+      "Accuracy"
+    ],
+    "correct_index": 1,
+    "explanation": "Recall@K misst, ob relevante Items im Kandidatenset enthalten sind."
+  },
+  {
+    "question": "Warum ist Slicing wichtig bei Evaluation?",
+    "options": [
+      "Reduziert Daten",
+      "Erhöht Geschwindigkeit",
+      "Zeigt Schwächen in Subgruppen",
+      "Vereinfacht Modelle"
+    ],
+    "correct_index": 2,
+    "explanation": "Durch Slices erkennt man Probleme bei z. B. kalten Items oder sparsamen Nutzern."
+  },
+  {
+    "question": "Was ist ein Vorteil von MF (Matrix Factorization) als Retriever?",
+    "options": [
+      "Keine Features nötig",
+      "Bereits trainierte Vektoren nutzbar",
+      "Keine Skalierung",
+      "Keine Berechnung"
+    ],
+    "correct_index": 1,
+    "explanation": "MF liefert direkt Nutzer- und Item-Vektoren für Retrieval."
+  },
+  {
+    "question": "Was ist ein Vorteil von Content-based Retrieval?",
+    "options": [
+      "Keine Daten nötig",
+      "Funktioniert für neue Items",
+      "Immer beste Qualität",
+      "Keine Features nötig"
+    ],
+    "correct_index": 1,
+    "explanation": "Content-basierte Methoden können neue Items sofort berücksichtigen."
+  },
+  {
+    "question": "Was beschreibt ein gutes Kandidatenset?",
+    "options": [
+      "Nur kleine Größe",
+      "Nur hohe Diversität",
+      "Hohe Recall und brauchbare Größe",
+      "Nur Popularität"
+    ],
+    "correct_index": 2,
+    "explanation": "Ein gutes Kandidatenset enthält relevante Items und ist klein genug für Ranking."
+  },
+  {
+    "question": "Was ist ein typischer Failure Mode: 'too narrow'?",
+    "options": [
+      "Zu viele Items",
+      "Nur sehr ähnliche Items",
+      "Zu hohe Diversität",
+      "Zu viele Nutzer"
+    ],
+    "correct_index": 1,
+    "explanation": "Das System empfiehlt nur sehr ähnliche Items und verliert Vielfalt."
+  },
+  {
+    "question": "Was ist 'popularity swamp'?",
+    "options": [
+      "Zu viele Features",
+      "Zu viele seltene Items",
+      "Immer gleiche populäre Items",
+      "Keine Daten"
+    ],
+    "correct_index": 2,
+    "explanation": "Viele Nutzer erhalten dieselben populären Items."
+  },
+  {
+    "question": "Was ist 'coverage hole'?",
+    "options": [
+      "Zu viele Items",
+      "Einige Segmente werden nicht bedient",
+      "Zu hohe Latenz",
+      "Zu viele Nutzer"
+    ],
+    "correct_index": 1,
+    "explanation": "Einige Nutzergruppen oder Items werden vom Retrieval nicht erreicht."
+  },
+  {
+    "question": "Warum werden oft mehrere Retrieval-Strategien kombiniert?",
+    "options": [
+      "Weniger Daten",
+      "Komplexität erhöhen",
+      "Komplementäre Stärken nutzen",
+      "Training vermeiden"
+    ],
+    "correct_index": 2,
+    "explanation": "Unterschiedliche Methoden finden unterschiedliche relevante Items."
+  }
+]

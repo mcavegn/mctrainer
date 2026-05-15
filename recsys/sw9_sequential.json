@@ -1,0 +1,112 @@
+[
+  {
+    "question": "Was beschreibt die Markov-Eigenschaft im Kontext von Sequential Recommenders?",
+    "options": [
+      "Die Zukunft hängt nur vom aktuellen Item ab, nicht von der gesamten Historie",
+      "Die Zukunft hängt nur vom ersten Item der Session ab",
+      "Alle vergangenen Items werden gleich stark berücksichtigt",
+      "Nur Nutzerinformationen bestimmen die nächste Empfehlung"
+    ],
+    "correct_index": 0,
+    "explanation": "Die Markov-Eigenschaft nimmt an, dass der nächste Zustand nur vom aktuellen Zustand abhängt und nicht von der vollständigen Historie."
+  },
+  {
+    "question": "Warum verliert Mean Pooling bei User-Embeddings wichtige Information?",
+    "options": [
+      "Weil die Reihenfolge der Interaktionen ignoriert wird",
+      "Weil es nur positive Items berücksichtigt",
+      "Weil es keine Item-Embeddings nutzt",
+      "Weil es zu viele Trainingsdaten benötigt"
+    ],
+    "correct_index": 0,
+    "explanation": "Mean Pooling ignoriert die Reihenfolge der Interaktionen und damit Sequenzinformationen."
+  },
+  {
+    "question": "Was ist das Ziel der Next-Item-Prediction?",
+    "options": [
+      "Das nächste Item in einer Sequenz vorherzusagen",
+      "Alle Items im Katalog zu klassifizieren",
+      "Die Nutzeranzahl zu prognostizieren",
+      "Die Embedding-Dimension zu reduzieren"
+    ],
+    "correct_index": 0,
+    "explanation": "Next-Item-Prediction zielt darauf ab, das nächste wahrscheinlich interagierte Item vorherzusagen."
+  },
+  {
+    "question": "Warum wird in SASRec ein Causal Mask verwendet?",
+    "options": [
+      "Damit das Modell keine zukünftigen Items sieht",
+      "Damit alle Items gleichzeitig trainiert werden",
+      "Um die Embedding-Größe zu reduzieren",
+      "Um die Loss-Funktion zu vereinfachen"
+    ],
+    "correct_index": 0,
+    "explanation": "Der Causal Mask verhindert, dass das Modell Informationen aus der Zukunft nutzt."
+  },
+  {
+    "question": "Was speichert der Hidden State in einem GRU-basierten Sequential Recommender?",
+    "options": [
+      "Eine komprimierte Repräsentation der bisherigen Session",
+      "Nur das letzte Item der Sequenz",
+      "Alle Items im Originalformat",
+      "Die globale Popularität der Items"
+    ],
+    "correct_index": 0,
+    "explanation": "Der Hidden State fasst die bisherige Sequenzinformation kompakt zusammen."
+  },
+  {
+    "question": "Was ist ein Vorteil von Self-Attention gegenüber RNNs in Sequential Recommendation?",
+    "options": [
+      "Parallelisierbares Training und direkte Abhängigkeiten zwischen Items",
+      "Weniger Speicherverbrauch bei großen Katalogen",
+      "Keine Notwendigkeit für Embeddings",
+      "Automatische Kalibrierung der Scores"
+    ],
+    "correct_index": 0,
+    "explanation": "Self-Attention erlaubt paralleles Training und direkte Verbindungen zwischen allen Positionen."
+  },
+  {
+    "question": "Was bedeutet Leave-One-Out Evaluation im Sequential Recommendation?",
+    "options": [
+      "Das letzte Item einer Sequenz wird als Testziel verwendet",
+      "Alle Items werden zufällig verteilt",
+      "Nur positive Items werden entfernt",
+      "Die längste Session wird entfernt"
+    ],
+    "correct_index": 0,
+    "explanation": "Beim Leave-One-Out wird typischerweise das letzte Item einer Sequenz als Testziel verwendet."
+  },
+  {
+    "question": "Warum kann ein random 80/20 Split bei Sequential Models problematisch sein?",
+    "options": [
+      "Weil er die zeitliche Reihenfolge zerstört und Leakage verursacht",
+      "Weil er zu wenig Trainingsdaten erzeugt",
+      "Weil er nur Cold-Start Nutzer enthält",
+      "Weil er keine Features nutzt"
+    ],
+    "correct_index": 0,
+    "explanation": "Random Splits verletzen die zeitliche Struktur und führen zu Data Leakage."
+  },
+  {
+    "question": "Was ist ein typisches Problem bei Sequential Recommenders in der Produktion?",
+    "options": [
+      "Zu hohe Latenz beim Scoring der Sequenz",
+      "Zu viele Nutzer-IDs",
+      "Keine Möglichkeit für Embeddings",
+      "Zu einfache Loss-Funktionen"
+    ],
+    "correct_index": 0,
+    "explanation": "Sequential Modelle können teuer sein, da sie die gesamte Sequenz zur Laufzeit verarbeiten müssen."
+  },
+  {
+    "question": "Wann ist ein Sequential Recommender besonders sinnvoll?",
+    "options": [
+      "Wenn die Reihenfolge der Interaktionen wichtig ist",
+      "Wenn nur statische Ratings verfügbar sind",
+      "Wenn keine Nutzerhistorie existiert",
+      "Wenn nur Popularität zählt"
+    ],
+    "correct_index": 0,
+    "explanation": "Sequential Modelle sind sinnvoll, wenn die Reihenfolge der Interaktionen Information enthält."
+  }
+]

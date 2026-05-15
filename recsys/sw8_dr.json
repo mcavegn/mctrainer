@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Was ist das Hauptversprechen (Core Promise) von Two-Tower-Modellen im Vergleich zu reinen Matrix-Faktorisierungs- oder Content-basierten Ansätzen?",
+    "options": [
+      "Sie benötigen keine negativen Samples für das Training.",
+      "Sie lernen Repräsentationen aus IDs und Features mit einem Trainingsziel, das direkt auf das Retrieval ausgerichtet ist.",
+      "Sie ermöglichen eine exakte Interaktion zwischen User und Item vor dem Scoring.",
+      "Sie eliminieren die Notwendigkeit für ein zwei-stufiges Recommender-System."
+    ],
+    "correct_index": 1,
+    "explanation": "Two-Tower-Modelle kombinieren die Ideen von MF (ID-Embeddings) und Content-based Filtering (Side-Features). Ihr Kernversprechen ist es, Repräsentationen (Embeddings) für User und Items so zu lernen, dass der Retrieval-Prozess (Suche nach ähnlichen Items) direkt im gelernten Vektorraum effizient durchgeführt werden kann (Folie 6)."
+  },
+  {
+    "question": "Wie ist die typische Scoring-Funktion s(u, i) in einem Two-Tower-Modell definiert?",
+    "options": [
+      "Das Produkt der User- und Item-Vektoren: s(u, i) = z_u * z_i",
+      "Das Skalarprodukt (Dot Product) der User- und Item-Embeddings: s(u, i) = z_u^T * z_i",
+      "Die euklidische Distanz zwischen den Vektoren.",
+      "Ein komplexes neuronales Netz, das beide Vektoren als Input nimmt."
+    ],
+    "correct_index": 1,
+    "explanation": "Die typische Wahl für die Scoring-Funktion ist das Skalarprodukt (Dot Product) der beiden Embedding-Vektoren. Dies ist rechnerisch sehr günstig und kompatibel mit Nearest-Neighbor-Suche-Algorithmen, was für das Retrieval bei großen Katalogen essenziell ist (Folie 8)."
+  },
+  {
+    "question": "Warum sind Two-Tower-Modelle für das Retrieval (Candidate Generation) besser geeignet als Cross-Modelle?",
+    "options": [
+      "Weil Two-Tower-Modelle genauer sind als Cross-Modelle.",
+      "Weil Two-Tower-Modelle User und Item separat encodieren, was eine Vorabberechnung der Item-Vektoren und schnelle ANN-Suche erlaubt.",
+      "Weil Cross-Modelle keine Features verwenden können.",
+      "Weil Two-Tower-Modelle keine neuronalen Netze benötigen."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei Two-Tower-Modellen werden User und Item in separaten Türmen verarbeitet. Dadurch können alle Item-Vektoren offline berechnet und indexiert werden. Zur Laufzeit muss nur der User-Vektor berechnet werden, was eine extrem schnelle Suche (ANN) im großen Katalog ermöglicht. Cross-Modelle benötigen eine Interaktion beider Inputs vor dem Scoring, was eine Suche im gesamten Katalog zu teuer macht (Folie 10)."
+  },
+  {
+    "question": "Welche Rolle spielen 'Negative Samples' beim Training von Two-Tower-Modellen mit implizitem Feedback?",
+    "options": [
+      "Sie werden benötigt, um das Modell zu bestrafen, wenn es nicht-interagierten Items hohe Scores gibt.",
+      "Sie dienen nur dazu, die Batch-Größe zu erhöhen.",
+      "Sie werden verwendet, um die Lernrate anzupassen.",
+      "Sie sind bei implizitem Feedback nicht notwendig, da nur Positive existieren."
+    ],
+    "correct_index": 0,
+    "explanation": "Da bei implizitem Feedback (z. B. Klicks) nur Positive bekannt sind, muss das Modell lernen, zwischen relevanten Items und nicht-relevanten (oder unbekannten) Items zu unterscheiden. Negative Samples (Items, mit denen der User nicht interagiert hat) werden im Loss (z. B. Softmax Loss) verwendet, um die Scores für nicht-relevante Items zu minimieren (Folie 15-16)."
+  },
+  {
+    "question": "Was sind 'In-Batch Negatives' und warum werden sie verwendet?",
+    "options": [
+      "Negatives, die aus einem anderen Modell stammen.",
+      "Items aus demselben Trainings-Batch, die nicht das Positive für den aktuellen User sind, werden als Negatives für diesen User verwendet.",
+      "Zufällig generierte Items, die nicht im Katalog existieren.",
+      "Items, die der User explizit als 'schlecht' markiert hat."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei In-Batch Negatives nutzt man die Effizienz des Batch-Trainings: Die positiven Items aller anderen User im gleichen Batch dienen als negative Samples für den aktuellen User. Dies ist rechnerisch sehr effizient, da die Embeddings bereits berechnet sind, und liefert oft gute Ergebnisse (Folie 19)."
+  },
+  {
+    "question": "Was ist der Hauptunterschied zwischen 'Random Negatives' und 'Hard Negatives'?",
+    "options": [
+      "Random Negatives sind schwerer zu lernen als Hard Negatives.",
+      "Hard Negatives sind Items, die dem User ähnlich sind oder vom Modell hoch scores, aber nicht interagiert wurden; sie sind informativer, aber können noise enthalten.",
+      "Random Negatives werden nur im Testing verwendet.",
+      "Hard Negatives sind immer populäre Items."
+    ],
+    "correct_index": 1,
+    "explanation": "Random Negatives sind oft zu einfach ('too easy') für das Modell. Hard Negatives (z. B. Items aus derselben Kategorie oder vom alten Modell hoch gerankt, aber nicht geklickt) sind schwieriger zu unterscheiden und helfen dem Modell, feinere Grenzen zu lernen. Sie können jedoch 'False Negatives' (tatsächlich relevante Items) enthalten, was Noise einführt (Folie 18)."
+  },
+  {
+    "question": "Warum ist Approximate Nearest Neighbor (ANN) Search für das Serving von Two-Tower-Modellen entscheidend?",
+    "options": [
+      "Weil die Berechnung des User-Vektors zu lange dauert.",
+      "Weil ein exakter Vergleich des User-Vektors mit allen Item-Vektoren im Katalog bei großer Skalierung zu rechenintensiv ist.",
+      "Weil ANN die Genauigkeit des Modells verbessert.",
+      "Weil ANN die Item-Vektoren während des Trainings aktualisiert."
+    ],
+    "correct_index": 1,
+    "explanation": "Obwohl das Skalarprodukt cheap ist, muss es bei Millionen von Items trotzdem Millionenfach berechnet werden, wenn man es exakt macht. ANN-Indizes (wie FAISS, ScaNN) erlauben es, in sub-linearer Zeit die wahrscheinlichsten Nachbarn zu finden, was die Latenz für das Serving drastisch reduziert (Folie 24-26)."
+  },
+  {
+    "question": "Was ist die 'Asymmetrie' im Serving-Pfad eines Two-Tower-Modells?",
+    "options": [
+      "Der User-Tower ist größer als der Item-Tower.",
+      "Item-Vektoren werden offline berechnet und indexiert, während der User-Vektor online zur Laufzeit für jede Anfrage berechnet wird.",
+      "User-Vektoren werden offline gespeichert, Item-Vektoren online berechnet.",
+      "Nur der Item-Tower wird trainiert."
+    ],
+    "correct_index": 1,
+    "explanation": "Da sich Item-Features selten ändern, können alle Item-Vektoren offline vorberechnet werden. Der User-Vektor hängt jedoch vom aktuellen Kontext (Zeit, letzte Klicks) ab und muss online zur Laufzeit berechnet werden, bevor die ANN-Suche gestartet wird (Folie 25, 27)."
+  },
+  {
+    "question": "Was ist ein typisches Anzeichen für 'Popularity Bias' im Embedding-Space?",
+    "options": [
+      "Alle User-Vektoren liegen weit auseinander.",
+      "Populäre Items (Head Items) liegen im Zentrum des Raumes und werden für fast alle User als ähnlichste Nachbarn retrieved.",
+      "Nische Items (Tail Items) werden zu oft empfohlen.",
+      "Der Embedding-Space ist völlig leer."
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn das Modell zu stark auf Popularität trainiert wird, lernen die populären Items eine zentrale Position im Vektorraum ein, da sie mit vielen Usern interagiert haben. Dadurch werden sie für fast alle User als 'nächste Nachbarn' gefunden, was die Diversität und Personalisierung reduziert (Folie 42)."
+  },
+  {
+    "question": "Warum kann ein einzelner User-Vektor ('One vector, many situations') ein Failure Mode sein?",
+    "options": [
+      "Weil User nur ein Interesse haben.",
+      "Weil ein einzelner Vektor verschiedene Intents (z. B. 'Geschenk kaufen' vs. 'Eigenbedarf') vermischen und verwischen kann.",
+      "Weil die Berechnung zu teuer ist.",
+      "Weil User-Vektoren nicht normalisiert werden können."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein User hat oft multiple Intents (z. B. Arbeit, Hobby, Geschenke). Ein einzelner Vektor, der die gesamte Historie zusammenfasst (Pooling), kann diese verschiedenen Intents verwischen ('blur together'), sodass das Modell keinen der Intents präzise abbildet (Folie 43)."
+  },
+  {
+    "question": "Was ist das Problem mit 'Ambiguous Negatives' beim Training?",
+    "options": [
+      "Negatives sind immer eindeutig falsch.",
+      "Ein als 'Negative' gesampeltes Item könnte tatsächlich relevant sein, wurde aber nur nicht beobachtet (False Negative).",
+      "Negatives sind schwer zu speichern.",
+      "Das Modell lernt zu schnell."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei implizitem Feedback wissen wir nur, was der User geklickt hat, nicht was er *nicht* mag. Ein Item, das als Negative gesampelt wurde, könnte dem User eigentlich gefallen, er hat es nur noch nicht gesehen. Das Modell wird dann fälschlicherweise bestraft, wenn es diesem Item einen hohen Score gibt (Folie 45)."
+  },
+  {
+    "question": "Wie kann man das 'Cold-Start'-Problem für neue Items in Two-Tower-Modellen adressieren?",
+    "options": [
+      "Indem man wartet, bis genug Interaktionen vorliegen.",
+      "Indem man Side-Features (Text, Kategorie, Bild-Embeddings) in den Item-Tower einspeist, statt sich nur auf die ID zu verlassen.",
+      "Indem man neue Items immer als Positives sampelt.",
+      "Cold-Start kann in Two-Tower-Modellen nicht gelöst werden."
+    ],
+    "correct_index": 1,
+    "explanation": "Reine ID-Embeddings funktionieren nicht für neue Items (keine Historie). Durch die Nutzung von Side-Features im Item-Tower kann das Modell ein Embedding für ein neues Item basierend auf seinen Eigenschaften (z. B. Textbeschreibung) berechnen, auch ohne Interaktionshistorie (Folie 46)."
+  },
+  {
+    "question": "Was ist der Hauptnachteil von 'Pooling' (z. B. Mean Pooling) der User-Historie im Vergleich zu sequentiellen Modellen?",
+    "options": [
+      "Pooling ist zu rechenintensiv.",
+      "Pooling verliert die Reihenfolge und Übergänge (Transitions) der Interaktionen.",
+      "Pooling kann keine variablen Längen verarbeiten.",
+      "Pooling erfordert zu viel Speicher."
+    ],
+    "correct_index": 1,
+    "explanation": "Pooling-Methoden (wie Mean oder Attention) komprimieren die Historie in einen einzigen Vektor. Dabei geht die Information über die *Reihenfolge* der Klicks verloren (z. B. erst Handy gekauft, dann Hülle). Sequenzielle Modelle (nächste Woche) sind besser darin, diese zeitlichen Abhängigkeiten zu modellieren (Folie 44, 55)."
+  },
+  {
+    "question": "Was ist die primäre Aufgabe des Retrievers im Vergleich zum Ranker?",
+    "options": [
+      "Der Retriever ordnet die finale Liste, der Ranker sucht Kandidaten.",
+      "Der Retriever bringt schnell und günstig die richtigen Items in die Sichtweite (Candidate Generation), der Ranker ordnet diese präzise.",
+      "Der Retriever nutzt komplexe Cross-Features, der Ranker nur einfache Features.",
+      "Es gibt keinen Unterschied."
+    ],
+    "correct_index": 1,
+    "explanation": "Der Retriever (Two-Tower) muss aus Millionen von Items schnell Hunderte von Kandidaten filtern ('Did we bring the right items into view?'). Der Ranker nimmt diese Kandidaten und nutzt reichhaltigere Signale und Constraints für das finale Ranking. Ein Ranker kann keine Items ranken, die der Retriever nicht gefunden hat (Folie 51)."
+  },
+  {
+    "question": "Was deutet im Embedding-Space auf eine 'gesunde' Struktur hin?",
+    "options": [
+      "Alle Items liegen in einem einzigen großen Cluster.",
+      "Verwandte Kategorien oder Intents bilden lose, überlappende Gruppen, ohne harte Grenzen.",
+      "Jedes Item ist isoliert und hat keine Nachbarn.",
+      "Nur populäre Items bilden Cluster."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein gesunder Embedding-Space zeigt semantische Struktur: Ähnliche Items (z. B. 'Outdoor', 'Fitness') liegen nah beieinander in losen Clustern. Harte Grenzen oder völlig zufällige Verteilungen sind oft ein Zeichen für Probleme im Training oder Bias (Folie 36-37)."
+  },
+  {
+    "question": "Welche Temperatur (tau) im Softmax-Loss bewirkt eine 'schärfere' Verteilung der Wahrscheinlichkeiten?",
+    "options": [
+      "Eine hohe Temperatur (tau > 1).",
+      "Eine niedrige Temperatur (tau < 1).",
+      "Die Temperatur hat keinen Einfluss auf die Schärfe.",
+      "Die Temperatur sollte immer 0 sein."
+    ],
+    "explanation": "Die Temperatur tau kontrolliert die Schärfe der Softmax-Verteilung. Ein kleineres tau (nahe 0) macht die Verteilung schärfer (hohe Wahrscheinlichkeit für den besten Score, nahe 0 für andere). Ein größeres tau macht sie weicher/gleichmäßiger. Dies ist in der Loss-Formel auf Folie 16 ersichtlich (Exponentialsfunktion).",
+    "correct_index": 1
+  },
+  {
+    "question": "Was ist ein typisches Szenario, bei dem Two-Tower-Modelle an ihre Grenzen stoßen?",
+    "options": [
+      "Bei sehr großen Item-Katalogen.",
+      "Bei starken sequentiellen Effekten (nächste Aktion hängt stark von der letzten ab).",
+      "Bei der Nutzung von Side-Features.",
+      "Bei der Berechnung von Item-Vektoren offline."
+    ],
+    "correct_index": 1,
+    "explanation": "Two-Tower-Modelle komprimieren die Historie in einen statischen Vektor. Wenn die nächste Aktion stark von der sequentiellen Abfolge abhängt (z. B. 'Nach dem Kauf einer Kamera braucht er eine SD-Karte'), sind reine Two-Tower-Modelle oft schwächer als spezielle sequentielle Modelle (Folie 55, 50)."
+  },
+  {
+    "question": "Warum kann 'Offline Recall@100' steigen, aber die Live-Diversität sinken?",
+    "options": [
+      "Weil das Modell überangepasst ist und nur noch populäre Items findet, die leicht zu treffen sind.",
+      "Weil Offline-Metriken immer lügen.",
+      "Weil der ANN-Index kaputt ist.",
+      "Weil zu viele Negative verwendet wurden."
+    ],
+    "explanation": "Wenn das Modell lernt, nur noch 'sichere', populäre Items vorherzusagen (Popularity Bias), steigt der Recall in Offline-Tests oft (da diese Items in den Test-Splits auch oft vorkommen). Im Live-System führt dies jedoch zu weniger Diversität und weniger Long-Tail-Traffic, da Nischen-Items nicht mehr empfohlen werden (Folie 42, 48).",
+    "correct_index": 0
+  },
+  {
+    "question": "Was ist der erste 'High-Impact'-Schritt, wenn das Retrieval bei großem Katalog zu langsam ist?",
+    "options": [
+      "Ein komplexeres Modell zu trainieren.",
+      "Item-Vektoren offline zu berechnen und ANN (Approximate Nearest Neighbor) zu verwenden.",
+      "Mehr Features in den User-Tower zu laden.",
+      "Die Batch-Größe zu verkleinern."
+    ],
+    "correct_index": 1,
+    "explanation": "Der Engpass ist meist der Vergleich des User-Vektors mit Millionen von Item-Vektoren. Der effektivste Schritt ist daher, die Item-Vektoren offline zu berechnen und einen ANN-Index zu verwenden, um die Suche von O(N) auf O(log N) oder ähnlich zu reduzieren (Folie 31, 26)."
+  },
+  {
+    "question": "Welche Komponente wird im Two-Tower-Modell typischerweise NICHT online zur Laufzeit berechnet?",
+    "options": [
+      "Der User-Vektor.",
+      "Die ANN-Suche.",
+      "Die Item-Vektoren.",
+      "Das Filtering der Kandidaten."
+    ],
+    "correct_index": 2,
+    "explanation": "Item-Vektoren ändern sich selten und werden daher offline berechnet und im Index gespeichert. Nur der User-Vektor (abhängig vom aktuellen Kontext) und die darauf folgende Suche/Filterung laufen online (Folie 25, 27)."
+  }
+]

@@ -1,0 +1,387 @@
+[
+  {
+    "question": "Warum ist ein temporaler Split bei Recommender-Systemen meist die Standardwahl?",
+    "options": [
+      "Er reduziert die Trainingszeit deutlich",
+      "Er simuliert realistische Zukunftsvorhersage ohne Information aus der Zukunft",
+      "Er erhöht automatisch alle Metriken",
+      "Er macht Modelle vergleichbarer durch größere Datenmengen"
+    ],
+    "correct_index": 1,
+    "explanation": "Recommender sollen zukünftiges Verhalten vorhersagen. Ein temporaler Split verhindert, dass zukünftige Informationen ins Training gelangen."
+  },
+  {
+    "question": "Was ist ein typisches Anzeichen für Data Leakage?",
+    "options": [
+      "Sehr niedrige Werte aller Modelle",
+      "Ein unerwartet starker Leistungsanstieg nach kleinen Änderungen",
+      "Gleichbleibende Metriken über alle Modelle",
+      "Sehr lange Trainingszeiten"
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn kleine Änderungen extreme Performance-Sprünge verursachen oder Ergebnisse unrealistisch gut sind, kann Leakage vorliegen."
+  },
+  {
+    "question": "Warum sollte das Candidate Set Teil des Evaluationsprotokolls sein?",
+    "options": [
+      "Weil es die Modellarchitektur definiert",
+      "Weil es die gemessene Performance stark beeinflusst",
+      "Weil es nur für das Training relevant ist",
+      "Weil es automatisch die beste Methode auswählt"
+    ],
+    "correct_index": 1,
+    "explanation": "Die Wahl der Kandidaten kann Metriken stärker verändern als das Modell selbst. Daher muss sie dokumentiert und fixiert sein."
+  },
+  {
+    "question": "Warum können zufällig gesampelte Negative die Metriken künstlich erhöhen?",
+    "options": [
+      "Weil sie zu schwierig sind",
+      "Weil sie oft offensichtlich irrelevant sind und das Ranking vereinfachen",
+      "Weil sie die Datenmenge reduzieren",
+      "Weil sie nur für kleine Modelle gelten"
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn Negative sehr leicht sind, wird das Ranking-Problem trivial und die Performance wirkt besser als in der Realität."
+  },
+  {
+    "question": "Was sind Hard Negatives?",
+    "options": [
+      "Items ohne Metadaten",
+      "Schwer unterscheidbare, plausible Alternativen",
+      "Nicht verfügbare Produkte",
+      "Items außerhalb des Trainings"
+    ],
+    "correct_index": 1,
+    "explanation": "Hard Negatives sind Items, die dem Nutzer potenziell gefallen könnten und daher eine realistischere Bewertung ermöglichen."
+  },
+  {
+    "question": "Warum muss Seen-Item-Filtering klar dokumentiert werden?",
+    "options": [
+      "Weil es die Modellgröße beeinflusst",
+      "Weil es die Vergleichbarkeit zwischen Modellen sicherstellt",
+      "Weil es nur für Random-Modelle gilt",
+      "Weil es die Trainingsdaten verändert"
+    ],
+    "correct_index": 1,
+    "explanation": "Alle Modelle müssen unter denselben Filterregeln evaluiert werden, sonst sind Vergleiche unfair."
+  },
+  {
+    "question": "Was misst Precision@K?",
+    "options": [
+      "Den Anteil relevanter Items in den Top-K",
+      "Die Anzahl aller relevanten Items im Test",
+      "Die Modellkomplexität",
+      "Die Anzahl der Nutzer"
+    ],
+    "correct_index": 0,
+    "explanation": "Precision@K zeigt, wie viele der empfohlenen Items tatsächlich relevant sind."
+  },
+  {
+    "question": "Was misst Recall@K?",
+    "options": [
+      "Wie viele relevante Items in den Top-K enthalten sind im Verhältnis zu allen relevanten",
+      "Die Trainingsgenauigkeit",
+      "Die durchschnittliche Listenlänge",
+      "Die Anzahl der Kandidaten"
+    ],
+    "correct_index": 0,
+    "explanation": "Recall@K bewertet, welcher Anteil der relevanten Test-Items im Ranking gefunden wurde."
+  },
+  {
+    "question": "Was ist der Hauptunterschied zwischen MAP und Recall?",
+    "options": [
+      "MAP berücksichtigt die Position relevanter Items im Ranking",
+      "MAP misst nur die Anzahl der Nutzer",
+      "Recall ignoriert relevante Items",
+      "MAP ist eine Trainingsmetrik"
+    ],
+    "correct_index": 0,
+    "explanation": "MAP berücksichtigt, wie früh relevante Items im Ranking erscheinen, und bestraft spätes Platzieren."
+  },
+  {
+    "question": "Warum wird NDCG verwendet?",
+    "options": [
+      "Um nur die Anzahl der Treffer zu zählen",
+      "Um die Position relevanter Items zu gewichten",
+      "Um Trainingsdaten zu normalisieren",
+      "Um Kandidaten zu erzeugen"
+    ],
+    "correct_index": 1,
+    "explanation": "NDCG belohnt frühe Platzierung relevanter Items durch Positions-Diskontierung."
+  },
+  {
+    "question": "Warum ist Macro-Averaging in Recommender-Systemen üblich?",
+    "options": [
+      "Es ist schneller zu berechnen",
+      "Es verhindert, dass Heavy-User das Ergebnis dominieren",
+      "Es ignoriert Nutzer vollständig",
+      "Es erhöht die Recall-Werte"
+    ],
+    "correct_index": 1,
+    "explanation": "Beim Macro-Ansatz wird pro Nutzer gemittelt, sodass aktive Nutzer die Gesamtbewertung nicht überproportional beeinflussen."
+  },
+  {
+    "question": "Was bedeutet Catalog Coverage?",
+    "options": [
+      "Anteil der Nutzer mit Testdaten",
+      "Anteil der Items, die mindestens einmal empfohlen wurden",
+      "Anteil der Trainingsdaten",
+      "Anzahl der Modelle"
+    ],
+    "correct_index": 1,
+    "explanation": "Coverage misst, wie stark der gesamte Katalog genutzt wird."
+  },
+  {
+    "question": "Was misst Novelty in Empfehlungssystemen?",
+    "options": [
+      "Wie neu das Modell ist",
+      "Wie selten oder wenig populär empfohlene Items sind",
+      "Wie viele Nutzer aktiv sind",
+      "Wie schnell das System antwortet"
+    ],
+    "correct_index": 1,
+    "explanation": "Novelty belohnt Empfehlungen von weniger populären Items, oft basierend auf Trainings-Popularität."
+  },
+  {
+    "question": "Warum sollte man mehrere Metriken berichten?",
+    "options": [
+      "Um die Berichtsseiten zu füllen",
+      "Weil jede Metrik unterschiedliche Aspekte der Qualität misst",
+      "Weil eine Metrik immer unzuverlässig ist",
+      "Um das Training zu beschleunigen"
+    ],
+    "correct_index": 1,
+    "explanation": "Accuracy, Coverage, Novelty und Diversity messen unterschiedliche Ziele. Ein einzelner Wert reicht nicht aus."
+  },
+  {
+    "question": "Was ist ein typisches Problem bei global gefitteten Preprocessing-Schritten?",
+    "options": [
+      "Sie sind zu langsam",
+      "Sie können Informationen aus dem Testset enthalten",
+      "Sie erhöhen die Varianz",
+      "Sie reduzieren die Modellgröße"
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn Normalisierung oder Encoding auf allen Daten erfolgt, können zukünftige Informationen in das Training einfließen."
+  },
+  {
+    "question": "Warum kann ein Random-Split bei zeitabhängigen Daten problematisch sein?",
+    "options": [
+      "Er benötigt mehr Rechenleistung",
+      "Er vermischt Zukunft und Vergangenheit in Training und Test",
+      "Er reduziert die Anzahl der Features",
+      "Er verhindert die Nutzung von Baselines"
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Random-Split kann Informationen aus der Zukunft ins Training bringen und dadurch unrealistisch gute Ergebnisse erzeugen."
+  },
+  {
+    "question": "Was bedeutet Exposure im Kontext von Recommendation Evaluation?",
+    "options": [
+      "Die Anzahl der Trainingsiterationen",
+      "Ob ein Item dem Nutzer tatsächlich angezeigt wurde",
+      "Die Größe des Modells",
+      "Die Anzahl der Kandidaten"
+    ],
+    "correct_index": 1,
+    "explanation": "Exposure beschreibt, welche Items ein Nutzer überhaupt sehen konnte. Logs enthalten oft nur Interaktionen, nicht alle Expositionen."
+  },
+  {
+    "question": "Warum ist die Wahl von K in Top-K Metriken wichtig?",
+    "options": [
+      "Weil K die Modellarchitektur definiert",
+      "Weil unterschiedliche K-Werte unterschiedliche Optimierungsziele betonen",
+      "Weil K die Trainingsdaten verändert",
+      "Weil K nur für Random-Modelle gilt"
+    ],
+    "correct_index": 1,
+    "explanation": "K beeinflusst, wie stark die oberen Positionen gewichtet werden. Kleine und große K-Werte können zu unterschiedlichen Bewertungen führen."
+  },
+  {
+    "question": "Warum sollte man Kandidatenstrategien explizit dokumentieren?",
+    "options": [
+      "Weil sie nur für das Deployment relevant sind",
+      "Weil sie die Messergebnisse stark beeinflussen",
+      "Weil sie automatisch optimiert werden",
+      "Weil sie die Nutzeranzahl verändern"
+    ],
+    "correct_index": 1,
+    "explanation": "Die Wahl der Kandidaten kann die Performance stärker verändern als das eigentliche Ranking-Modell."
+  },
+  {
+    "question": "Was ist ein typisches Problem bei zu kleinen Negativ-Samples?",
+    "options": [
+      "Die Evaluation wird unrealistisch schwierig",
+      "Die Evaluation wird künstlich einfach und überschätzt die Leistung",
+      "Die Trainingszeit steigt stark",
+      "Die Metriken werden unberechenbar"
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn Negative leicht sind, wirkt das Ranking-Problem trivial und die Ergebnisse erscheinen besser als in der Realität."
+  },
+  {
+    "question": "Warum ist es wichtig, bei allen Modellen dieselbe Evaluationspipeline zu verwenden?",
+    "options": [
+      "Um Rechenzeit zu sparen",
+      "Um faire und vergleichbare Ergebnisse zu erhalten",
+      "Um die Datenmenge zu erhöhen",
+      "Um die Metriken zu vereinfachen"
+    ],
+    "correct_index": 1,
+    "explanation": "Nur wenn Split, Kandidaten und Metriken identisch sind, können Modelle fair verglichen werden."
+  },
+  {
+    "question": "Was beschreibt ein Per-User-Holdout-Split?",
+    "options": [
+      "Eine zufällige Auswahl aller Testdaten",
+      "Das Zurückhalten der letzten Interaktionen jedes Nutzers",
+      "Das Entfernen seltener Items",
+      "Das Trainieren auf allen Daten"
+    ],
+    "correct_index": 1,
+    "explanation": "Beim Per-User-Holdout wird für jeden Nutzer ein Teil seiner Interaktionen – oft die letzten – als Test verwendet."
+  },
+  {
+    "question": "Warum kann eine sehr hohe Recall@K nicht automatisch gute Empfehlungen bedeuten?",
+    "options": [
+      "Weil Recall keine Relevanz misst",
+      "Weil sie keine Aussage über die Rangposition macht",
+      "Weil sie nur für kleine Datensätze gilt",
+      "Weil sie das Training ignoriert"
+    ],
+    "correct_index": 1,
+    "explanation": "Recall sagt nur, ob relevante Items enthalten sind, nicht wie früh sie erscheinen."
+  },
+  {
+    "question": "Was ist der Zweck von Sanity Checks im Evaluationsprozess?",
+    "options": [
+      "Sie ersetzen die Hauptmetriken",
+      "Sie helfen, Fehler oder unplausible Ergebnisse zu erkennen",
+      "Sie erhöhen automatisch die Performance",
+      "Sie reduzieren die Modellkomplexität"
+    ],
+    "correct_index": 1,
+    "explanation": "Sanity Checks prüfen z. B. Baselines oder Zeitdrift und helfen, systematische Fehler früh zu entdecken."
+  },
+  {
+    "question": "Warum sollte man Ergebnisse über mehrere Zeitfenster evaluieren?",
+    "options": [
+      "Um Trainingsdaten zu vergrößern",
+      "Um Drift in Nutzerverhalten oder Items zu erkennen",
+      "Um die Modellgröße zu testen",
+      "Um Kandidaten neu zu berechnen"
+    ],
+    "correct_index": 1,
+    "explanation": "Über Zeit können sich Präferenzen und Item-Popularität ändern. Mehrere Fenster zeigen, ob das Modell stabil bleibt."
+  },
+  {
+    "question": "Warum ist es problematisch, Preprocessing-Parameter auf dem gesamten Datensatz zu fitten?",
+    "options": [
+      "Weil das Modell dadurch größer wird",
+      "Weil Informationen aus dem Testset in das Training einfließen können",
+      "Weil die Trainingsdaten zu klein werden",
+      "Weil Metriken dadurch nicht berechnet werden können"
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn Normalisierung oder Encoding auf allen Daten erfolgt, können zukünftige Informationen indirekt ins Training gelangen."
+  },
+  {
+    "question": "Was bedeutet das Prinzip 'Same Universe' bei der Evaluation?",
+    "options": [
+      "Alle Modelle werden mit identischen Kandidaten und K-Werten bewertet",
+      "Alle Nutzer erhalten dieselben Empfehlungen",
+      "Alle Modelle verwenden denselben Algorithmus",
+      "Alle Daten werden zufällig gemischt"
+    ],
+    "correct_index": 0,
+    "explanation": "Faire Vergleiche sind nur möglich, wenn Kandidatenmenge, Negative und K für alle Modelle identisch sind."
+  },
+  {
+    "question": "Warum sollte man Seeds und Versionen dokumentieren?",
+    "options": [
+      "Um die Trainingszeit zu verkürzen",
+      "Um Ergebnisse reproduzierbar und vergleichbar zu machen",
+      "Um die Modellarchitektur zu vereinfachen",
+      "Um die Kandidatenmenge zu reduzieren"
+    ],
+    "correct_index": 1,
+    "explanation": "Reproduzierbarkeit ist zentral. Ohne Seeds und Versionsangaben sind Experimente schwer nachvollziehbar."
+  },
+  {
+    "question": "Was beschreibt Drift in der Zeitreihen-Evaluation?",
+    "options": [
+      "Eine Änderung der Modellparameter",
+      "Veränderungen in Nutzerverhalten oder Item-Popularität über Zeit",
+      "Eine Erhöhung der Trainingsdaten",
+      "Eine Reduktion der Features"
+    ],
+    "correct_index": 1,
+    "explanation": "In realen Systemen ändern sich Präferenzen und Inhalte. Evaluation über Zeitfenster kann diese Effekte sichtbar machen."
+  },
+  {
+    "question": "Warum sollte man neben Accuracy-Metriken auch Beyond-Accuracy-Metriken berichten?",
+    "options": [
+      "Weil Accuracy unwichtig ist",
+      "Weil Systeme auch Diversität, Novelty und Coverage berücksichtigen sollten",
+      "Weil das Training dadurch schneller wird",
+      "Weil es die Kandidatenmenge verändert"
+    ],
+    "correct_index": 1,
+    "explanation": "Recommender-Systeme optimieren oft mehrere Ziele. Nur Accuracy kann zu Popularitätskollaps führen."
+  },
+  {
+    "question": "Was misst Intra-List-Diversity?",
+    "options": [
+      "Die Anzahl relevanter Items",
+      "Die durchschnittliche Unähnlichkeit der empfohlenen Items innerhalb einer Liste",
+      "Die Trainingsgenauigkeit",
+      "Die Anzahl der Nutzer"
+    ],
+    "correct_index": 1,
+    "explanation": "Diversität misst, wie unterschiedlich die Items innerhalb einer Top-K-Liste sind."
+  },
+  {
+    "question": "Warum kann eine hohe Offline-Performance irreführend sein?",
+    "options": [
+      "Weil Offline-Daten immer falsch sind",
+      "Weil sie nur auf historischen Logs basieren und nicht auf echter Nutzung",
+      "Weil Metriken nicht definiert sind",
+      "Weil Training und Test identisch sind"
+    ],
+    "correct_index": 1,
+    "explanation": "Offline-Evaluation basiert auf alten Policies und eingeschränkter Exposition."
+  },
+  {
+    "question": "Warum ist es wichtig, Edge Cases explizit zu definieren?",
+    "options": [
+      "Weil sie die Modellgröße erhöhen",
+      "Weil sie das Evaluationsergebnis stark beeinflussen können",
+      "Weil sie nur selten auftreten",
+      "Weil sie automatisch behandelt werden"
+    ],
+    "correct_index": 1,
+    "explanation": "Entscheidungen zu Nutzern ohne Testdaten oder zu weniger als K Kandidaten müssen klar dokumentiert werden."
+  },
+  {
+    "question": "Was bedeutet es, Evaluation wie ein Testsystem zu behandeln?",
+    "options": [
+      "Metriken sollen zufällig berechnet werden",
+      "Evaluation soll reproduzierbar, dokumentiert und fehleranfällig überprüfbar sein",
+      "Modelle sollen automatisch ausgewählt werden",
+      "Nur Accuracy soll gemessen werden"
+    ],
+    "correct_index": 1,
+    "explanation": "Evaluation sollte wie ein kontrolliertes Testframework aufgebaut sein, das bei Fehlern sichtbar scheitert."
+  },
+  {
+    "question": "Warum ist Exposure wichtig für die Interpretation von Klickdaten?",
+    "options": [
+      "Weil Klicks immer negativ sind",
+      "Weil fehlende Klicks nicht bedeuten, dass ein Item gesehen wurde",
+      "Weil Exposure die Modellarchitektur beeinflusst",
+      "Weil es die Kandidatenmenge ersetzt"
+    ],
+    "correct_index": 1,
+    "explanation": "Ohne zu wissen, was Nutzer gesehen haben, kann man Interaktionen nicht korrekt interpretieren."
+  }
+]

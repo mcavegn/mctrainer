@@ -1,0 +1,310 @@
+[
+  {
+    "question": "Was ist das Hauptziel von Learning-to-Rank (LTR)?",
+    "options": [
+      "Die Reihenfolge von Kandidaten optimieren",
+      "Neue Items generieren",
+      "Features automatisch entfernen",
+      "Den Katalog verkleinern"
+    ],
+    "correct_index": 0,
+    "explanation": "Learning-to-Rank (LTR) optimiert die Reihenfolge einer gegebenen Kandidatenmenge, sodass relevante Items möglichst weit oben erscheinen."
+  },
+  {
+    "question": "Warum kann ein Ranking-Modell keine fehlenden relevanten Items hinzufügen?",
+    "options": [
+      "Weil es nur Kandidaten neu sortiert",
+      "Weil es keine Labels verwendet",
+      "Weil es keine Features nutzt",
+      "Weil es nur offline arbeitet"
+    ],
+    "correct_index": 0,
+    "explanation": "Das Ranking-Modell arbeitet nur auf der Kandidatenmenge $C_u$. Wenn ein relevantes Item nicht enthalten ist, kann es nicht berücksichtigt werden."
+  },
+  {
+    "question": "Wie wird Ranking typischerweise als Machine-Learning-Problem formuliert?",
+    "options": [
+      "Als überwachte Lernaufgabe",
+      "Als unüberwachtes Clustering",
+      "Als reine Simulation",
+      "Als Datenkompression"
+    ],
+    "correct_index": 0,
+    "explanation": "Ranking wird als supervised learning Problem formuliert, bei dem Trainingsdaten aus $(u, i, x_{ui})$ und Labels bestehen."
+  },
+  {
+    "question": "Welche Trainingsdaten werden für LTR verwendet?",
+    "options": [
+      "User-Item-Features mit Labels",
+      "Nur Item-Metadaten",
+      "Nur User-IDs",
+      "Nur Rankings ohne Features"
+    ],
+    "correct_index": 0,
+    "explanation": "Ein typischer Trainingsdatensatz besteht aus Tripeln $(u, i, x_{ui})$ mit Labels wie Klick oder Kauf."
+  },
+  {
+    "question": "Welche Art von Label ist am stärksten, aber am seltensten?",
+    "options": [
+      "Kauf",
+      "Klick",
+      "Impression",
+      "Scroll"
+    ],
+    "correct_index": 0,
+    "explanation": "Käufe sind starke Signale für Präferenz, treten aber seltener auf als Klicks."
+  },
+  {
+    "question": "Warum sind nicht geklickte Items schwer als negative Beispiele zu interpretieren?",
+    "options": [
+      "Sie könnten nicht gesehen worden sein",
+      "Sie enthalten keine Features",
+      "Sie sind immer irrelevant",
+      "Sie werden zufällig generiert"
+    ],
+    "correct_index": 0,
+    "explanation": "Nicht geklickte Items könnten unbekannt, übersehen oder schlecht platziert gewesen sein – daher sind sie keine klaren Negativbeispiele."
+  },
+  {
+    "question": "Welche negative Stichprobe ist oft am informativsten?",
+    "options": [
+      "Übersprungene Items mit höherem Rang",
+      "Zufällige Items",
+      "Nie gesehene Items",
+      "Neue Items ohne Daten"
+    ],
+    "correct_index": 0,
+    "explanation": "Übersprungene Items, die höher gerankt waren, liefern harte negative Beispiele und helfen beim Lernen feiner Unterschiede."
+  },
+  {
+    "question": "Was beschreibt das pointwise Learning-to-Rank?",
+    "options": [
+      "Vorhersage pro (u,i)-Paar",
+      "Vergleich von Item-Paaren",
+      "Optimierung ganzer Listen",
+      "Clustering von Nutzern"
+    ],
+    "correct_index": 0,
+    "explanation": "Beim pointwise Ansatz wird jedes $(u,i)$ unabhängig bewertet, oft als Klassifikationsproblem."
+  },
+  {
+    "question": "Welche Loss-Funktion wird häufig im pointwise Ansatz verwendet?",
+    "options": [
+      "$L = -y \\log \\hat{y} - (1-y) \\log (1-\\hat{y})$",
+      "$L = \\|x\\|^2$",
+      "$L = \\sum x_i$",
+      "$L = \\max(x,0)$"
+    ],
+    "correct_index": 0,
+    "explanation": "Binary Cross-Entropy wird häufig verwendet, um Wahrscheinlichkeiten für Klicks zu modellieren."
+  },
+  {
+    "question": "Was ist der Hauptnachteil des pointwise Ansatzes?",
+    "options": [
+      "Ignoriert Rangbeziehungen",
+      "Zu viele Features nötig",
+      "Zu langsam beim Training",
+      "Nicht interpretierbar"
+    ],
+    "correct_index": 0,
+    "explanation": "Pointwise Modelle berücksichtigen nicht, wie Items relativ zueinander gerankt werden."
+  },
+  {
+    "question": "Was ist das Ziel des pairwise Learning-to-Rank?",
+    "options": [
+      "Relative Ordnung lernen",
+      "Absolute Scores berechnen",
+      "Features reduzieren",
+      "Daten normalisieren"
+    ],
+    "correct_index": 0,
+    "explanation": "Pairwise Modelle lernen, dass ein positives Item höher als ein negatives gerankt werden soll."
+  },
+  {
+    "question": "Wie sieht ein typisches Trainingsbeispiel im pairwise Ansatz aus?",
+    "options": [
+      "$(u, i^+, i^-)$",
+      "$(u, i)$",
+      "$(i, j)$",
+      "$(x, y)$"
+    ],
+    "correct_index": 0,
+    "explanation": "Ein Trainingsbeispiel besteht aus einem User, einem positiven und einem negativen Item."
+  },
+  {
+    "question": "Welche pairwise Loss-Funktion ist typisch?",
+    "options": [
+      "$L = -\\log \\sigma(s_{u,i^+} - s_{u,i^-})$",
+      "$L = \\|x-y\\|^2$",
+      "$L = \\sum x_i$",
+      "$L = \\min(x,y)$"
+    ],
+    "correct_index": 0,
+    "explanation": "Die Loss-Funktion bestraft Fälle, in denen das positive Item nicht höher bewertet wird als das negative."
+  },
+  {
+    "question": "Was ist das Ziel des listwise Learning-to-Rank?",
+    "options": [
+      "Optimierung ganzer Rankings",
+      "Vorhersage einzelner Labels",
+      "Reduktion von Features",
+      "Clustering von Items"
+    ],
+    "correct_index": 0,
+    "explanation": "Listwise Methoden betrachten ganze Listen und optimieren direkt Rankingmetriken."
+  },
+  {
+    "question": "Warum passt listwise Learning gut zu NDCG?",
+    "options": [
+      "Beide betrachten die Rangposition",
+      "Beide nutzen nur Features",
+      "Beide ignorieren Labels",
+      "Beide sind linear"
+    ],
+    "correct_index": 0,
+    "explanation": "Normalized Discounted Cumulative Gain (NDCG) bewertet die Position relevanter Items, ähnlich wie listwise Methoden."
+  },
+  {
+    "question": "Wie ist DCG@K definiert?",
+    "options": [
+      "$\\sum_{r=1}^{K} \\frac{2^{rel_r} - 1}{\\log_2(r+1)}$",
+      "$\\sum x_i$",
+      "$\\|x\\|^2$",
+      "$\\max(x)$"
+    ],
+    "correct_index": 0,
+    "explanation": "Discounted Cumulative Gain gewichtet relevante Items stärker, wenn sie weiter oben im Ranking erscheinen."
+  },
+  {
+    "question": "Warum sind Fehler an oberen Positionen kritischer?",
+    "options": [
+      "Weil Nutzer oben zuerst sehen",
+      "Weil Modelle dort langsamer sind",
+      "Weil Features fehlen",
+      "Weil Daten größer sind"
+    ],
+    "correct_index": 0,
+    "explanation": "Nutzer interagieren stärker mit Top-Positionen, daher haben Fehler dort größere Auswirkungen."
+  },
+  {
+    "question": "Welche Feature-Kategorie gehört NICHT zu den drei Haupttypen?",
+    "options": [
+      "Graph Features",
+      "User Features",
+      "Item Features",
+      "Context Features"
+    ],
+    "correct_index": 0,
+    "explanation": "Die Hauptkategorien sind User-, Item- und Kontext-Features. Graph-Features sind optional und nicht grundlegend."
+  },
+  {
+    "question": "Was sind typische User Features?",
+    "options": [
+      "Aktivität und Präferenzen",
+      "Bildauflösung",
+      "Netzwerkstruktur",
+      "Dateigröße"
+    ],
+    "correct_index": 0,
+    "explanation": "User Features umfassen Verhalten, Aktivität und Präferenzen."
+  },
+  {
+    "question": "Was beschreibt ein Interaction Feature?",
+    "options": [
+      "Beziehung zwischen User und Item",
+      "Nur Item-Eigenschaften",
+      "Nur Kontextdaten",
+      "Nur Labels"
+    ],
+    "correct_index": 0,
+    "explanation": "Interaction Features modellieren die Beziehung zwischen User und Item, z. B. Ähnlichkeit."
+  },
+  {
+    "question": "Warum ist Feature Leakage problematisch?",
+    "options": [
+      "Nutzt zukünftige Informationen",
+      "Reduziert Datenmenge",
+      "Verbessert Generalisierung",
+      "Erhöht Trainingszeit"
+    ],
+    "correct_index": 0,
+    "explanation": "Leakage entsteht, wenn Features Informationen enthalten, die zum Ranking-Zeitpunkt nicht verfügbar sind."
+  },
+  {
+    "question": "Welche CTR (Click-Through Rate, Klickrate) ist sicher?",
+    "options": [
+      "CTR aus vergangenen Daten",
+      "CTR aus der Zukunft",
+      "CTR aus dem Testset",
+      "CTR aus Labels"
+    ],
+    "correct_index": 0,
+    "explanation": "Nur historische CTR ist verfügbar zum Ranking-Zeitpunkt und daher zulässig."
+  },
+  {
+    "question": "Was bedeutet Kalibrierung im Ranking?",
+    "options": [
+      "Scores als Wahrscheinlichkeiten interpretieren",
+      "Features normalisieren",
+      "Daten sortieren",
+      "Labels entfernen"
+    ],
+    "correct_index": 0,
+    "explanation": "Kalibrierung passt Scores an, sodass sie reale Wahrscheinlichkeiten besser widerspiegeln."
+  },
+  {
+    "question": "Warum sind Constraints im Ranking wichtig?",
+    "options": [
+      "Erfüllen Produktanforderungen",
+      "Beschleunigen Training",
+      "Reduzieren Features",
+      "Erhöhen Datenmenge"
+    ],
+    "correct_index": 0,
+    "explanation": "Constraints wie Diversität oder Fairness sind wichtig für reale Anwendungen."
+  },
+  {
+    "question": "Was ist ein Beispiel für eine harte Constraint?",
+    "options": [
+      "Keine bereits gekauften Items",
+      "Mehr Diversität bevorzugen",
+      "Leicht höhere Scores geben",
+      "Regionale Inhalte bevorzugen"
+    ],
+    "correct_index": 0,
+    "explanation": "Harte Constraints müssen strikt eingehalten werden, z. B. keine bereits gekauften Items anzeigen."
+  },
+  {
+    "question": "Wie vergleicht man LTR fair mit Matrix Factorization (MF)?",
+    "options": [
+      "Gleiche Kandidaten verwenden",
+      "Mehr Daten nutzen",
+      "Andere Features wählen",
+      "Mehr Training durchführen"
+    ],
+    "correct_index": 0,
+    "explanation": "Ein fairer Vergleich nutzt dieselbe Kandidatenmenge, sodass nur das Ranking bewertet wird."
+  },
+  {
+    "question": "Welche Metriken sind typisch für Ranking?",
+    "options": [
+      "NDCG@K und Recall@K",
+      "Accuracy und Loss",
+      "RMSE und MAE",
+      "Precision allein"
+    ],
+    "correct_index": 0,
+    "explanation": "Ranking wird oft mit Normalized Discounted Cumulative Gain (NDCG) und Recall bewertet."
+  },
+  {
+    "question": "Wo bringt LTR typischerweise den größten Vorteil?",
+    "options": [
+      "Top-Ränge",
+      "Alle Positionen gleich",
+      "Nur am Ende",
+      "Nur bei neuen Items"
+    ],
+    "correct_index": 0,
+    "explanation": "LTR verbessert besonders die oberen Positionen, die für Nutzer am wichtigsten sind."
+  }
+]

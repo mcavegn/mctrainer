@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Welche Art von Ableitung verfolgt ein Bottom-Up Parser implizit, indem er die Produktionen rückwärts anwendet?",
+    "options": [
+      "Eine Linksableitung (Left-most derivation).",
+      "Eine Rechtsableitung (Right-most derivation) in umgekehrter Reihenfolge.",
+      "Eine zufällige Ableitung.",
+      "Eine parallele Ableitung aller Nicht-Terminalen."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Bottom-Up Parser reduziert den Input-String schrittweise zum Startsymbol. Dieser Prozess entspricht exakt dem Rückwärtslesen einer Rechtsableitung (Right-most derivation in reverse). Das bedeutet, der Parser baut den Baum von den Blättern zur Wurzel auf, wobei er immer den rechtesten noch nicht reduzierten Teil bearbeitet (Folie 4-5)."
+  },
+  {
+    "question": "Was ist ein 'Handle' in einem Bottom-Up Parse?",
+    "options": [
+      "Ein beliebiges Teilwort, das auf der linken Seite einer Produktion steht.",
+      "Eine Produktion X → β und ihre Position im String, sodass eine Reduktion zu diesem Nicht-Terminal X ein Schritt auf dem Weg zurück zum Startsymbol ist.",
+      "Das erste Token im Eingabestream.",
+      "Ein Fehler im Parser-Zustand."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Handle ist nicht einfach jede rechte Seite einer Produktion, die im Stack erscheint. Es ist spezifisch diejenige Teilfolge, deren Reduktion zu einem Nicht-Terminal X notwendig ist, um die Rechtsableitung rückwärts korrekt fortzusetzen. Nur an Handles darf reduziert werden, sonst gerät der Parser in eine Sackgasse (Folie 34-35)."
+  },
+  {
+    "question": "Wo erscheinen Handles während eines Shift-Reduce Parsings immer?",
+    "options": [
+      "Irgendwo im Stack, versteckt zwischen anderen Symbolen.",
+      "Am Anfang des noch nicht gelesenen Inputs.",
+      "Ausschließlich an der Spitze (Top) des Stacks.",
+      "Sie erscheinen nie explizit, sondern werden geraten."
+    ],
+    "correct_index": 2,
+    "explanation": "Ein entscheidendes Property des Bottom-Up Parsings ist, dass das Handle immer oben auf dem Stack liegen muss, bevor es reduziert wird. Es befindet sich nie tiefer im Stack oder im noch nicht gelesenen Input-Teil. Dies erlaubt es dem Parser, nur die Stack-Spitze zu inspizieren, um Entscheidungen zu treffen (Folie 36-38)."
+  },
+  {
+    "question": "Was sind die zwei fundamentalen Aktionen eines Shift-Reduce Parsers?",
+    "options": [
+      "Expand und Contract.",
+      "Push und Pop.",
+      "Shift (Verschieben) und Reduce (Reduzieren).",
+      "Read und Write."
+    ],
+    "correct_index": 2,
+    "explanation": "Der Parser arbeitet mit zwei Aktionen: 1. **Shift**: Das nächste Input-Token wird auf den Stack gelegt. 2. **Reduce**: Die rechte Seite einer Produktion (ein Handle) wird vom Stack genommen und durch das linke Nicht-Terminal ersetzt. Dieser Zyklus wiederholt sich, bis das Startsymbol erreicht ist (Folie 16-17)."
+  },
+  {
+    "question": "Was ist ein 'Viable Prefix' (lebensfähiges Präfix)?",
+    "options": [
+      "Ein Präfix des Input-Strings, das bereits einen vollständigen Satz bildet.",
+      "Ein Präfix eines rechten Satzes (right sentential form), das nicht über das Ende des aktuellen Handles hinausgeht.",
+      "Jedes beliebige Präfix, das keine Fehler enthält.",
+      "Der Teil des Stacks, der nur Terminals enthält."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Viable Prefix ist ein Präfix des Stacks, das potenziell zu einem vollständigen Handle erweitert werden kann. Wichtig ist: Es reicht nie weiter als bis zum Ende des aktuellen Handles. Solange der Stack nur Viable Prefixes enthält, ist noch kein syntaktischer Fehler aufgetreten. Die Menge aller Viable Prefixes bildet eine reguläre Sprache (Folie 41-43)."
+  },
+  {
+    "question": "Wie werden die Zustände eines LR-Parsers (DFA für Viable Prefixes) konstruiert?",
+    "options": [
+      "Durch manuelles Erraten der Regeln.",
+      "Als 'Canonical Collections of LR(0) Items', wobei ein Item eine Produktion mit einem Punkt (.) ist, der den aktuellen Fortschritt markiert.",
+      "Durch Umwandlung des Parse Trees in eine Tabelle.",
+      "Durch Zufallsgenerierung."
+    ],
+    "correct_index": 1,
+    "explanation": "Die Zustände des DFA entsprechen Mengen von LR(0) Items. Ein Item wie `A → α.β` bedeutet: 'Wir haben α bereits gesehen und erwarten als Nächstes β'. Der DFA wird konstruiert, indem man Transitionen zwischen diesen Items definiert (basierend auf dem Symbol nach dem Punkt oder ε-Moves für neue Produktionen) und diese dann mittels Subset-Construction determinisiert (Folie 45-55, 70)."
+  },
+  {
+    "question": "Was ist der Unterschied zwischen LR(0) und SLR Parsing bei der Entscheidung für eine Reduktion?",
+    "options": [
+      "Es gibt keinen Unterschied.",
+      "LR(0) reduziert immer, wenn ein komplettes Item (Punkt am Ende) da ist; SLR reduziert nur, wenn das Item komplett ist UND das nächste Input-Token in der Follow-Menge des Nicht-Terminals liegt.",
+      "SLR ignoriert die Follow-Mengen komplett.",
+      "LR(0) benötigt mehr Lookahead als SLR."
+    ],
+    "correct_index": 1,
+    "explanation": "LR(0) ist sehr aggressiv: Wenn der Punkt am Ende einer Produktion steht (`A → α.`), wird sofort reduziert, egal was als Nächstes im Input kommt. Das führt oft zu Konflikten. SLR (Simple LR) verbessert dies, indem es eine Bedingung hinzufügt: Reduziere nur, wenn das nächste Token `t` in `Follow(A)` ist. Dies löst viele Shift-Reduce Konflikte (Folie 76, 79-80)."
+  },
+  {
+    "question": "Was bedeutet ein 'Shift-Reduce Konflikt' in einem Parser-Zustand?",
+    "options": [
+      "Der Parser weiß nicht, welches von zwei Nicht-Terminalen er reduzieren soll.",
+      "Der Parser kann entweder das nächste Token shiften ODER eine Reduktion durchführen, und beides scheint lokal korrekt.",
+      "Der Stack ist voll.",
+      "Das Input-Ende wurde erreicht."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Shift-Reduce Konflikt tritt auf, wenn der aktuelle Zustand sowohl ein komplettes Item (bereit zur Reduktion) als auch ein Item enthält, das ein weiteres Token erwartet (bereit zum Shiften). Ein klassisches Beispiel ist das 'Dangling Else' oder Operator-Präzedenz (`E → E + E .` vs `E → E . + E`). Hier muss durch Lookahead oder Präzedenz-Regeln entschieden werden (Folie 33, 77)."
+  },
+  {
+    "question": "Warum funktioniert ein einfacher Predictive Parser (LL(1)) nicht mit links-rekursiven Grammatiken?",
+    "options": [
+      "Weil links-rekursive Grammatiken ambig sind.",
+      "Weil der Parser in eine Endlosschleife gerät, da er immer wieder dieselbe Regel anwendet, ohne Input zu konsumieren.",
+      "Weil LL(1) Parser nur reguläre Sprachen erkennen können.",
+      "Weil links-rekursive Grammatiken keine First-Mengen haben."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Top-Down Parser versucht, die Linksableitung zu konstruieren. Bei einer Regel `A → A α` würde der Parser versuchen, `A` zu expandieren, stößt wieder auf `A`, expandiert erneut, usw. Da kein Terminal konsumiert wird, landet er in einer unendlichen Rekursion. Linksrekursion muss daher vorher eliminiert werden (Folie 49-50, Lecture 7 Folie 3)."
+  },
+  {
+    "question": "Was ist der Zweck der 'First'-Menge in der Konstruktion einer LL(1) Parsing-Tabelle?",
+    "options": [
+      "Sie listet alle Token auf, die einem Nicht-Terminal folgen können.",
+      "Sie enthält alle Terminals, mit denen ein String beginnen kann, der aus einer gegebenen Symbolfolge abgeleitet werden kann.",
+      "Sie speichert die Priorität von Operatoren.",
+      "Sie definiert die Startsymbole der Grammatik."
+    ],
+    "correct_index": 1,
+    "explanation": "First(α) ist die Menge aller Terminals, die als erstes Zeichen in einem String erscheinen können, der aus α abgeleitet wird. In der LL(1)-Tabelle nutzt man First(α), um zu entscheiden, welche Produktion `A → α` gewählt werden muss, wenn das nächste Input-Token `t` in `First(α)` liegt (Folie 14-17, Lecture 7 Folie 14)."
+  },
+  {
+    "question": "Wann wird die 'Follow'-Menge bei der LL(1) Tabellenkonstruktion verwendet?",
+    "options": [
+      "Immer, wenn eine Produktion ein Terminal erzeugt.",
+      "Nur wenn die rechte Seite der Produktion zu ε (leer) ableitbar ist. Dann wird die Produktion für alle Token in Follow(A) eingetragen.",
+      "Sie wird bei LL(1) nie verwendet.",
+      "Um Fehler im Code zu melden."
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn eine Produktion `A → α` existiert und `α` zu ε abgeleitet werden kann (nullable), dann kann `A` im Prinzip 'verschwinden'. In diesem Fall muss der Parser wissen, wann er diese ε-Produktion wählen soll. Er tut dies, wenn das nächste Input-Token in `Follow(A)` liegt, da dieses Token legitim nach `A` kommen kann (Folie 18-19, Lecture 7 Folie 14, 31)."
+  },
+  {
+    "question": "Was bedeutet es, wenn eine Grammatik nicht LL(1) ist?",
+    "options": [
+      "Sie kann überhaupt nicht geparst werden.",
+      "Die Parsing-Tabelle enthält mindestens einen Eintrag mit mehreren möglichen Produktionen (Konflikt), sodass der Parser nicht deterministisch entscheiden kann.",
+      "Sie enthält zu viele Nicht-Terminalen.",
+      "Sie ist zu langsam."
+    ],
+    "correct_index": 1,
+    "explanation": "Eine Grammatik ist nur dann LL(1), wenn jede Zelle der Parsing-Tabelle höchstens eine Produktion enthält. Wenn eine Zelle `[A, t]` zwei verschiedene Regeln enthält, weiß der Parser bei Nicht-Terminal `A` und Lookahead `t` nicht, welche Regel er anwenden soll. Dies passiert oft bei Ambiguität, Linksrekursion oder wenn gemeinsame Präfixe nicht ausgeklammert wurden (Left-Factoring fehlt) (Folie 31-32, Lecture 7 Folie 31)."
+  },
+  {
+    "question": "Wie wird 'Left-Factoring' angewendet, um eine Grammatik LL(1)-tauglich zu machen?",
+    "options": [
+      "Man entfernt alle links-rekursiven Regeln.",
+      "Man klammert gemeinsame Präfixe von Alternativen aus, sodass die Entscheidung erst später (nach Lesen weiterer Tokens) getroffen wird.",
+      "Man fügt neue Startsymbole hinzu.",
+      "Man ändert die Reihenfolge der Terminals."
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn zwei Regeln für `A` mit demselben Symbol beginnen (z.B. `A → αβ | αγ`), kann ein LL(1)-Parser nicht entscheiden, welche er nehmen soll, nur basierend auf dem ersten Token. Durch Left-Factoring wird dies zu `A → αA'` und `A' → β | γ` umgeformt. Der Parser matcht erst `α` und entscheidet dann bei `A'` basierend auf dem nächsten Token (Folie 4-5, Lecture 7 Folie 4)."
+  },
+  {
+    "question": "Was repräsentiert der Eintrag `action[i, t] = shift k` in einer SLR Parsing-Tabelle?",
+    "options": [
+      "Reduziere den Stack mittels Produktion k.",
+      "Das Token `t` ist ein Fehler im Zustand `i`.",
+      "Lese das Token `t`, gehe in den DFA-Zustand `k` und lege beides auf den Stack.",
+      "Akzeptiere den Input."
+    ],
+    "correct_index": 2,
+    "explanation": "Der Eintrag `shift k` bedeutet: Das aktuelle Token `t` passt zur Transition des DFA von Zustand `i` nach `k`. Der Parser konsumiert `t`, legt es zusammen mit dem neuen Zustand `k` auf den Stack und fährt im Zustand `k` fort. Dies entspricht dem Voranschreiten im Automaten der Viable Prefixes (Folie 113-115)."
+  },
+  {
+    "question": "Warum sind Präzedenz-Deklarationen (wie `%left +`) in Parser-Generatoren wie Bison oft notwendig?",
+    "options": [
+      "Weil die zugrundeliegende Grammatik oft ambig ist (z.B. `E → E + E`) und der Generator Konflikte sonst nicht lösen kann.",
+      "Weil SLR keine Operatoren unterstützen kann.",
+      "Weil sie die Geschwindigkeit des Parsers verdoppeln.",
+      "Weil sie die First-Mengen neu berechnen."
+    ],
+    "correct_index": 0,
+    "explanation": "Viele natürlichen Grammatiken für Ausdrücke sind ambig (erlauben mehrere Parse Trees). Anstatt die Grammatik mühsam umzuschreiben (was sie unleserlich macht), behält man die einfache, ambige Grammatik bei und nutzt Präzedenz-Deklarationen, um die Shift-Reduce Konflikte im Parser-Generator explizit aufzulösen (zugunsten von Shift oder Reduce) (Folie 83-85)."
+  },
+  {
+    "question": "Was ist der Hauptvorteil von Bottom-Up Parsing gegenüber Top-Down Parsing?",
+    "options": [
+      "Es ist einfacher zu implementieren.",
+      "Es ist mächtiger: Es kann eine größere Klasse von Grammatiken parsen (z.B. keine Left-Factoring nötig, Linksrekursion erlaubt) und ist dabei ebenso effizient.",
+      "Es benötigt keinen Stack.",
+      "Es arbeitet ohne Lookahead."
+    ],
+    "correct_index": 1,
+    "explanation": "Bottom-Up Parser (wie LR/S LR) sind 'more general'. Sie kommen mit der natürlichen Schreibweise von Grammatiken zurecht (inklusive Linksrekursion), während Top-Down Parser (LL) oft Grammatik-Umformungen (Left-Factoring, Elimination of Left Recursion) benötigen. Dennoch sind beide Ansätze in der Praxis sehr effizient (Folie 1, Lecture 8)."
+  },
+  {
+    "question": "Wie ist der Stack in einem optimierten SLR Parser aufgebaut?",
+    "options": [
+      "Er enthält nur die Symbole (Terminals und Non-Terminals).",
+      "Er enthält Paare aus 〈Symbol, DFA-Zustand〉, wobei der Zustand den Verlauf des DFA für Viable Prefixes widerspiegelt.",
+      "Er enthält nur die Zustandsnummern.",
+      "Er ist eine verkettete Liste von Tokens."
+    ],
+    "correct_index": 1,
+    "explanation": "Um das erneute Durchlaufen des DFA bei jedem Schritt zu vermeiden, speichert der Stack nicht nur die Symbole, sondern auch den DFA-Zustand, der nach dem Lesen dieses Symbols erreicht wurde. So kann der Parser in O(1) auf den aktuellen Zustand zugreifen (Top of Stack) und die Action-Tabelle konsultieren (Folie 111-112)."
+  },
+  {
+    "question": "Was bedeutet es, wenn in einer LL(1) Tabelle eine Zelle leer ist?",
+    "options": [
+      "Der Parser soll ε reduzieren.",
+      "Es liegt ein Syntaxfehler vor: Für das aktuelle Nicht-Terminal und das aktuelle Input-Token existiert keine gültige Produktion.",
+      "Der Parser soll das Token shiften.",
+      "Die Grammatik ist korrekt."
+    ],
+    "correct_index": 1,
+    "explanation": "Eine leere Zelle `[A, t]` bedeutet, dass es keine Ableitung gibt, bei der das Nicht-Terminal `A` mit dem Token `t` beginnt. Der Parser hat also einen syntaktisch inkorrekten Input erkannt und muss eine Fehlermeldung ausgeben (Folie 8-9, Lecture 7)."
+  },
+  {
+    "question": "Welche Bedingung muss für eine Grammatik gelten, damit sie SLR(1) ist?",
+    "options": [
+      "Sie darf keine ε-Produktionen enthalten.",
+      "Für jeden Zustand im DFA und jedes Lookahead-Token darf höchstens eine Aktion (Shift oder spezifische Reduce) definiert sein.",
+      "Sie muss ambig sein.",
+      "Sie muss links-rekursiv sein."
+    ],
+    "correct_index": 1,
+    "explanation": "Eine Grammatik ist SLR(1), wenn die einfache Heuristik (Reduziere nur wenn Token in Follow-Menge) ausreicht, um alle Konflikte im DFA der Viable Prefixes aufzulösen. Bleiben Konflikte (Shift-Reduce oder Reduce-Reduce) trotz Follow-Check bestehen, ist die Grammatik nicht SLR(1) (Folie 80-81)."
+  },
+  {
+    "question": "Was ist der Unterschied zwischen einem LR(0) Item und einem LR(1) Item?",
+    "options": [
+      "LR(1) Items enthalten zwei Punkte.",
+      "LR(1) Items bestehen aus einem LR(0) Item plus einem Lookahead-Symbol, das angibt, bei welchem Token reduziert werden darf.",
+      "LR(0) Items sind für Bottom-Up, LR(1) für Top-Down.",
+      "Es gibt keinen Unterschied."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein LR(0) Item ist nur `A → α.β`. Ein LR(1) Item ist ein Paar `[A → α.β, a]`, wobei `a` ein Terminal ist. Dies bedeutet: 'Wir haben α gesehen, erwarten β, und werden nur dann reduzieren (wenn β leer ist), wenn das nächste Token `a` ist'. Dies ist präziser als die grobe Follow-Menge von SLR und erlaubt das Parsen komplexerer Grammatiken (Folie 117-118)."
+  }
+]

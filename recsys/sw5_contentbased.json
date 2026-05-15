@@ -1,0 +1,310 @@
+[
+  {
+    "question": "Was ist die Grundidee von Content-based Recommendern (CB)?",
+    "options": [
+      "Empfehle zufällige Items zur Exploration",
+      "Empfehle Items basierend auf globaler Popularität",
+      "Empfehle Items ähnlich zu denen, die der Nutzer mochte",
+      "Empfehle Items basierend auf anderen Nutzern"
+    ],
+    "correct_index": 2,
+    "explanation": "Content-based Recommender (CB) empfehlen Items, deren Features ähnlich zu den Features bereits konsumierter Items sind."
+  },
+  {
+    "question": "Welche Formel beschreibt typischerweise das Scoring im Content-based Filtering?",
+    "options": [
+      "$s(u,i) = \\mu + b_u + b_i$",
+      "$s(u,i) = \\|x_i\\|^2$",
+      "$s(u,i) = \\text{sim}(p_u, x_i)$",
+      "$s(u,i) = \\sum_j r_{u,j}$"
+    ],
+    "correct_index": 2,
+    "explanation": "Das Scoring basiert auf der Ähnlichkeit zwischen Nutzerprofil $p_u$ und Item-Vektor $x_i$."
+  },
+  {
+    "question": "Was beschreibt der Item-Vektor $x_i \\in \\mathbb{R}^d$?",
+    "options": [
+      "Die Interaktionshistorie aller Nutzer",
+      "Die Features eines Items",
+      "Die Popularität eines Items",
+      "Die Modellparameter"
+    ],
+    "correct_index": 1,
+    "explanation": "$x_i$ ist ein Feature-Vektor, der ein Item durch Metadaten, Text oder Embeddings beschreibt."
+  },
+  {
+    "question": "Welche der folgenden Features ist für neue Items problematisch (Leakage)?",
+    "options": [
+      "Kategorie",
+      "Titel",
+      "Click-Count",
+      "Beschreibung"
+    ],
+    "correct_index": 2,
+    "explanation": "Click-Counts sind für neue Items nicht verfügbar und führen zu Data Leakage."
+  },
+  {
+    "question": "Wie wird ein einfaches Nutzerprofil $p_u$ berechnet?",
+    "options": [
+      "$p_u = \\sum_i x_i$",
+      "$p_u = \\frac{1}{|H_u|} \\sum_{j \\in H_u} x_j$",
+      "$p_u = x_i^2$",
+      "$p_u = r_u X^{-1}$"
+    ],
+    "correct_index": 1,
+    "explanation": "Das Nutzerprofil ist der Durchschnitt der Feature-Vektoren aller konsumierten Items."
+  },
+  {
+    "question": "Was beschreibt $H_u$ im Kontext von Content-based Recommendern?",
+    "options": [
+      "Alle Items im System",
+      "Die Historie eines Nutzers",
+      "Alle Features eines Items",
+      "Die Trainingsdaten"
+    ],
+    "correct_index": 1,
+    "explanation": "$H_u$ ist die Menge der Items, mit denen Nutzer $u$ interagiert hat."
+  },
+  {
+    "question": "Warum wird Cosine Similarity häufig verwendet?",
+    "options": [
+      "Sie misst absolute Werte",
+      "Sie ignoriert die Richtung",
+      "Sie fokussiert auf die Richtung der Vektoren",
+      "Sie ist schneller als Addition"
+    ],
+    "correct_index": 2,
+    "explanation": "Cosine Similarity misst den Winkel zwischen Vektoren und ist robust gegenüber unterschiedlichen Längen."
+  },
+  {
+    "question": "Wie lautet die Cosine Similarity?",
+    "options": [
+      "$\\|p_u - x_i\\|$",
+      "$p_u^\\top x_i$",
+      "$\\frac{p_u^\\top x_i}{\\|p_u\\| \\|x_i\\|}$",
+      "$\\sum_i p_u$"
+    ],
+    "correct_index": 2,
+    "explanation": "Cosine Similarity normiert das Skalarprodukt durch die Normen der Vektoren."
+  },
+  {
+    "question": "Warum ist TF-IDF (Term Frequency–Inverse Document Frequency) besser als reine Wortzählung?",
+    "options": [
+      "Es ignoriert alle häufigen Wörter",
+      "Es gewichtet seltene Wörter stärker",
+      "Es entfernt alle seltenen Wörter",
+      "Es nutzt keine Statistik"
+    ],
+    "correct_index": 1,
+    "explanation": "TF-IDF gibt seltenen, informativen Wörtern mehr Gewicht als häufigen."
+  },
+  {
+    "question": "Wie lautet die IDF-Komponente?",
+    "options": [
+      "$idf(t) = tf(t,i)$",
+      "$idf(t) = \\log \\frac{N}{df(t)}$",
+      "$idf(t) = \\sum_i t$",
+      "$idf(t) = \\|t\\|$"
+    ],
+    "correct_index": 1,
+    "explanation": "$idf(t)$ misst die Seltenheit eines Terms über alle Dokumente."
+  },
+  {
+    "question": "Was ist ein Vorteil von One-Hot-Encoding?",
+    "options": [
+      "Erfasst Semantik tiefgehend",
+      "Sehr einfach und interpretierbar",
+      "Benötigt große Datenmengen",
+      "Ist immer dicht"
+    ],
+    "correct_index": 1,
+    "explanation": "One-Hot-Encoding ist transparent und gut für kleine kategoriale Features geeignet."
+  },
+  {
+    "question": "Was ist ein Nachteil von TF-IDF?",
+    "options": [
+      "Zu viele Parameter",
+      "Keine Gewichtung möglich",
+      "Keine echte Semantik",
+      "Zu langsam"
+    ],
+    "correct_index": 2,
+    "explanation": "TF-IDF basiert auf Wortfrequenzen und erfasst keine semantischen Beziehungen."
+  },
+  {
+    "question": "Was sind Embeddings?",
+    "options": [
+      "Binäre Features",
+      "Dichte Vektoren mit Semantik",
+      "Nur IDs",
+      "Loss-Funktionen"
+    ],
+    "correct_index": 1,
+    "explanation": "Embeddings sind dichte Vektoren, die semantische Ähnlichkeit kodieren."
+  },
+  {
+    "question": "Wie kann man Interaktionen gewichten?",
+    "options": [
+      "Alle gleich behandeln",
+      "Nur letzte Interaktion nehmen",
+      "$w_{u,j} = a(\\text{event}) \\cdot e^{-\\lambda \\Delta t}$",
+      "Nur zufällige Gewichte"
+    ],
+    "correct_index": 2,
+    "explanation": "Gewichte kombinieren Event-Stärke und zeitlichen Zerfall."
+  },
+  {
+    "question": "Was beschreibt $\\Delta t$?",
+    "options": [
+      "Anzahl Items",
+      "Zeit seit Interaktion",
+      "Feature-Dimension",
+      "Score"
+    ],
+    "correct_index": 1,
+    "explanation": "$\\Delta t$ ist die Zeit seit einer Interaktion und wird für Recency genutzt."
+  },
+  {
+    "question": "Warum ist Recency wichtig?",
+    "options": [
+      "Alte Daten sind besser",
+      "Geschmack verändert sich",
+      "Nur neue Items zählen",
+      "Modelle brauchen es"
+    ],
+    "correct_index": 1,
+    "explanation": "Nutzerpräferenzen ändern sich, daher sollten neuere Interaktionen stärker gewichtet werden."
+  },
+  {
+    "question": "Was ist Item Cold-Start?",
+    "options": [
+      "Neue Nutzer ohne Daten",
+      "Neue Items ohne Interaktionen",
+      "Fehlende Features",
+      "Langsame Modelle"
+    ],
+    "correct_index": 1,
+    "explanation": "Neue Items haben keine Interaktionen, aber Content-basierte Features sind verfügbar."
+  },
+  {
+    "question": "Was ist User Cold-Start?",
+    "options": [
+      "Neue Items",
+      "Neue Nutzer ohne Historie",
+      "Fehlende Features",
+      "Zu viele Daten"
+    ],
+    "correct_index": 1,
+    "explanation": "Neue Nutzer haben keine Interaktionen, daher fehlt ein Profil."
+  },
+  {
+    "question": "Was hilft bei User Cold-Start?",
+    "options": [
+      "Matrixfaktorisierung allein",
+      "Onboarding-Fragen",
+      "TF-IDF entfernen",
+      "Mehr Features löschen"
+    ],
+    "correct_index": 1,
+    "explanation": "Onboarding kann initiale Präferenzen erfassen."
+  },
+  {
+    "question": "Warum sollte man Cold-Start separat evaluieren?",
+    "options": [
+      "Ist einfacher",
+      "Globale Metriken reichen",
+      "Unterschiedliche Szenarien",
+      "Spart Zeit"
+    ],
+    "correct_index": 2,
+    "explanation": "Cold-Start verhält sich anders als Warm-Start und benötigt eigene Auswertung."
+  },
+  {
+    "question": "Was ist ein Hybrid-Modell?",
+    "options": [
+      "Nur Content",
+      "Nur Collaborative Filtering",
+      "Kombination mehrerer Modelle",
+      "Random Modell"
+    ],
+    "correct_index": 2,
+    "explanation": "Hybride kombinieren z. B. Content-based und Matrix Factorization."
+  },
+  {
+    "question": "Wie sieht ein einfaches Hybrid-Scoring aus?",
+    "options": [
+      "$s = s_{MF}$",
+      "$s = s_{CB}$",
+      "$s = \\alpha \\tilde{s}_{MF} + (1-\\alpha) \\tilde{s}_{CB}$",
+      "$s = \\sum_i x_i$"
+    ],
+    "correct_index": 2,
+    "explanation": "Scores werden linear kombiniert mit Gewicht $\\alpha$."
+  },
+  {
+    "question": "Was beschreibt $\\alpha$ im Hybrid-Modell?",
+    "options": [
+      "Featureanzahl",
+      "Balance zwischen Modellen",
+      "Anzahl Nutzer",
+      "Learning Rate"
+    ],
+    "correct_index": 1,
+    "explanation": "$\\alpha$ bestimmt das Vertrauen in Collaborative vs Content Signal."
+  },
+  {
+    "question": "Was ist Overspecialization?",
+    "options": [
+      "Zu viele Daten",
+      "Nur ähnliche Items werden empfohlen",
+      "Zu viele Nutzer",
+      "Zu große Modelle"
+    ],
+    "correct_index": 1,
+    "explanation": "Das System empfiehlt nur sehr ähnliche Items und verliert Diversität."
+  },
+  {
+    "question": "Wie kann man Overspecialization reduzieren?",
+    "options": [
+      "Mehr gleiche Items",
+      "Diversität erhöhen",
+      "Weniger Daten nutzen",
+      "TF-IDF entfernen"
+    ],
+    "correct_index": 1,
+    "explanation": "Diversität, Re-Ranking oder Hybride helfen gegen zu enge Empfehlungen."
+  },
+  {
+    "question": "Warum sind Content-based Modelle gut erklärbar?",
+    "options": [
+      "Sie nutzen Blackboxen",
+      "Features sind interpretierbar",
+      "Keine Daten nötig",
+      "Keine Modelle nötig"
+    ],
+    "correct_index": 1,
+    "explanation": "Features wie Keywords oder Kategorien erlauben einfache Begründungen."
+  },
+  {
+    "question": "Was ist ein typischer Vorteil von Content-based Modellen?",
+    "options": [
+      "Brauchen keine Features",
+      "Funktionieren ohne Nutzer",
+      "Funktionieren bei neuen Items",
+      "Immer beste Performance"
+    ],
+    "correct_index": 2,
+    "explanation": "Content-basierte Modelle funktionieren sofort für neue Items."
+  },
+  {
+    "question": "Was ist ein typischer Nachteil?",
+    "options": [
+      "Keine Skalierung",
+      "Overspecialization",
+      "Keine Features",
+      "Zu viele Nutzer"
+    ],
+    "correct_index": 1,
+    "explanation": "Content-based Modelle können zu stark auf ähnliche Inhalte fokussieren."
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Was ist der zentrale Grundsatz 'KISS' beim Aufbau großer Softwaresysteme, wie er in der Vorlesung zitiert wird?",
+    "options": [
+      "Keep It Simple, Stupid! – Komplexität sollte vermieden werden, da Debugging schwieriger ist als das Schreiben des Codes.",
+      "Keep It Short, Script! – Code sollte so kurz wie möglich sein, um Speicher zu sparen.",
+      "Keep It Secure, Server! – Sicherheit hat immer Vorrang vor Einfachheit.",
+      "Keep It Sorted, Structure! – Datenstrukturen sollten immer sortiert sein."
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 2 und 3 zitieren Brian Kernighan: 'Debugging is twice as hard as writing the code... Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.' KISS steht für 'Keep It Simple, Stupid!' und mahnt zur Einfachheit, da einfache Systeme leichter zu warten und zu korrigieren sind."
+  },
+  {
+    "question": "Welche Reihenfolge der Transformationen beschreibt den typischen Weg von der Spezifikation zur Implementierung eines Lexers?",
+    "options": [
+      "Regex → DFA → NFA → Tabelle",
+      "Regex → NFA → DFA → Tabelle",
+      "NFA → Regex → DFA → Tabelle",
+      "Tabelle → DFA → NFA → Regex"
+    ],
+    "correct_index": 1,
+    "explanation": "Der in Folie 5 und 6 skizzierte Standardweg ist: 1. Reguläre Ausdrücke (Regex) als Spezifikation. 2. Umwandlung in Nicht-deterministische Endliche Automaten (NFA), da dies direkt aus der Struktur des Regex folgt. 3. Umwandlung in Deterministische Endliche Automaten (DFA) zur effizienten Ausführung. 4. Generierung einer Übergangstabelle (Table-driven Implementation) für den DFA."
+  },
+  {
+    "question": "Was besagt die 'Maximal Munch' Regel (auch 'Longest Match' Regel) bei der lexikalischen Analyse?",
+    "options": [
+      "Es wird immer das kürzeste matching Token gewählt, um schnell voranzukommen.",
+      "Es wird die längste mögliche Zeichenfolge gewählt, die zu einem Token passt, auch wenn ein Präfix bereits ein gültiges Token wäre.",
+      "Es wird das Token gewählt, das zuerst in der Liste der Regeln steht.",
+      "Es wird immer nur ein einzelnes Zeichen pro Schritt konsumiert."
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn der Input `x1...xk` und `x1...xi` (mit k > i) beide gültige Tokens sein könnten (z. B. 'if' vs. 'identifier' für den String 'iffy'), schreibt die Regel vor, das längste Matching (`k`) zu wählen. Dies löst die Ambiguität, wie viel Input konsumiert werden soll (Folie 12)."
+  },
+  {
+    "question": "Wie wird ein Konflikt gelöst, wenn zwei verschiedene Token-Klassen (z. B. Keyword 'if' und Identifier) exakt dieselbe Länge des Inputs matchen?",
+    "options": [
+      "Der Lexer wirft einen Fehler.",
+      "Es wird das Token gewählt, dessen Regel zuerst in der Spezifikation (Liste) steht.",
+      "Es wird das Token gewählt, dessen Regel zuletzt steht.",
+      "Der Parser entscheidet später darüber."
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn die 'Maximal Munch' Regel keine Entscheidung trifft (da die Länge gleich ist), greift die Prioritätsregel: Die Regel, die im Lexer-Generator (z. B. flex) zuerst definiert wurde, gewinnt. Daher müssen Keywords wie 'if' vor der allgemeinen Regel für Identifier definiert werden, damit 'if' als Keyword und nicht als Identifier erkannt wird (Folie 13)."
+  },
+  {
+    "question": "Wie wird in einem Lexer typischerweise mit Eingaben umgegangen, die zu keiner gültigen Token-Klasse passen (Fehlerbehandlung)?",
+    "options": [
+      "Der Lexer stoppt sofort mit einem Absturz.",
+      "Man definiert eine 'Catch-all'-Regel für ungültige Strings am Ende der Liste (niedrigste Priorität), die einen Fehlertoken zurückgibt.",
+      "Der Lexer überspringt einfach alle Zeichen bis zum Ende der Datei.",
+      "Der Parser muss den Fehler im Nachhinein korrigieren."
+    ],
+    "correct_index": 1,
+    "explanation": "Da der Lexer nicht 'stecken bleiben' darf, fügt man eine Regel hinzu, die auf alle bisher nicht gematchten Zeichen passt (z. B. `.*` oder `[^\\n]`). Da diese Regel ganz am Ende steht, hat sie die niedrigste Priorität und wird nur angewendet, wenn keine andere Regel greift. Sie erlaubt es, den Fehler zu melden und mit der Analyse fortzufahren (Folie 14)."
+  },
+  {
+    "question": "Was ist der fundamentale Unterschied zwischen einem DFA (Deterministic Finite Automaton) und einem NFA (Nondeterministic Finite Automaton)?",
+    "options": [
+      "Ein DFA kann $\\epsilon$-Moves machen, ein NFA nicht.",
+      "Ein NFA hat für jeden Zustand und jedes Eingabezeichen genau einen Übergang, ein DFA kann mehrere haben.",
+      "Ein DFA hat genau einen Übergang pro Zustand und Eingabezeichen und keine $\\epsilon$-Moves; ein NFA kann mehrere Übergänge oder $\\epsilon$-Moves haben.",
+      "Ein NFA ist schneller in der Ausführung als ein DFA."
+    ],
+    "correct_index": 2,
+    "explanation": "Ein DFA ist deterministisch: Aus einem Zustand führt bei einem gegebenen Eingabezeichen genau eine Kante heraus, und es gibt keine $\\epsilon$-Übergänge (Übergänge ohne Input). Ein NFA darf bei gleichem Input mehrere mögliche Folgezustände haben oder sich ohne Input ($\\epsilon$-Move) bewegen. Beide erkennen dieselbe Klasse von Sprachen (reguläre Sprachen), aber DFAs sind effizienter auszuführen (Folie 23)."
+  },
+  {
+    "question": "Was bedeutet ein '$\\epsilon$-Move' (Epsilon-Transition) in einem NFA?",
+    "options": [
+      "Der Automat liest ein spezielles Zeichen namens 'Epsilon'.",
+      "Der Automat wechselt den Zustand, ohne ein Eingabezeichen zu konsumieren.",
+      "Der Automat beendet die Ausführung sofort.",
+      "Der Automat kehrt in den Startzustand zurück."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein $\\epsilon$-Move erlaubt es dem NFA, spontan von einem Zustand in einen anderen zu wechseln, ohne dabei ein Zeichen aus dem Eingabestring zu lesen. Dies ist ein mächtiges Konzept zur Konstruktion von Automaten aus regulären Ausdrücken, existiert aber nicht in DFAs (Folie 22)."
+  },
+  {
+    "question": "Warum werden in der Praxis oft NFAs in DFAs umgewandelt, obwohl NFAs kompakter sein können?",
+    "options": [
+      "Weil NFAs keine regulären Sprachen erkennen können.",
+      "Weil DFAs zur Laufzeit schneller auszuführen sind, da es keine Entscheidungen (Backtracking/Verzweigungen) zu treffen gilt.",
+      "Weil die Umwandlung immer zu einem kleineren Automaten führt.",
+      "Weil DFAs einfacher zu programmieren sind als NFAs."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein NFA erfordert zur Laufzeit im Prinzip das Verfolgen mehrerer möglicher Pfade gleichzeitig (oder Backtracking), was rechenintensiv ist. Ein DFA hat für jeden Schritt genau einen definierten nächsten Zustand. Die Ausführung ist daher extrem schnell (ein einfacher Tabellen-Lookup pro Zeichen), was für Lexer entscheidend ist. Der Preis ist, dass der DFA exponentiell größer sein kann als der NFA (Folie 26, 35)."
+  },
+  {
+    "question": "Wie funktioniert die 'Subset Construction' (Teilmengen-Konstruktion) bei der Umwandlung eines NFA in einen DFA?",
+    "options": [
+      "Jeder Zustand im DFA entspricht genau einem Zustand im NFA.",
+      "Jeder Zustand im DFA entspricht einer Menge (Teilmenge) von Zuständen des NFA.",
+      "Man löscht alle $\\epsilon$-Moves und behält die gleichen Zustände.",
+      "Man verdoppelt die Anzahl der Zustände des NFA."
+    ],
+    "correct_index": 1,
+    "explanation": "Der 'Trick' bei der Umwandlung (Folie 32) ist, dass ein einzelner Zustand im neuen DFA alle möglichen Zustände repräsentiert, in denen sich der NFA zu einem bestimmten Zeitpunkt befinden *könnte*. Ein DFA-Zustand ist also eine Teilmenge der NFA-Zustände. Da es endlich viele Teilmengen gibt ($2^N$), ist der resultierende DFA endlich, auch wenn er groß sein kann."
+  },
+  {
+    "question": "Wie wird ein DFA typischerweise im Code implementiert, um maximale Effizienz zu erzielen?",
+    "options": [
+      "Durch eine lange Kette von if-else-Anweisungen.",
+      "Durch eine rekursive Funktion.",
+      "Durch eine 2-dimensionale Übergangstabelle (Zustand × Eingabezeichen → nächster Zustand).",
+      "Durch einen Switch-Case-Block für jeden Zustand."
+    ],
+    "correct_index": 2,
+    "explanation": "Die effizienteste Implementierung ist tabellengesteuert ('Table-driven'). Eine 2D-Tabelle `T[state][input]` speichert direkt den Index des nächsten Zustands. Zur Laufzeit muss der Lexer nur das aktuelle Zeichen lesen, in die Tabelle schauen und zum neuen Zustand springen. Dies benötigt nur wenige Operationen pro Zeichen (Folie 35-36)."
+  },
+  {
+    "question": "Welcher reguläre Ausdruck beschreibt den NFA, der aus zwei Teilen A und B durch Konkatenation (AB) entsteht?",
+    "options": [
+      "Ein neuer Startzustand, der per $\\epsilon$ zu den Starts von A und B geht.",
+      "Der Endzustand von A wird per $\\epsilon$-Move mit dem Startzustand von B verbunden.",
+      "A und B werden parallel geschaltet.",
+      "Der Endzustand von B wird mit dem Start von A verbunden."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei der Konstruktion eines NFA für die Konkatenation `AB` (Folie 29) wird der akzeptierende Zustand des Teilautomaten für `A` mit dem Startzustand des Teilautomaten für `B` durch einen $\\epsilon$-Übergang verbunden. Der Start des neuen Automaten ist der Start von A, der akzeptierende Zustand ist der von B."
+  },
+  {
+    "question": "Was passiert bei der Konstruktion eines NFA für den Kleene-Stern `A*`?",
+    "options": [
+      "Der Automat wird gelöscht.",
+      "Es wird ein neuer Start- und Endzustand geschaffen, wobei $\\epsilon$-Moves den Durchlauf von A ermöglichen, überspringen oder wiederholen.",
+      "Der Automat führt A genau einmal aus.",
+      "Der Automat führt A genau zweimal aus."
+    ],
+    "correct_index": 1,
+    "explanation": "Für `A*` (Folie 30) wird ein neuer Startzustand eingeführt, der per $\\epsilon$ entweder direkt zum neuen Endzustand springen kann (für 0 Wiederholungen) oder zum Start von A. Vom Endzustand von A führt ein $\\epsilon$-Move zurück zum Start von A (für Wiederholungen) und auch zum neuen Endzustand (zum Beenden)."
+  },
+  {
+    "question": "Warum kann ein DFA exponentiell größer sein als der entsprechende NFA?",
+    "options": [
+      "Weil der DFA für jedes Zeichen einen neuen Zustand braucht.",
+      "Weil der DFA jede mögliche Teilmenge der NFA-Zustände als eigenen Zustand repräsentieren muss (bis zu $2^N$).",
+      "Weil der DFA $\\epsilon$-Moves speichern muss.",
+      "Weil der DFA doppelt so viele Übergänge pro Zustand hat."
+    ],
+    "correct_index": 1,
+    "explanation": "Da jeder Zustand im DFA eine Teilmenge der NFA-Zustände ist, kann die Anzahl der Zustände im Worst Case auf $2^N$ (wobei N die Anzahl der NFA-Zustände ist) anwachsen. In der Praxis ist es oft weniger, aber das exponentielle Wachstum ist das theoretische Risiko der Subset Construction (Folie 27, 33)."
+  },
+  {
+    "question": "Was ist die Bedingung dafür, dass ein NFA einen Eingabestring akzeptiert?",
+    "options": [
+      "Alle möglichen Pfade müssen in einem akzeptierenden Zustand enden.",
+      "Mindestens ein möglicher Pfad durch den Automaten muss in einem akzeptierenden Zustand enden.",
+      "Der kürzeste Pfad muss in einem akzeptierenden Zustand enden.",
+      "Der Automat darf keine $\\epsilon$-Moves verwenden."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein NFA akzeptiert einen String, wenn es *mindestens eine* Folge von Übergängen (inklusive $\\epsilon$-Moves) gibt, die vom Startzustand zu einem akzeptierenden Zustand führt und dabei den Input konsumiert. Es reicht also ein einziger erfolgreicher Pfad; alle anderen Pfade können in Sackgassen enden (Folie 25)."
+  },
+  {
+    "question": "Welches Tool wird in der Vorlesung als Beispiel für einen Lexer-Generator genannt, der NFA-zu-DFA Konversion nutzt?",
+    "options": [
+      "GCC",
+      "flex",
+      "make",
+      "gdb"
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 10 und 37 erwähnen explizit 'flex' (und lex). Diese Tools nehmen eine Spezifikation aus regulären Ausdrücken entgegen, generieren intern einen NFA, wandeln diesen in einen DFA um und erzeugen daraus den C-Code für den Lexer (oft tabellengesteuert)."
+  },
+  {
+    "question": "Was ist der Startzustand bei der Umwandlung eines NFA in einen DFA?",
+    "options": [
+      "Der Startzustand des NFA.",
+      "Die Menge aller Zustände, die vom NFA-Startzustand aus nur durch $\\epsilon$-Moves erreichbar sind.",
+      "Ein zufälliger Zustand des NFA.",
+      "Der akzeptierende Zustand des NFA."
+    ],
+    "correct_index": 1,
+    "explanation": "Da der NFA zu Beginn sofort $\\epsilon$-Moves machen kann, bevor er das erste Zeichen liest, entspricht der Startzustand des DFA nicht nur dem einzelnen Startzustand des NFA, sondern der 'Epsilon-Closure': der Menge aller Zustände, die vom NFA-Start aus ohne Input erreichbar sind (Folie 32)."
+  },
+  {
+    "question": "Welchen Trade-off machen Tools wie 'flex' in der Praxis oft bezüglich NFA und DFA?",
+    "options": [
+      "Sie nutzen immer nur NFAs, weil DFAs zu langsam sind.",
+      "Sie nutzen immer nur DFAs, weil NFAs zu ungenau sind.",
+      "Sie wägen zwischen Geschwindigkeit (DFA) und Speicherplatz (NFA oder hybride Ansätze) ab, da DFAs riesig werden können.",
+      "Sie ignorieren die Umwandlung komplett."
+    ],
+    "correct_index": 2,
+    "explanation": "Folie 37 merkt an, dass DFAs zwar schnell sind, aber 'huge' (riesig) werden können. Daher implementieren praktische Tools oft Optimierungen oder hybride Ansätze, bei denen sie nicht den vollständigen DFA materialisieren, wenn dieser zu groß wird, um Speicher zu sparen, ggf. auf Kosten einer minimal langsameren Ausführung."
+  },
+  {
+    "question": "Wie wird die Vereinigung (Union) `A + B` in einem NFA konstruiert?",
+    "options": [
+      "A und B werden hintereinander geschaltet.",
+      "Ein neuer Startzustand wird per $\\epsilon$ mit den Starts von A und B verbunden; die Enden von A und B gehen per $\\epsilon$ zu einem neuen gemeinsamen Endzustand.",
+      "A und B teilen sich denselben Startzustand ohne $\\epsilon$-Moves.",
+      "Nur der Automat für A wird verwendet."
+    ],
+    "correct_index": 1,
+    "explanation": "Für die Union `A + B` (Folie 29) wird ein neuer Startknoten erstellt, der $\\epsilon$-Kanten zu den Startzuständen von sowohl A als auch B hat. Ebenso werden die akzeptierenden Zustände von A und B mit $\\epsilon$-Kanten zu einem neuen gemeinsamen akzeptierenden Zustand verbunden. Dies erlaubt dem Automaten, 'zu wählen', welchen Pfad er nimmt."
+  },
+  {
+    "question": "Was ist die Eingabe für den Algorithmus zur Umwandlung von Regex zu NFA?",
+    "options": [
+      "Ein fertiger DFA.",
+      "Ein regulärer Ausdruck, rekursiv zerlegt in seine Operatoren (Konkatenation, Union, Stern).",
+      "Eine Tabelle von Zuständen.",
+      "Der Quellcode des Programms."
+    ],
+    "correct_index": 1,
+    "explanation": "Der Algorithmus (Thompson's Construction, implizit in Folien 28-30) arbeitet strukturell auf dem regulären Ausdruck. Er baut für die atomaren Teile (Zeichen, $\\epsilon$) kleine NFAs und setzt diese gemäß den Operatoren (Union, Konkatenation, Iteration) zu größeren NFAs zusammen."
+  },
+  {
+    "question": "Warum ist die Implementierung eines DFA als Tabelle effizienter als eine Implementierung mit vielen 'if'-Bedingungen?",
+    "options": [
+      "Weil Tabellen weniger Speicher brauchen.",
+      "Weil der Lookup in einer Tabelle (Array-Zugriff) konstante Zeit O(1) benötigt und keine verzweigten Entscheidungen im Code erfordert.",
+      "Weil 'if'-Bedingungen in C nicht erlaubt sind.",
+      "Weil Tabellen automatisch optimiert werden."
+    ],
+    "explanation": "Bei einer if-else-Kette muss im Worst Case viele Bedingungen geprüft werden, bis die richtige gefunden ist. Ein Tabellen-Lookup `T[state][char]` ist ein direkter Speicherzugriff, der unabhängig von der Anzahl der Zustände oder Eingaben immer gleich schnell ist. Dies macht den Lexer extrem performant (Folie 35).",
+    "correct_index": 1
+  }
+]

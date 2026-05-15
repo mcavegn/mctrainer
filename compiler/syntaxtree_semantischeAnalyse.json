@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Was ist der Hauptunterschied zwischen der Syntaxanalyse (Parsing) und der semantischen Analyse?",
+    "options": [
+      "Die Syntaxanalyse prüft die Bedeutung des Codes, während die semantische Analyse nur die Grammatik prüft.",
+      "Die Syntaxanalyse stellt sicher, dass das Programm der kontextfreien Grammatik genügt; die semantische Analyse prüft statische Regeln, die nicht durch die Grammatik abgedeckt sind (z. B. Typkompatibilität, Deklaration von Bezeichnern).",
+      "Die Syntaxanalyse erzeugt Maschinencode, die semantische Analyse erzeugt den AST.",
+      "Es gibt keinen Unterschied; beide Begriffe beschreiben denselben Prozess."
+    ],
+    "correct_index": 1,
+    "explanation": "Der Parser (Syntaxanalyse) überprüft nur die strukturelle Korrektheit gemäß der Grammatik. Die semantische Analyse geht tiefer und prüft kontextabhängige Regeln wie: 'Ist die Variable deklariert?', 'Passen die Typen?' oder 'Stimmt die Anzahl der Parameter?'."
+  },
+  {
+    "question": "Welche Datenstruktur wird primär verwendet, um Informationen über Bezeichner während der semantischen Analyse zu speichern?",
+    "options": [
+      "Der Abstract Syntax Tree (AST).",
+      "Die Symboltabelle (oft implementiert als Hashmap).",
+      "Ein Stack für die Laufzeitverwaltung.",
+      "Eine Queue für die Code-Generierung."
+    ],
+    "correct_index": 1,
+    "explanation": "Symboltabellen dienen dazu, die während der Namensanalyse gesammelten Informationen (Typ, Scope, Speicherplatz etc.) zu speichern und für spätere Phasen schnell wieder auffindbar zu machen."
+  },
+  {
+    "question": "Wie werden verschachtelte Gültigkeitsbereiche (Scopes) in der Symboltabellen-Implementierung typischerweise abgebildet?",
+    "options": [
+      "Durch eine einzige flache Tabelle für das gesamte Programm.",
+      "Durch eine Hierarchie von Symboltabellen, wobei jede Tabelle einen Verweis (outerScope) auf die Tabelle des umgebenden Bereichs hat.",
+      "Durch das Speichern aller Variablen im AST-Knoten.",
+      "Durch das Ignorieren von Scopes und globale Eindeutigkeit aller Namen."
+    ],
+    "correct_index": 1,
+    "explanation": "Um Scopes abzubilden, erstellt man für jeden Scope eine neue Symboltabelle. Diese verweist auf die Tabelle des äußeren Scopes. Bei der Suche wird zuerst lokal gesucht, dann rekursiv im outerScope."
+  },
+  {
+    "question": "Was ist das Ziel des Visitor-Patterns im Kontext der semantischen Analyse eines AST?",
+    "options": [
+      "Den AST zu optimieren, indem unnötige Knoten entfernt werden.",
+      "Den AST zu durchlaufen, um spezifische Operationen auf den verschiedenen Knotentypen auszuführen, ohne die AST-Klassen selbst zu ändern.",
+      "Den AST in einen Parser umzuwandeln.",
+      "Die Hashfunktion für die Symboltabelle zu berechnen."
+    ],
+    "correct_index": 1,
+    "explanation": "Das Visitor-Pattern erlaubt es, neue Operationen zu definieren, ohne die Klassen der AST-Knoten ändern zu müssen. Ein Visitor-Objekt 'besucht' jeden Knoten und führt die spezifische Logik aus."
+  },
+  {
+    "question": "Welche Informationen werden typischerweise in einem Eintrag der Symboltabelle für eine Prozedur gespeichert?",
+    "options": [
+      "Nur der Name der Prozedur.",
+      "Der Rückgabetyp und die Zeilennummer der Definition.",
+      "Eine Referenz auf die lokale Symboltabelle der Prozedur und eine Liste der Parameter-Informationen.",
+      "Der vollständige Maschinencode der Prozedur."
+    ],
+    "correct_index": 2,
+    "explanation": "Ein Prozedur-Eintrag verweist auf die lokale Symboltabelle (Parameter und lokale Variablen) und speichert eine Liste der Parameter-Infos, um später Aufrufe prüfen zu können."
+  },
+  {
+    "question": "Was versteht man unter 'Namensauflösung' (Name Resolution) in der semantischen Analyse?",
+    "options": [
+      "Das Umbenennen aller Variablen in kurze Namen.",
+      "Der Prozess, bei dem jeder Verwendung eines Bezeichners die korrekte Deklaration zugeordnet wird.",
+      "Das Löschen von nicht verwendeten Variablen.",
+      "Das Übersetzen von Bezeichnern in numerische Adressen."
+    ],
+    "correct_index": 1,
+    "explanation": "Namensauflösung bestimmt, auf welche Deklaration sich eine Verwendung eines Namens bezieht. Dies hängt vom Gültigkeitsbereich und Kontext ab."
+  },
+  {
+    "question": "Welche Rolle spielt der Abstract Syntax Tree (AST) während der semantischen Analyse?",
+    "options": [
+      "Er wird verworfen und neu erstellt.",
+      "Er dient als Eingabestruktur, die vom Visitor durchlaufen wird; Typinformationen werden oft direkt im Knoten gespeichert.",
+      "Er wird in einen Parse Tree zurückverwandelt.",
+      "Er dient nur zur Ausgabe von Fehlermeldungen."
+    ],
+    "correct_index": 1,
+    "explanation": "Der AST ist die zentrale Datenstruktur. Während der Analyse wird er traversiert. Ergebnisse wie der abgeleitete Typ werden oft als Attribut direkt im Knoten gespeichert."
+  },
+  {
+    "question": "Was ist der Unterschied zwischen 'struktureller Äquivalenz' und 'Namensäquivalenz' bei Typen?",
+    "options": [
+      "Es gibt keinen Unterschied.",
+      "Bei Namensäquivalenz müssen die Typen denselben Namen haben; bei struktureller reicht dieselbe innere Struktur.",
+      "Strukturelle Äquivalenz gilt nur für primitive Typen.",
+      "Namensäquivalenz wird nur in C verwendet, strukturelle nur in Java."
+    ],
+    "correct_index": 1,
+    "explanation": "Namensäquivalenz bedeutet, Typen sind nur gleich bei gleichem Namen. Strukturelle Äquivalenz bedeutet, Typen sind gleich, wenn sie aus denselben Komponenten aufgebaut sind, auch bei unterschiedlichen Namen."
+  },
+  {
+    "question": "Welche Prüfung wird bei einem Prozeduraufruf während der Typanalyse durchgeführt?",
+    "options": [
+      "Nur die Anzahl der Parameter wird geprüft.",
+      "Es wird geprüft, ob Anzahl, Typen der Parameter übereinstimmen und ob Referenzparameter Variablen sind.",
+      "Es wird der Code der Prozedur inline eingefügt.",
+      "Es wird geprüft, ob die Prozedur rekursiv ist."
+    ],
+    "correct_index": 1,
+    "explanation": "Beim Aufruf müssen Anzahl und Typen der Argumente passen. Zudem muss bei Referenzparametern das Argument eine Variable sein."
+  },
+  {
+    "question": "Warum wird für die Implementierung von Symboltabellen oft eine Hashmap verwendet?",
+    "options": [
+      "Weil sie die einzige Möglichkeit ist, Daten zu speichern.",
+      "Weil sie im Durchschnitt einen Zugriff in konstanter Zeit O(1) erlaubt.",
+      "Weil sie automatisch die Scopes verwaltet.",
+      "Weil sie sortierte Ausgaben garantiert."
+    ],
+    "correct_index": 1,
+    "explanation": "Hashtabellen ermöglichen durch eine Hashfunktion den direkten Zugriff auf den Eintrag, was die Suche im Durchschnitt sehr schnell (nahezu konstant) macht."
+  },
+  {
+    "question": "Was geschieht, wenn in der semantischen Analyse ein Bezeichner nicht in der Symboltabelle gefunden wird?",
+    "options": [
+      "Der Compiler nimmt automatisch an, es sei eine Integer-Variable.",
+      "Der Compiler generiert eine Fehlermeldung (z. B. 'Undeclared identifier').",
+      "Der Compiler überspringt diese Zeile und macht weiter.",
+      "Der Bezeichner wird als 'null' behandelt."
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn ein Name nicht gefunden wird, liegt ein semantischer Fehler vor, der vom Compiler gemeldet werden muss."
+  },
+  {
+    "question": "Wie wird mit vordefinierten Typen und Prozeduren vor Start der Namensanalyse verfahren?",
+    "options": [
+      "Sie werden vom Parser automatisch erkannt.",
+      "Sie müssen manuell vor dem Durchlauf des Visitors in die globale Symboltabelle eingefügt werden.",
+      "Sie werden erst am Ende der Code-Generierung hinzugefügt.",
+      "Sie benötigen keinen Eintrag in der Symboltabelle."
+    ],
+    "correct_index": 1,
+    "explanation": "Vordefinierte Elemente (wie 'int' oder 'printi') müssen explizit initial in die globale Symboltabelle eingetragen werden, bevor die Analyse des Benutzer-Codes beginnt."
+  },
+  {
+    "question": "Was ist der Zweck der Typanalyse (Type Checking)?",
+    "options": [
+      "Die Ausführungsgeschwindigkeit des Programms zu messen.",
+      "Zu überprüfen, ob Operatoren auf kompatible Operandentypen angewendet werden.",
+      "Den Speicherbedarf des Programms zu berechnen.",
+      "Die Lesbarkeit des Codes zu verbessern."
+    ],
+    "correct_index": 1,
+    "explanation": "Die Typanalyse stellt sicher, dass das Programm logisch konsistent bezüglich der Datentypen ist (z. B. keine Addition von String und Integer)."
+  },
+  {
+    "question": "Welches Problem löst das Konzept des 'Double Dispatching' im Visitor-Pattern?",
+    "options": [
+      "Es ermöglicht das Speichern von Daten in der Symboltabelle.",
+      "Es erlaubt die Auswahl der korrekten Methode basierend auf dem Typ des Visitors UND dem Typ des Elements.",
+      "Es beschleunigt die Hash-Berechnung.",
+      "Es verhindert Endlosschleifen im AST."
+    ],
+    "correct_index": 1,
+    "explanation": "Double Dispatching ermöglicht es, die richtige Methode basierend auf dem konkreten Typ des besuchten Knotens auszuwählen, was in Sprachen ohne Pattern-Matching nötig ist."
+  },
+  {
+    "question": "Was bedeutet es, wenn eine Sprache 'statische Typisierung' verwendet?",
+    "options": [
+      "Typen werden zur Laufzeit geprüft.",
+      "Typen werden zur Compile-Zeit geprüft, und Fehler führen zum Abbruch.",
+      "Variablen können ihren Typ während der Ausführung ändern.",
+      "Es gibt keine Typen in der Sprache."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei statischer Typisierung findet die Typprüfung vor der Ausführung statt (im Compiler). Dies ermöglicht das Fangen von Fehlern frühzeitig."
+  },
+  {
+    "question": "Warum muss bei Referenzparametern das Argument eine Variable sein?",
+    "options": [
+      "Weil Referenzparameter keinen Typ haben.",
+      "Weil auf die Speicheradresse zugegriffen wird, die nur Variablen besitzen.",
+      "Weil Wertparameter schneller sind.",
+      "Weil Referenzparameter nicht in der Symboltabelle gespeichert werden."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Referenzparameter erfordert eine Speicheradresse. Ein Literal oder Ausdruck hat keine persistierende Adresse und kann daher nicht als Referenz übergeben werden."
+  },
+  {
+    "question": "Was ist eine 'leere Anweisung' in Bezug auf die Typanalyse?",
+    "options": [
+      "Sie verursacht immer einen Fehler.",
+      "Sie ist immer typkorrekt und benötigt keine weiteren Prüfungen.",
+      "Sie löscht alle Variablen.",
+      "Sie beendet das Programm."
+    ],
+    "correct_index": 1,
+    "explanation": "Eine leere Anweisung tut nichts. Sie wird daher als immer korrekt getypt definiert, da keine Typinkonsistenzen auftreten können."
+  },
+  {
+    "question": "Welche Information wird in einem AST-Knoten für einen Ausdruck nach der Typanalyse gespeichert?",
+    "options": [
+      "Der Wert des Ausdrucks.",
+      "Der abgeleitete Datentyp des Ergebnisses.",
+      "Die Speicheradresse des Ergebnisses.",
+      "Der Name der Variable, die das Ergebnis speichert."
+    ],
+    "correct_index": 1,
+    "explanation": "Der ermittelte Typ wird als Attribut im Knoten gespeichert, damit nachfolgende Phasen wissen, welche Instruktionen sie verwenden müssen."
+  },
+  {
+    "question": "Was passiert bei Namensäquivalenz, wenn zwei Typen strukturell identisch sind, aber unterschiedliche Namen haben?",
+    "options": [
+      "Sie gelten als identisch und sind austauschbar.",
+      "Sie gelten als unterschiedliche Typen und sind nicht austauschbar.",
+      "Der Compiler wirft eine Warnung, erlaubt aber die Zuweisung.",
+      "Der Compiler wählt automatisch den ersten Namen."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei strikter Namensäquivalenz sind Typen nur gleich, wenn sie denselben Namen haben. Unterschiedliche Namen bedeuten unterschiedliche Typen, auch bei gleicher Struktur."
+  },
+  {
+    "question": "Welcher Schritt folgt unmittelbar nach der semantischen Analyse?",
+    "options": [
+      "Lexikalische Analyse.",
+      "Syntaxanalyse.",
+      "Zwischencode-Generierung / Code-Generierung.",
+      "Linking."
+    ],
+    "correct_index": 2,
+    "explanation": "Nach der semantischen Analyse liegt ein validierter AST vor. Nun beginnt die Synthese-Phase (Code-Generierung)."
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "question": "Was ist der zentrale Unterschied zwischen Matrix- und Graph-Darstellung in Recommender Systems?",
+    "options": [
+      "Im Graph werden Nutzer und Items als Knoten mit Kanten dargestellt",
+      "Im Graph gibt es keine Interaktionen",
+      "Die Matrix enthält mehr Informationen als der Graph",
+      "Der Graph enthält nur Nutzerinformationen"
+    ],
+    "correct_index": 0,
+    "explanation": "Im Graph werden Nutzer und Items als Knoten dargestellt und Interaktionen als Kanten modelliert."
+  },
+  {
+    "question": "Was beschreibt ein 2-Hop-Pfad im User-Item-Graph?",
+    "options": [
+      "Zwei Nutzer, die über ein gemeinsames Item verbunden sind",
+      "Ein Nutzer, der zwei Items direkt gekauft hat",
+      "Zwei Items ohne Verbindung",
+      "Ein Item ohne Interaktionen"
+    ],
+    "correct_index": 0,
+    "explanation": "Ein 2-Hop-Pfad verbindet z. B. zwei Nutzer über ein gemeinsames Item (u → i → u')."
+  },
+  {
+    "question": "Was ist die Grundidee eines Random Walks im Graphen?",
+    "options": [
+      "Zufällig von Knoten zu Nachbarn springen",
+      "Alle Knoten gleichzeitig besuchen",
+      "Nur Items betrachten",
+      "Nur direkte Nachbarn speichern"
+    ],
+    "correct_index": 0,
+    "explanation": "Ein Random Walk bewegt sich zufällig entlang von Kanten durch den Graphen."
+  },
+  {
+    "question": "Was macht Personalized PageRank (PPR) im Vergleich zu PageRank?",
+    "options": [
+      "Startet immer wieder vom Zielnutzer aus",
+      "Verwendet keine Wahrscheinlichkeiten",
+      "Ignoriert die Graphstruktur",
+      "Betrachtet nur Items"
+    ],
+    "correct_index": 0,
+    "explanation": "PPR startet mit einer hohen Wahrscheinlichkeit immer wieder beim Zielnutzer, wodurch personalisierte Scores entstehen."
+  },
+  {
+    "question": "Wie beeinflusst ein hoher Restart-Parameter α bei PPR die Empfehlungen?",
+    "options": [
+      "Die Empfehlungen bleiben näher am Startnutzer",
+      "Die Empfehlungen werden zufälliger",
+      "Es werden nur globale Trends genutzt",
+      "Die Laufzeit sinkt auf null"
+    ],
+    "correct_index": 0,
+    "explanation": "Ein hoher α führt dazu, dass der Random Walk häufiger zurückspringt und sich stärker auf lokale Nachbarschaften konzentriert."
+  },
+  {
+    "question": "Was ist ein Nachteil von PPR?",
+    "options": [
+      "Hohe Rechenkosten für jeden Nutzer",
+      "Zu viele Features",
+      "Keine Graphstruktur",
+      "Nur für kleine Datensätze geeignet"
+    ],
+    "correct_index": 0,
+    "explanation": "PPR muss für jeden Nutzer berechnet werden und ist daher teuer bei großen Systemen."
+  },
+  {
+    "question": "Was ist die zentrale Idee von Graph Neural Networks (GNNs)?",
+    "options": [
+      "Knoten-Embeddings durch Aggregation von Nachbarinformationen lernen",
+      "Nur zufällige Walks durchführen",
+      "Keine Features verwenden",
+      "Nur direkte Interaktionen speichern"
+    ],
+    "correct_index": 0,
+    "explanation": "GNNs lernen Embeddings, indem sie Informationen von Nachbarknoten aggregieren."
+  },
+  {
+    "question": "Was passiert in einer Message-Passing-Schicht eines GNN?",
+    "options": [
+      "Nachbarinformationen werden aggregiert und zur Aktualisierung genutzt",
+      "Alle Knoten werden gelöscht",
+      "Nur Labels werden verändert",
+      "Der Graph wird neu aufgebaut"
+    ],
+    "correct_index": 0,
+    "explanation": "In jeder Schicht werden Informationen von Nachbarn gesammelt und zur Aktualisierung des Knotens verwendet."
+  },
+  {
+    "question": "Was ist die zentrale Vereinfachung von LightGCN?",
+    "options": [
+      "Nur Nachbaraggregation ohne Transformationen und Aktivierungen",
+      "Keine Nutzung von Graphen",
+      "Nur Nutzung von Content-Features",
+      "Kein Training notwendig"
+    ],
+    "correct_index": 0,
+    "explanation": "LightGCN verzichtet auf Transformationen und Aktivierungsfunktionen und nutzt nur Aggregation."
+  },
+  {
+    "question": "Was beschreibt Over-Smoothing in GNNs?",
+    "options": [
+      "Embeddings werden zu ähnlich und verlieren Unterscheidbarkeit",
+      "Zu wenige Trainingsdaten",
+      "Zu hohe Lernrate",
+      "Zu kleine Embeddings"
+    ],
+    "correct_index": 0,
+    "explanation": "Zu viele Layer führen dazu, dass sich Embeddings angleichen und an Aussagekraft verlieren."
+  },
+  {
+    "question": "Welchen Vorteil bieten Graph-basierte Recommender gegenüber klassischen Methoden?",
+    "options": [
+      "Sie nutzen Multi-Hop-Beziehungen für bessere Empfehlungen",
+      "Sie brauchen keine Daten",
+      "Sie ignorieren seltene Items",
+      "Sie sind immer schneller"
+    ],
+    "correct_index": 0,
+    "explanation": "Graphmethoden nutzen auch indirekte Beziehungen (mehrere Hops) im Netzwerk."
+  },
+  {
+    "question": "Was ist ein typisches Problem von Graph-basierten Modellen?",
+    "options": [
+      "Cold-Start für neue Knoten ohne Verbindungen",
+      "Zu viele Labels",
+      "Keine Interpretierbarkeit",
+      "Keine Skalierbarkeit bei kleinen Daten"
+    ],
+    "correct_index": 0,
+    "explanation": "Neue Nutzer oder Items ohne Kanten können nicht gut im Graph modelliert werden."
+  },
+  {
+    "question": "Was fügt ein Knowledge Graph zu einem Recommender System hinzu?",
+    "options": [
+      "Zusätzliche Entitäten und Relationen wie Genre oder Marke",
+      "Mehr Nutzerinteraktionen",
+      "Nur Popularitätsdaten",
+      "Zufällige Verbindungen"
+    ],
+    "correct_index": 0,
+    "explanation": "Knowledge Graphs erweitern den User-Item-Graph um semantische Informationen."
+  },
+  {
+    "question": "Wann sind Graph-basierte Methoden besonders sinnvoll?",
+    "options": [
+      "Wenn genügend Verbindungen und Struktur im Graph vorhanden sind",
+      "Wenn nur ein Item existiert",
+      "Wenn keine Nutzerhistorie vorliegt",
+      "Wenn nur zufällige Daten vorhanden sind"
+    ],
+    "correct_index": 0,
+    "explanation": "Graphmethoden funktionieren gut, wenn ausreichend Struktur und Verbindungen vorhanden sind."
+  },
+  {
+    "question": "Warum können Graph-basierte Modelle die Long-Tail-Coverage verbessern?",
+    "options": [
+      "Weil sie indirekte Verbindungen zu seltenen Items nutzen",
+      "Weil sie nur populäre Items empfehlen",
+      "Weil sie keine Nutzer berücksichtigen",
+      "Weil sie nur neue Items zeigen"
+    ],
+    "correct_index": 0,
+    "explanation": "Über Multi-Hop-Pfade können auch seltene Items erreicht und empfohlen werden."
+  }
+]

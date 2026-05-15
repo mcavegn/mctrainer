@@ -1,0 +1,277 @@
+[
+  {
+    "question": "Warum reicht Accuracy allein bei der Evaluation von Empfehlungssystemen nicht aus?",
+    "options": [
+      "Weil Accuracy nicht berechnet werden kann",
+      "Weil sie Popularitätsbias und fehlende Entdeckung nicht erkennt",
+      "Weil sie nur für explizite Ratings gilt",
+      "Weil sie nur im Online-Test funktioniert"
+    ],
+    "correct_index": 1,
+    "explanation": "Accuracy-Metriken wie Recall oder NDCG erfassen nicht, ob ein Modell nur populäre Items empfiehlt oder den Long Tail ignoriert."
+  },
+  {
+    "question": "Was misst Catalog Coverage@K?",
+    "options": [
+      "Den Anteil relevanter Treffer",
+      "Die durchschnittliche Listenlänge",
+      "Den Anteil der Items, die in irgendeiner Top-K-Liste erscheinen",
+      "Die Anzahl der Nutzer mit Klicks"
+    ],
+    "correct_index": 2,
+    "explanation": "Catalog Coverage misst, wie breit der gesamte Item-Katalog durch Empfehlungen genutzt wird."
+  },
+  {
+    "question": "Warum kann hohe Diversität problematisch sein?",
+    "options": [
+      "Weil Diversität Accuracy ersetzt",
+      "Weil zufällige Items ebenfalls divers wirken können",
+      "Weil Diversität nur für Rankings gilt",
+      "Weil sie Cold-Start verstärkt"
+    ],
+    "correct_index": 1,
+    "explanation": "Eine sehr diverse Liste kann auch viele irrelevante Items enthalten; Diversität sollte immer gemeinsam mit Accuracy betrachtet werden."
+  },
+  {
+    "question": "Was beschreibt die Pareto-Front im Kontext von Recommender-Metriken?",
+    "options": [
+      "Die beste einzelne Metrik",
+      "Die Menge dominierter Modelle",
+      "Den Trade-off zwischen Accuracy und Beyond-Accuracy-Zielen",
+      "Eine Trainingsmethode für kNN"
+    ],
+    "correct_index": 2,
+    "explanation": "Modelle auf der Pareto-Front sind nicht eindeutig besser, sondern repräsentieren unterschiedliche Kompromisse zwischen Zielen."
+  },
+  {
+    "question": "Was ist die Grundidee von Collaborative Filtering?",
+    "options": [
+      "Item-Features analysieren",
+      "Verhalten über Nutzer hinweg auswerten",
+      "Explizite Ratings vorhersagen",
+      "Regeln manuell definieren"
+    ],
+    "correct_index": 1,
+    "explanation": "Collaborative Filtering nutzt Muster im Nutzerverhalten, nicht in Item-Inhalten."
+  },
+  {
+    "question": "Warum bedeutet eine 0 in impliziten Daten meist nicht negativ?",
+    "options": [
+      "Weil alle Items positiv sind",
+      "Weil fehlende Interaktion meist Unbekanntheit bedeutet",
+      "Weil 0 technisch nicht speicherbar ist",
+      "Weil negative Labels entfernt werden"
+    ],
+    "correct_index": 1,
+    "explanation": "In implizitem Feedback bedeutet fehlende Interaktion in der Regel fehlende Exposition oder Interesse, nicht Ablehnung."
+  },
+  {
+    "question": "Was ist der zentrale Unterschied zwischen User-User- und Item-Item-kNN?",
+    "options": [
+      "User-User nutzt Inhalte, Item-Item nutzt Ratings",
+      "User-User vergleicht Nutzer, Item-Item vergleicht Items",
+      "Item-Item benötigt keine Daten",
+      "User-User ist immer genauer"
+    ],
+    "correct_index": 1,
+    "explanation": "User-User bildet Nachbarschaften über Nutzer, Item-Item über Items."
+  },
+  {
+    "question": "Warum ist Item-Item-kNN oft skalierbarer?",
+    "options": [
+      "Weil Nutzer stabiler sind als Items",
+      "Weil Item-Nachbarschaften seltener wechseln",
+      "Weil keine Normalisierung nötig ist",
+      "Weil Popularität ignoriert wird"
+    ],
+    "correct_index": 1,
+    "explanation": "Items ändern ihre Ähnlichkeiten langsamer als Nutzerprofile, daher sind Item-Nachbarschaften effizienter vorab berechenbar."
+  },
+  {
+    "question": "Was korrigiert die Normierung bei Cosine Similarity?",
+    "options": [
+      "Zeitliche Effekte",
+      "Support-Größe",
+      "Popularität durch Vektorlänge",
+      "Explizite Ratings"
+    ],
+    "correct_index": 2,
+    "explanation": "Cosine teilt durch die Vektorlängen und verhindert, dass sehr populäre Items automatisch hohe Ähnlichkeit erhalten."
+  },
+  {
+    "question": "Wofür eignet sich Jaccard-Similarity besonders?",
+    "options": [
+      "Für gewichtete Ratings",
+      "Für kontinuierliche Features",
+      "Für binäre Mengenvergleiche",
+      "Für Ranking-Loss"
+    ],
+    "correct_index": 2,
+    "explanation": "Jaccard betrachtet Schnittmenge relativ zur Vereinigungsmenge und ist daher gut für binäre Interaktionsdaten geeignet."
+  },
+  {
+    "question": "Welches Problem adressiert Shrinkage?",
+    "options": [
+      "Cold Start",
+      "Zu große Kataloge",
+      "Zufällige hohe Ähnlichkeit bei kleinem Support",
+      "Langsame Evaluation"
+    ],
+    "correct_index": 2,
+    "explanation": "Shrinkage reduziert die Ähnlichkeit, wenn nur wenige Co-Interaktionen vorliegen."
+  },
+  {
+    "question": "Welche Rolle spielt der Parameter λ beim Shrinkage?",
+    "options": [
+      "Er steuert die Anzahl der Nachbarn",
+      "Er kontrolliert das Misstrauen gegenüber kleinem Support",
+      "Er normalisiert Vektoren",
+      "Er ersetzt Cosine"
+    ],
+    "correct_index": 1,
+    "explanation": "Ein höheres λ führt zu stärkerer Abschwächung von Ähnlichkeiten mit geringem Support."
+  },
+  {
+    "question": "Warum werden Top-k-Nachbarn pro Item gespeichert?",
+    "options": [
+      "Um alle Ähnlichkeiten zu behalten",
+      "Um Speicher und Rauschen zu reduzieren",
+      "Um Popularität zu erhöhen",
+      "Um Cold-Start zu lösen"
+    ],
+    "correct_index": 1,
+    "explanation": "Top-k beschränkt das Nachbarschaftsgraphen auf die stärksten Kanten und reduziert schwache, verrauschte Verbindungen."
+  },
+  {
+    "question": "Was ist Exposure Bias?",
+    "options": [
+      "Items werden zu oft gekauft",
+      "Nur angezeigte Items können Feedback erzeugen",
+      "Cosine bevorzugt große Vektoren",
+      "Shrinkage verzerrt Support"
+    ],
+    "correct_index": 1,
+    "explanation": "Feedback entsteht nur für gezeigte Items; das System beeinflusst somit die beobachteten Daten."
+  },
+  {
+    "question": "Warum kann Co-Occurrence sowohl Geschmack als auch Systempolitik reflektieren?",
+    "options": [
+      "Weil Nutzer zufällig klicken",
+      "Weil Exposition durch frühere Empfehlungen beeinflusst ist",
+      "Weil Popularität ignoriert wird",
+      "Weil Jaccard deterministisch ist"
+    ],
+    "correct_index": 1,
+    "explanation": "Wenn das System bestimmte Items häufiger zeigt, entstehen dadurch künstliche Co-Occurrences."
+  },
+  {
+    "question": "Was ist ein typisches Aggregationsschema für implizite Events?",
+    "options": [
+      "Minimierung der Klicks",
+      "Logarithmische Zählung von Interaktionen",
+      "Zufällige Gewichtung",
+      "Lineare Regression"
+    ],
+    "correct_index": 1,
+    "explanation": "Log(1 + Anzahl Events) modelliert abnehmenden Zusatznutzen wiederholter Interaktionen."
+  },
+  {
+    "question": "Warum sind Sparse-Matrizen essenziell für CF?",
+    "options": [
+      "Weil Dense-Matrizen schneller sind",
+      "Weil fast alle Einträge Null sind",
+      "Weil Normalisierung sonst unmöglich ist",
+      "Weil Shrinkage sie erfordert"
+    ],
+    "correct_index": 1,
+    "explanation": "In Recommender-Daten sind nur sehr wenige Nutzer-Item-Paare beobachtet."
+  },
+  {
+    "question": "Warum muss man bereits gesehene Items beim Scoring filtern?",
+    "options": [
+      "Weil sie sonst hohe Scores bekommen",
+      "Weil sie keine Ähnlichkeit haben",
+      "Weil sie doppelt gezählt würden",
+      "Weil Evaluation das verlangt"
+    ],
+    "correct_index": 0,
+    "explanation": "Ohne Filterung würde das Modell bereits konsumierte Items erneut empfehlen."
+  },
+  {
+    "question": "Warum sollte man Cosine auf dem Trainingssplit berechnen?",
+    "options": [
+      "Wegen Speichergrenzen",
+      "Um Leakage aus Testdaten zu vermeiden",
+      "Weil Testdaten keine Items enthalten",
+      "Weil Popularität konstant bleibt"
+    ],
+    "correct_index": 1,
+    "explanation": "Ähnlichkeiten dürfen keine Informationen aus zukünftigen Interaktionen enthalten."
+  },
+  {
+    "question": "Was passiert typischerweise bei extrem kleinem k?",
+    "options": [
+      "Mehr Diversität",
+      "Zu wenige Kandidaten",
+      "Stabile Nachbarschaften",
+      "Höhere Coverage"
+    ],
+    "correct_index": 1,
+    "explanation": "Ein zu kleines k kann relevante Signalquellen abschneiden."
+  },
+  {
+    "question": "Wann versagt kNN-CF typischerweise?",
+    "options": [
+      "Bei dichten Matrizen",
+      "Bei globalen Embeddings",
+      "Bei Cold-Start oder extremer Sparsity",
+      "Bei binären Daten"
+    ],
+    "correct_index": 2,
+    "explanation": "Ohne Interaktionen gibt es keine Nachbarschaften und damit keine Signalbasis."
+  },
+  {
+    "question": "Warum ist Neighbor-Inspection ein wichtiges Debugging-Tool?",
+    "options": [
+      "Weil sie Accuracy berechnet",
+      "Weil sie semantische Plausibilität überprüft",
+      "Weil sie Sparse-Matrizen ersetzt",
+      "Weil sie Leakage automatisch findet"
+    ],
+    "correct_index": 1,
+    "explanation": "Unplausible Nachbarn deuten oft auf Fehler in Similarity, Split oder Vorverarbeitung hin."
+  },
+  {
+    "question": "Was kontrolliert man beim Slice-Analysis?",
+    "options": [
+      "Trainingsdauer",
+      "Performance für unterschiedliche Nutzergruppen",
+      "Ähnlichkeitsmetriken",
+      "Sparsity-Level"
+    ],
+    "correct_index": 1,
+    "explanation": "Modelle verhalten sich oft unterschiedlich für Short- vs. Long-History-User."
+  },
+  {
+    "question": "Warum sollte man Popularity als Baseline behalten?",
+    "options": [
+      "Weil sie immer gewinnt",
+      "Weil sie ein starker Referenzpunkt ist",
+      "Weil sie Shrinkage ersetzt",
+      "Weil sie Diversität maximiert"
+    ],
+    "correct_index": 1,
+    "explanation": "In sparsamen impliziten Daten ist Popularität oft schwer zu schlagen."
+  },
+  {
+    "question": "Warum ist CF lokal, Matrix Factorization jedoch global?",
+    "options": [
+      "CF nutzt nur Embeddings",
+      "CF arbeitet mit expliziten Ratings",
+      "CF basiert auf Nachbarschaften, MF auf globalen Repräsentationen",
+      "MF benötigt keine Daten"
+    ],
+    "correct_index": 2,
+    "explanation": "kNN nutzt lokale Ähnlichkeiten, während MF globale latente Faktoren lernt."
+  }
+]

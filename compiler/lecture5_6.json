@@ -1,0 +1,222 @@
+[
+  {
+    "question": "Warum sind reguläre Sprachen (Regular Languages) nicht ausreichend, um die Syntax von Programmiersprachen vollständig zu beschreiben?",
+    "options": [
+      "Weil reguläre Sprachen keine Wiederholungen von Zeichen erlauben.",
+      "Weil sie keine verschachtelten Strukturen (wie balancierte Klammern) zählen können, da ein endlicher Automat keinen Speicher für die Anzahl der Wiederholungen hat.",
+      "Weil reguläre Sprachen nur für die lexikalische Analyse, nicht aber für die Token-Erkennung geeignet sind.",
+      "Weil Programmiersprachen zu viele verschiedene Zeichen verwenden."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein endlicher Automat (DFA/NFA) hat nur eine begrenzte Anzahl von Zuständen. Um balancierte Klammern `((...))` zu prüfen, müsste sich der Automat merken, wie viele öffnende Klammern gesehen wurden. Da diese Anzahl beliebig groß sein kann, würde der Automat unendlich viele Zustände benötigen, was unmöglich ist. Daher benötigt man für verschachtelte Strukturen mächtigere Formalismen wie kontextfreie Grammatiken (CFG) (Folie 3-4)."
+  },
+  {
+    "question": "Was ist die primäre Ausgabe eines Parsers im Compilerbau?",
+    "options": [
+      "Ein Stream von Tokens.",
+      "Ein Parse Tree (oder in der Praxis oft ein Abstract Syntax Tree, AST), der die hierarchische Struktur des Programms darstellt.",
+      "Eine Liste von lexikalischen Fehlern.",
+      "Der optimierte Maschinencode."
+    ],
+    "correct_index": 1,
+    "explanation": "Der Parser nimmt den Token-Stream vom Lexer als Eingabe. Seine Aufgabe ist es, zu prüfen, ob die Tokenfolge den Grammatikregeln entspricht, und daraus eine baumartige Struktur (Parse Tree) abzuleiten. In modernen Compilern wird oft direkt ein kompakterer Abstract Syntax Tree (AST) erstellt, der für die weiteren Phasen (Semantik, Codegen) verwendet wird (Folie 5-7)."
+  },
+  {
+    "question": "Was definiert eine 'kontextfreie Grammatik' (CFG) formal?",
+    "options": [
+      "Eine Menge von regulären Ausdrücken.",
+      "Eine Menge von Terminalen, Nicht-Terminalen, einem Startsymbol und einer Menge von Produktionsregeln der Form A → α.",
+      "Eine Tabelle von Zustandsübergängen.",
+      "Eine Liste von Schlüsselwörtern und Operatoren."
+    ],
+    "correct_index": 1,
+    "explanation": "Eine CFG besteht aus vier Komponenten: 1. Terminals (Tokens), 2. Non-terminals (syntaktische Variablen), 3. Ein Startsymbol (ein Non-terminal), und 4. Produktionsregeln, die definieren, wie ein Non-terminal durch eine Folge von Terminalen und/oder Non-terminalen ersetzt werden kann (Folie 10)."
+  },
+  {
+    "question": "Was bedeutet es, wenn eine Grammatik 'ambig' (mehrdeutig) ist?",
+    "options": [
+      "Wenn sie keine gültigen Strings erzeugen kann.",
+      "Wenn es für mindestens einen String der Sprache mehr als einen eindeutigen Parse Tree (oder mehr als eine Links-/Rechtsableitung) gibt.",
+      "Wenn sie zu viele Produktionsregeln hat.",
+      "Wenn sie sowohl reguläre als auch kontextfreie Elemente enthält."
+    ],
+    "correct_index": 1,
+    "explanation": "Ambiguität liegt vor, wenn ein Satz (String) auf mehr als eine Weise aus der Grammatik abgeleitet werden kann, was zu unterschiedlichen Parse Trees führt. Dies ist problematisch, da die Struktur des Baums die Bedeutung (Semantik) des Programms bestimmt (z. B. Operatorpräzedenz bei `a + b * c`). Eine Grammatik sollte idealerweise eindeutig sein (Folie 46-47)."
+  },
+  {
+    "question": "Welches klassische Problem der Ambiguität tritt bei der Konstruktion von 'if-then-else' Grammatiken auf?",
+    "options": [
+      "Das 'Missing Semicolon' Problem.",
+      "Das 'Dangling Else' Problem: Ein 'else' kann syntaktisch zu mehreren verschiedenen 'if'-Anweisungen gehören.",
+      "Das 'Infinite Loop' Problem.",
+      "Das 'Type Mismatch' Problem."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei verschachtelten if-Anweisungen ohne Klammern (z. B. `if E1 then if E2 then E3 else E4`) ist nicht klar, zu welchem `if` das `else` gehört. Die Standard-Konvention (und Lösung) ist, dass `else` immer zum nächstgelegenen noch nicht gepaarten `then` gehört. Dies erfordert eine Umformulierung der Grammatik oder spezielle Disambiguierungsregeln (Folie 50-53)."
+  },
+  {
+    "question": "Wie kann Ambiguität in arithmetischen Ausdrücken (z. B. `E → E + E | E * E`) aufgelöst werden?",
+    "options": [
+      "Durch das Entfernen aller Operatoren.",
+      "Durch das Umschreiben der Grammatik in eine eindeutige Form, die Präzedenz und Assoziativität erzwingt, oder durch Deklarationen (%left, %right) im Parser-Generator.",
+      "Durch das Hinzufügen von mehr Non-Terminalen ohne Struktur.",
+      "Ambiguität kann bei arithmetischen Ausdrücken nicht aufgelöst werden."
+    ],
+    "correct_index": 1,
+    "explanation": "Man kann die Grammatik so umschreiben, dass sie verschiedene Ebenen für Terme und Faktoren einführt (z. B. `E → E + T`, `T → T * F`), wodurch `*` stärker bindet als `+`. Alternativ erlauben Tools wie Bison/YPAC, die ambige Grammatik zu behalten und die Konflikte durch Präzedenz- und Assoziativitäts-Deklarationen (`%left +`, `%left *`) aufzulösen (Folie 49, 56-57)."
+  },
+  {
+    "question": "Was ist das Ziel des 'Panic Mode' bei der Syntax-Fehlerbehandlung?",
+    "options": [
+      "Den Compiler sofort abzubrechen.",
+      "Den Benutzer in eine Endlosschleife von Fehlermeldungen zu führen.",
+      "Tokens zu verwerfen, bis ein synchronisierendes Token (wie ';' oder '}') gefunden wird, um dann die Analyse fortzusetzen und weitere Fehler zu finden.",
+      "Automatisch den korrekten Code zu erraten und zu reparieren."
+    ],
+    "correct_index": 2,
+    "explanation": "Panic Mode ist die einfachste und häufigste Methode. Bei einem Fehler verwirft der Parser Eingabe-Token, bis er ein sogenanntes 'Synchronisation Token' (oft Statement-Terminatoren) findet. Dann wird der Parser in einem bekannten Zustand neu gestartet. Dies verhindert, dass der Compiler nach dem ersten Fehler abstürzt, und ermöglicht das Finden weiterer Fehler (Folie 6-7)."
+  },
+  {
+    "question": "Was ist der Hauptunterschied zwischen einem Parse Tree und einem Abstract Syntax Tree (AST)?",
+    "options": [
+      "Es gibt keinen Unterschied.",
+      "Ein AST enthält alle Details der Grammatik (inkl. Klammern, einzelne Produktionsschritte), ein Parse Tree nicht.",
+      "Ein AST ist eine kompaktere Darstellung, die für die weitere Verarbeitung relevante Struktur behält, aber unnötige Details (wie Klammern oder einzelne Grammatik-Schritte) weglässt.",
+      "Ein Parse Tree wird für die Code-Generierung verwendet, ein AST nur für die lexikalische Analyse."
+    ],
+    "correct_index": 2,
+    "explanation": "Ein Parse Tree bildet jede einzelne Produktionsregel der Grammatik ab und ist oft sehr groß und redundant (z. B. separate Knoten für Klammern). Ein AST abstrahiert davon und behält nur die essentielle logische Struktur (z. B. ein 'Plus'-Knoten mit zwei Kindern), was ihn für Semantik-Analyse und Code-Generierung effizienter macht (Folie 13-14)."
+  },
+  {
+    "question": "Was sind 'synthesisierte Attribute' (synthesized attributes) im Kontext von Syntax-Directed Translation?",
+    "options": [
+      "Attribute, die von den Elternknoten an die Kinder weitergegeben werden.",
+      "Attribute, deren Wert ausschließlich aus den Attributen der Kindknoten im Parse Tree berechnet wird (Bottom-Up).",
+      "Attribute, die zufällig generiert werden.",
+      "Attribute, die nur in der lexikalischen Analyse vorkommen."
+    ],
+    "correct_index": 1,
+    "explanation": "Synthesisierte Attribute fließen von unten nach oben im Baum. Der Wert eines Knotens wird aus den Werten seiner Kinder berechnet (z. B. `E.val = E1.val + E2.val'). Grammatiken, die nur synthesierte Attribute verwenden, heißen S-attributierte Grammatiken und können leicht während eines Bottom-Up-Parsings oder Recursive Descent (nach dem Aufruf der Kinder) ausgewertet werden (Folie 23)."
+  },
+  {
+    "question": "Warum funktioniert ein einfacher Recursive Descent Parser nicht direkt mit links-rekursiven Grammatiken (z. B. `E → E + T`)?",
+    "options": [
+      "Weil links-rekursive Grammatiken ambig sind.",
+      "Weil die rekursive Funktion sofort wieder sich selbst aufruft, ohne Input zu konsumieren, was zu einer Endlosschleife (Stack Overflow) führt.",
+      "Weil Recursive Descent nur für reguläre Sprachen funktioniert.",
+      "Weil links-rekursive Grammatiken keine Terminals enthalten."
+    ],
+    "correct_index": 1,
+    "explanation": "Bei einer Regel `E → E ...` würde die Funktion `E()` als erstes wieder `E()` aufrufen. Da dabei kein Token aus dem Input-Stream konsumiert wird, wiederholt sich dieser Aufruf unendlich oft, bis der Stack überläuft. Linksrekursion muss daher vor dem Bau eines Recursive Descent Parsers eliminiert werden (Folie 49-50)."
+  },
+  {
+    "question": "Wie wird Linksrekursion (`S → S α | β`) typischerweise eliminiert?",
+    "options": [
+      "Durch Löschen der rekursiven Regel.",
+      "Durch Umwandlung in eine Rechtsrekursion: `S → β S'` und `S' → α S' | ε`.",
+      "Durch Hinzufügen von mehr Linksrekursion.",
+      "Durch Ersetzen aller Non-Terminalen durch Terminals."
+    ],
+    "correct_index": 1,
+    "explanation": "Die Standard-Transformation wandelt die direkte Linksrekursion in eine Rechtsrekursion um. Die neue Grammatik erzeugt dieselbe Sprache (Strings, die mit β beginnen und von beliebig vielen α gefolgt werden), ist aber für Top-Down-Parser (wie Recursive Descent) geeignet, da sie nicht sofort in eine Endlosschleife gerät (Folie 50-51)."
+  },
+  {
+    "question": "Was ist das Prinzip des 'Backtracking' im Recursive Descent Parsing?",
+    "options": [
+      "Der Parser probiert eine Regel; wenn sie scheitert, setzt er den Input-Zeiger zurück und probiert die nächste alternative Regel.",
+      "Der Parser rät den gesamten Code im Voraus.",
+      "Der Parser ignoriert Fehler und macht einfach weiter.",
+      "Backtracking ist im Recursive Descent nicht möglich."
+    ],
+    "correct_index": 0,
+    "explanation": "Ein einfacher Recursive Descent Parser kann mehrere Produktionsregeln für ein Non-Trial ausprobieren. Wenn die erste Regel teilweise matcht, aber dann scheitert (Mismatch), muss der Parser den Zustand (Position im Token-Stream) auf den Zeitpunkt vor dem Versuch zurücksetzen ('save = next') und die nächste Alternative probieren. Dies kann ineffizient sein, ist aber das Grundprinzip (Folie 33-36, 45)."
+  },
+  {
+    "question": "Welche Rolle spielen 'semantische Aktionen' (semantic actions) in einer mit Aktionen annotierten Grammatik?",
+    "options": [
+      "Sie dienen nur als Kommentare im Code.",
+      "Sie sind Code-Snippets, die ausgeführt werden, wenn eine Produktionsregel erkannt wird, um z. B. AST-Knoten zu erstellen oder Werte zu berechnen.",
+      "Sie ändern die Grammatikregeln zur Laufzeit.",
+      "Sie werden nur bei Fehlern ausgeführt."
+    ],
+    "correct_index": 1,
+    "explanation": "Semantische Aktionen (oft in geschweiften Klammern `{ ... }` geschrieben) erlauben es, den Parser zu erweitern, um bei erfolgreicher Erkennung einer Regel spezifische Aufgaben auszuführen. Typische Anwendungen sind das Erstellen von AST-Knoten (`mkplus(E1, E2)`), das Berechnen von Werten oder das Einfügen in Symboltabellen (Folie 15-16, 26)."
+  },
+  {
+    "question": "Was ist ein 'Synchronisation Token' im Panic Mode Error Recovery?",
+    "options": [
+      "Ein Token, das den Compiler zum Absturz bringt.",
+      "Ein speziell markiertes Token, das vom Lexer erzeugt wird.",
+      "Ein Token mit klarer struktureller Bedeutung (z. B. ';', '}', 'end'), bei dem der Parser die Analyse wieder sicher fortsetzen kann.",
+      "Das erste Token des Programms."
+    ],
+    "explanation": "Im Panic Mode verwirft der Parser Token, bis er auf ein solches Synchronisation-Token stößt. Diese Token dienen als 'Ankerpunkte' im Code, an denen der Parser weiß, dass er sich in einem definierten Zustand befindet (z. B. am Ende eines Statements), und von dort aus normal weiterparsen kann (Folie 7).",
+    "correct_index": 2
+  },
+  {
+    "question": "Warum ist die Reihenfolge der Regeln in einem Recursive Descent Parser wichtig?",
+    "options": [
+      "Weil der Parser immer die letzte Regel zuerst probiert.",
+      "Weil der Parser die Regeln typischerweise in der definierten Reihenfolge ausprobiert und bei Erfolg (ohne Backtracking-Optimierung) stoppt; falsche Reihenfolge kann zu falschen Matches führen.",
+      "Weil die Reihenfolge die Geschwindigkeit des Compilers nicht beeinflusst.",
+      "Weil nur die erste Regel ever ausgeführt wird."
+    ],
+    "correct_index": 1,
+    "explanation": "Ein Recursive Descent Parser probiert Alternativen oft sequentiell. Wenn eine Grammatik ambig ist oder Präzedenzregeln erfordert (z. B. spezifischere Regeln vor allgemeineren), muss die Reihenfolge im Code sorgfältig gewählt werden, damit die gewünschte Regel zuerst matcht. Besonders wichtig ist dies, wenn kein vollständiges Backtracking implementiert ist (Folie 31, 47)."
+  },
+  {
+    "question": "Was beschreibt die Notation `S →* w` in der Theorie der CFGs?",
+    "options": [
+      "Dass S direkt in einem Schritt zu w wird.",
+      "Dass S in null oder mehr Schritten zu der Stringfolge w abgeleitet werden kann.",
+      "Dass S und w identisch sind.",
+      "Dass w eine Teilmenge von S ist."
+    ],
+    "explanation": "Der Stern `*` über dem Pfeil (oder in der Notation `→*`) bedeutet die reflexive und transitive Hülle der Ableitungsrelation. Es heißt, man kann vom Startsymbol S ausgehend durch wiederholtes Anwenden von Produktionsregeln schließlich den String w (der nur aus Terminalen besteht) ableiten (Folie 17-18).",
+    "correct_index": 1
+  },
+  {
+    "question": "Welcher Nachteil wird der Methode 'Error Productions' zur Fehlerbehandlung zugeschrieben?",
+    "options": [
+      "Sie ist zu einfach zu implementieren.",
+      "Sie verlangsamt den Parser nicht.",
+      "Sie kompliziert die Grammatik, da sie fehlerhafte Konstrukte als legale alternative Syntax in die Grammatik aufnimmt.",
+      "Sie kann keine Fehler erkennen."
+    ],
+    "explanation": "Bei Error Productions fügt man Regeln hinzu, die typische Fehler abbilden (z. B. `E → E E` um fehlende Operatoren zu fangen). Der Nachteil ist, dass die Grammatik dadurch aufgebläht und unübersichtlicher wird, und der Parser möglicherweise legale Konstrukte falsch interpretiert, weil er sie als 'Fehler-Regel' matcht (Folie 8-9).",
+    "correct_index": 2
+  },
+  {
+    "question": "Was ist der Unterschied zwischen einer 'Left-most' und einer 'Right-most' Ableitung?",
+    "options": [
+      "Es gibt keinen Unterschied im Ergebnis (Parse Tree), nur in der Reihenfolge, in der die Non-Terminalen expandiert werden.",
+      "Sie erzeugen unterschiedliche Parse Trees.",
+      "Left-most wird nur für Compiler, Right-most nur für Interpreter verwendet.",
+      "Right-most Ableitungen sind immer kürzer."
+    ],
+    "explanation": "Beide Ableitungsarten führen zum selben Parse Tree (und damit zur selben Bedeutung). Der Unterschied liegt rein im Ablauf: Bei der Left-most Ableitung wird immer das *linkeste* noch vorhandene Non-Terminal zuerst ersetzt, bei der Right-most Ableitung das *rechteste*. Parser-Algorithmen folgen oft strikt einer dieser Strategien (Folie 36-44).",
+    "correct_index": 0
+  },
+  {
+    "question": "Warum ist 'Automatic Global Correction' als Fehlerbehandlungsstrategie oft unpraktisch?",
+    "options": [
+      "Weil sie zu einfach ist.",
+      "Weil sie extrem rechenintensiv ist (exhaustive search), den Parser verlangsamt und nicht garantiert, dass die gefundene 'naheste' Korrektur die vom Nutzer intendierte war.",
+      "Weil sie keine Fehler findet.",
+      "Weil sie nur für kleine Programme funktioniert."
+    ],
+    "explanation": "Der Versuch, den 'nächstgelegenen' korrekten Code durch Einfügen/Löschen von Token zu finden, erfordert eine enorme Suche im Raum aller Möglichkeiten. Das verlangsamt die Kompilierung massiv, und das Ergebnis ist oft überraschend ('Did you mean...?'), aber nicht das, was der Programmierer eigentlich schreiben wollte. Daher wird es in praktischen Compilern selten eingesetzt (Folie 9-10).",
+    "correct_index": 1
+  },
+  {
+    "question": "Was ist eine 'S-attributed Grammar'?",
+    "options": [
+      "Eine Grammatik, die nur vererbte Attribute verwendet.",
+      "Eine Grammatik, die nur synthesierte Attribute verwendet und daher einfach Bottom-Up ausgewertet werden kann.",
+      "Eine Grammatik, die keine Attribute hat.",
+      "Eine Grammatik, die nur für Schleifen geeignet ist."
+    ],
+    "explanation": "Eine S-attributierte Grammatik ist eine spezielle Form, bei der alle Attribute synthesiert sind (Werte fließen von Kindern zu Eltern). Dies ist die einfachste und häufigste Form, da die Auswertungsreihenfolge eindeutig ist: Man muss nur den Baum post-order (Bottom-Up) traversieren, um alle Werte berechnen zu können, ohne Zyklen befürchten zu müssen (Folie 23).",
+    "correct_index": 1
+  }
+]

@@ -1,0 +1,321 @@
+[
+  {
+    "question": "Warum kann Matrix Factorization (MF) k-Nearest Neighbors (kNN) in manchen Szenarien überlegen sein?",
+    "options": [
+      "Weil sie lokale Nachbarschaften memoriert",
+      "Weil sie globale Muster und latente Faktoren nutzt",
+      "Weil sie keine Trainingsdaten benötigt",
+      "Weil sie nur Popularität empfiehlt"
+    ],
+    "correct_index": 1,
+    "explanation": "MF kann indirekte Zusammenhänge zwischen Nutzern und Items lernen, selbst wenn keine direkten Co-Interaktionen vorliegen."
+  },
+  {
+    "question": "Was ist der Kern von Latent-Factor-Modellen in Matrix Factorization (MF)?",
+    "options": [
+      "Explizite Ratings memorieren",
+      "Dichte Vektoren für Nutzer und Items lernen",
+      "Nur Top-K-Items speichern",
+      "Nur Popularitäts-basierte Scores berechnen"
+    ],
+    "correct_index": 1,
+    "explanation": "Latent-Factor-Modelle repräsentieren Nutzer und Items in einem kompakten, dichten Raum, der Interaktionen erklärt."
+  },
+  {
+    "question": "Warum sind Bias-Terme in Biased Matrix Factorization (MF) wichtig?",
+    "options": [
+      "Um Overfitting zu vermeiden",
+      "Um offensichtliche Effekte wie Popularität zu modellieren",
+      "Um Sparse-Matrizen zu dichten",
+      "Um die Lernrate zu regulieren"
+    ],
+    "correct_index": 1,
+    "explanation": "Biases erklären globale Tendenzen, sodass die latenten Faktoren die personalisierte Abweichung modellieren können."
+  },
+  {
+    "question": "Welche Form hat die Grundgleichung einer Biased Matrix Factorization (MF)?",
+    "options": [
+      "ˆrui = p⊤ uqi",
+      "ˆrui = µ + bu + bi + p⊤ uqi",
+      "ˆrui = log(1 + rui)",
+      "ˆrui = cui(sui − p⊤ uqi)"
+    ],
+    "correct_index": 1,
+    "explanation": "Die Bias-Terme µ, bu, bi erfassen globale und individuelle Tendenzen, während p⊤ uqi die personalisierte Interaktion beschreibt."
+  },
+  {
+    "question": "Warum ist Regularisierung bei Matrix Factorization (MF) notwendig?",
+    "options": [
+      "Um alle Scores auf Null zu setzen",
+      "Um übermäßiges Memorieren von Trainingsdaten zu vermeiden",
+      "Um Top-K effizient zu berechnen",
+      "Um Cosine Similarity zu ersetzen"
+    ],
+    "correct_index": 1,
+    "explanation": "Regulierung verhindert, dass das Modell kleinste Trainings-Noise-Muster lernt und dadurch auf Validierung kollabiert."
+  },
+  {
+    "question": "Wie werden Parameter bei Biased Matrix Factorization (MF) typischerweise gelernt?",
+    "options": [
+      "Batch Gradient Descent auf ganze Matrix",
+      "Stochastic Gradient Descent (SGD) auf beobachteten Paaren",
+      "Durch Top-K Filterung",
+      "Durch Zufallsauswahl"
+    ],
+    "correct_index": 1,
+    "explanation": "Stochastic Gradient Descent (SGD) iteriert über beobachtete Nutzer-Item-Paare und aktualisiert nur die relevanten Parameter lokal."
+  },
+  {
+    "question": "Was unterscheidet implizite Daten von expliziten Ratings in Matrix Factorization (MF)?",
+    "options": [
+      "Implizite Daten enthalten nur Nullen",
+      "Null bedeutet meistens unbekannt, nicht negativ",
+      "Implizite Daten benötigen keine Modelle",
+      "Explizite Ratings sind immer binär"
+    ],
+    "correct_index": 1,
+    "explanation": "In implizitem Feedback bedeutet fehlende Interaktion meist fehlende Exposition, nicht Abneigung."
+  },
+  {
+    "question": "Wie unterscheidet sich Weighted Regularized Matrix Factorization (WRMF) von klassischer Biased Matrix Factorization (MF)?",
+    "options": [
+      "WRMF nutzt Punkt-weise squared loss",
+      "WRMF gewichtet Beobachtungen nach Confidence",
+      "WRMF benötigt keine Regularisierung",
+      "WRMF ist nur für explizite Ratings"
+    ],
+    "correct_index": 1,
+    "explanation": "WRMF gewichtet bekannte Interaktionen stärker als fehlende, um die Unsicherheit in impliziten Daten zu modellieren."
+  },
+  {
+    "question": "Welche Rolle spielt die Confidence-Gewichtung cui in Weighted Regularized Matrix Factorization (WRMF)?",
+    "options": [
+      "Sie entscheidet über Lernrate",
+      "Sie gewichtet beobachtete vs. fehlende Interaktionen",
+      "Sie ersetzt Bias-Terme",
+      "Sie filtert Top-K Items"
+    ],
+    "correct_index": 1,
+    "explanation": "Höhere Confidence signalisiert dem Modell, dass ein beobachtetes Event besonders wichtig ist."
+  },
+  {
+    "question": "Warum ist Alternating Least Squares (ALS) nützlich für Weighted Regularized Matrix Factorization (WRMF)?",
+    "options": [
+      "Weil es globale Optimierung der latenten Faktoren erlaubt",
+      "Weil es nur Biases trainiert",
+      "Weil es negative Samples entfernt",
+      "Weil es die Matrix sparsam speichert"
+    ],
+    "correct_index": 0,
+    "explanation": "ALS optimiert Nutzer- und Item-Faktoren abwechselnd, da ein gleichzeitiges Lösen aller Variablen schwierig ist."
+  },
+  {
+    "question": "Was ist das Ziel von Bayesian Personalized Ranking (BPR) in Matrix Factorization (MF)?",
+    "options": [
+      "Punktweise Fehler minimieren",
+      "Pairwise Ranking zwischen beobachteten und unobservierten Items lernen",
+      "Nur Biases anpassen",
+      "Top-K Coverage maximieren"
+    ],
+    "correct_index": 1,
+    "explanation": "BPR lernt, dass positive Items höher als negative (unobservierte) Items gerankt werden."
+  },
+  {
+    "question": "Was bedeutet 'Training Triples' bei Bayesian Personalized Ranking (BPR)?",
+    "options": [
+      "(u,i,j) = User u, positive Item i, sampled negative Item j",
+      "Alle Interaktionen eines Users",
+      "Top-K Items pro Nutzer",
+      "Negative Sampling ausgeschlossen"
+    ],
+    "correct_index": 0,
+    "explanation": "Jedes Triple wird verwendet, um ein Paar-Ranking-Update zu erzeugen."
+  },
+  {
+    "question": "Warum ist Negative Sampling bei Bayesian Personalized Ranking (BPR) problematisch?",
+    "options": [
+      "Weil unobservierte Items nicht unbedingt negativ sind",
+      "Weil es Speicherprobleme erzeugt",
+      "Weil Bias-Terme falsch berechnet werden",
+      "Weil es nur explizite Ratings erlaubt"
+    ],
+    "correct_index": 0,
+    "explanation": "Unobservierte Items könnten schlicht nicht gezeigt worden sein und daher keine echte Negativinformation liefern."
+  },
+  {
+    "question": "Was ist der Unterschied zwischen Weighted Regularized Matrix Factorization (WRMF) und Bayesian Personalized Ranking (BPR)?",
+    "options": [
+      "WRMF ist punktweise, BPR pairwise",
+      "BPR nutzt keine Latent-Factors",
+      "WRMF ignoriert Biases",
+      "BPR benötigt explizite Ratings"
+    ],
+    "correct_index": 0,
+    "explanation": "WRMF passt Scores punktweise an, während BPR auf Rangordnung zwischen positiven und negativen Items optimiert."
+  },
+  {
+    "question": "Wie wählt man Hyperparameter wie k, λ, oder η bei Matrix Factorization (MF)?",
+    "options": [
+      "Einfach per Zufall",
+      "Mit einer kleinen Grid-Suche und Log-Skala",
+      "Immer maximal wählen",
+      "Nur auf Trainingsdaten optimieren"
+    ],
+    "correct_index": 1,
+    "explanation": "Eine sensible Grid-Suche auf kleineren Werten verhindert Overfitting und ermöglicht effizientes Tuning."
+  },
+  {
+    "question": "Warum sollte man Seen-Item-Filtering bei der Empfehlung mit Matrix Factorization (MF) anwenden?",
+    "options": [
+      "Weil sonst Items doppelt angezeigt werden",
+      "Weil es Bias-Terme berechnet",
+      "Weil WRMF sonst nicht konvergiert",
+      "Weil ALS es erzwingt"
+    ],
+    "correct_index": 0,
+    "explanation": "Bereits konsumierte Items sollen nicht erneut empfohlen werden, um realistische Top-K Listen zu erzeugen."
+  },
+  {
+    "question": "Wie kann man Matrix Factorization (MF)-Embeddings interpretieren?",
+    "options": [
+      "Sie ersetzen Bias-Terme",
+      "Sie repräsentieren die latente Struktur der Interaktionen",
+      "Sie zeigen nur Popularität an",
+      "Sie sind zufällig initialisiert"
+    ],
+    "correct_index": 1,
+    "explanation": "Embeddings zeigen Muster jenseits globaler Biases, z.B. Präferenzen für bestimmte Item-Gruppen."
+  },
+  {
+    "question": "Warum ist Evaluation auf dem gleichen Split bei Matrix Factorization (MF) essenziell?",
+    "options": [
+      "Um schneller zu rechnen",
+      "Um Leakage und unrealistische Ergebnisse zu vermeiden",
+      "Um Top-K zu erhöhen",
+      "Um Bias-Terme zu fixieren"
+    ],
+    "correct_index": 1,
+    "explanation": "Ähnlich wie bei Collaborative Filtering (CF) darf das Modell keine zukünftigen Informationen aus Testdaten sehen."
+  },
+  {
+    "question": "Welche Metriken eignen sich für Matrix Factorization (MF) bei impliziten Daten?",
+    "options": [
+      "Recall@K, NDCG@K, Coverage, Novelty",
+      "Nur Mean Squared Error",
+      "Accuracy",
+      "Cosine Similarity"
+    ],
+    "correct_index": 0,
+    "explanation": "Ranking-orientierte Metriken wie Recall und NDCG sind in impliziten Settings aussagekräftiger als punktweise Fehler."
+  },
+  {
+    "question": "Warum lohnt es sich, Biases in Matrix Factorization (MF) zu inspizieren?",
+    "options": [
+      "Um die Lernrate zu wählen",
+      "Um Popularität und Extremwerte zu erkennen",
+      "Um Top-K zu optimieren",
+      "Um Sparsity zu erhöhen"
+    ],
+    "correct_index": 1,
+    "explanation": "Hohe Bias-Werte zeigen oft populäre Items, Embeddings zeigen die personalisierte Struktur."
+  },
+  {
+    "question": "Wie kann man Matrix Factorization (MF)-Modelle debuggen?",
+    "options": [
+      "Durch Top-K Analyse, Slicing, Neighbor-Inspection",
+      "Nur durch Testdaten Accuracy",
+      "Indem man Hyperparameter ignoriert",
+      "Durch Zufallsinitialisierung"
+    ],
+    "correct_index": 0,
+    "explanation": "Slicing nach Nutzeraktivität, Analyse der Top-N Empfehlungen und Nachbarprüfung helfen, Fehler oder unerwünschtes Verhalten zu erkennen."
+  },
+  {
+    "question": "Wann ist reines Matrix Factorization (MF) schwach?",
+    "options": [
+      "Bei Cold-Start oder fehlender Interaktion",
+      "Bei großen Datenmengen",
+      "Bei Popularitätsdominanz",
+      "Bei BPR Training"
+    ],
+    "correct_index": 0,
+    "explanation": "MF kann keine sinnvollen Empfehlungen für neue Nutzer oder neue Items ohne Interaktionen ableiten."
+  },
+  {
+    "question": "Warum sollte man vor komplexen Modellen erst Popularität, k-Nearest Neighbors (kNN) und Biased Matrix Factorization (MF) evaluieren?",
+    "options": [
+      "Weil sie schneller trainieren",
+      "Weil sie ein starker, ehrlicher Baseline-Check sind",
+      "Weil sie alle Hyperparameter abdecken",
+      "Weil sie BPR ersetzen"
+    ],
+    "correct_index": 1,
+    "explanation": "Bevor aufwändige Modelle evaluiert werden, sollte sichergestellt werden, dass Baselines solide schlagen und keine Pipeline-Fehler vorliegen."
+  },
+  {
+    "question": "Wie hängt Weighted Regularized Matrix Factorization (WRMF) mit Alternating Least Squares (ALS) zusammen?",
+    "options": [
+      "ALS optimiert die Confidence-Gewichtungen",
+      "ALS löst die WRMF-Optimierung durch abwechselndes Fixieren von Nutzer- und Item-Faktoren",
+      "ALS ersetzt BPR",
+      "ALS ist nur für explizite Ratings"
+    ],
+    "correct_index": 1,
+    "explanation": "ALS erlaubt es, das gekoppelte Optimierungsproblem in WRMF effizient zu lösen."
+  },
+  {
+    "question": "Welche Gleichung beschreibt eine Biased Matrix Factorization (MF) korrekt?",
+    "options": [
+      "$\\hat{r}_{ui} = \\mathbf{p}_u^\\top \\mathbf{q}_i$",
+      "$\\hat{r}_{ui} = \\mu + b_u + b_i + \\mathbf{p}_u^\\top \\mathbf{q}_i$",
+      "$\\hat{r}_{ui} = \\log(1 + r_{ui})$",
+      "$\\hat{r}_{ui} = c_{ui} (s_{ui} - \\mathbf{p}_u^\\top \\mathbf{q}_i)$"
+    ],
+    "correct_index": 1,
+    "explanation": "Bias-Terme $\\mu$, $b_u$, $b_i$ erfassen globale und individuelle Tendenzen, während $\\mathbf{p}_u^\\top \\mathbf{q}_i$ die personalisierte Interaktion beschreibt."
+  },
+  {
+    "question": "Wie lautet die Loss-Funktion der Weighted Regularized Matrix Factorization (WRMF)?",
+    "options": [
+      "$L = \\sum_{u,i} (r_{ui} - \\hat{r}_{ui})^2$",
+      "$L = \\sum_{u,i} c_{ui} (s_{ui} - \\mathbf{p}_u^\\top \\mathbf{q}_i)^2 + \\lambda (\\|\\mathbf{p}_u\\|^2 + \\|\\mathbf{q}_i\\|^2)$",
+      "$L = \\sum_{u,i,j} \\log \\sigma(\\hat{r}_{ui} - \\hat{r}_{uj})$",
+      "$L = \\|R - PQ^\\top\\|_F^2$"
+    ],
+    "correct_index": 1,
+    "explanation": "WRMF gewichtet die beobachteten Präferenzen $s_{ui}$ mit Confidence $c_{ui}$ und regularisiert die latenten Faktoren."
+  },
+  {
+    "question": "Wie lautet die Update-Regel bei Stochastic Gradient Descent (SGD) für Biased MF?",
+    "options": [
+      "$b_u \\leftarrow b_u + \\eta e_{ui} - \\lambda b_u$",
+      "$b_i \\leftarrow b_i + \\eta e_{ui} - \\lambda b_i$",
+      "$\\mathbf{p}_u \\leftarrow \\mathbf{p}_u + \\eta e_{ui} \\mathbf{q}_i - \\lambda \\mathbf{p}_u$",
+      "Alle oben genannten Regeln"
+    ],
+    "correct_index": 3,
+    "explanation": "SGD aktualisiert $b_u$, $b_i$, $\\mathbf{p}_u$, $\\mathbf{q}_i$ lokal für jedes beobachtete Paar $(u,i)$."
+  },
+  {
+    "question": "Welche Gleichung beschreibt das Bayesian Personalized Ranking (BPR) Ziel?",
+    "options": [
+      "$\\max \\sum_{(u,i,j)} \\log \\sigma(\\hat{r}_{ui} - \\hat{r}_{uj}) - \\lambda (\\|\\mathbf{p}_u\\|^2 + \\|\\mathbf{q}_i\\|^2 + \\|\\mathbf{q}_j\\|^2)$",
+      "$\\sum_{u,i} (r_{ui} - \\hat{r}_{ui})^2$",
+      "$\\hat{r}_{ui} = \\mu + b_u + b_i + \\mathbf{p}_u^\\top \\mathbf{q}_i$",
+      "$L = \\|R - PQ^\\top\\|_F^2$"
+    ],
+    "correct_index": 0,
+    "explanation": "BPR optimiert paarweise Rangordnungen, sodass positive Items $i$ höher als negative Items $j$ für Nutzer $u$ gerankt werden."
+  },
+  {
+    "question": "Wie lautet das LaTeX-Formel für das Top-K Score Ranking in Biased Matrix Factorization (MF)?",
+    "options": [
+      "$\\text{score}_{ui} = \\mu + b_u + b_i + \\mathbf{p}_u^\\top \\mathbf{q}_i$",
+      "$\\text{score}_{ui} = \\log(1 + r_{ui})$",
+      "$\\text{score}_{ui} = c_{ui} (s_{ui} - \\mathbf{p}_u^\\top \\mathbf{q}_i)$",
+      "$\\text{score}_{ui} = \\|\\mathbf{p}_u - \\mathbf{q}_i\\|_2$"
+    ],
+    "correct_index": 0,
+    "explanation": "Top-K Listen werden anhand der Biased MF Scores sortiert, exklusive bereits gesehener Items."
+  }
+]

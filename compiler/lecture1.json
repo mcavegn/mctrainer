@@ -1,0 +1,266 @@
+[
+  {
+    "question": "Was ist der fundamentale Unterschied zwischen einem Compiler und einem Interpreter gemäß der Vorlesung?",
+    "options": [
+      "Ein Compiler führt den Code direkt aus, während ein Interpreter ihn in Maschinencode übersetzt.",
+      "Ein Compiler übersetzt das gesamte Programm vor der Ausführung in Binärcode, während ein Interpreter das Programm Zeile für Zeile zur Laufzeit ausführt.",
+      "Ein Compiler wird nur für Hochsprachen wie Python verwendet, ein Interpreter nur für C++.",
+      "Ein Interpreter erzeugt eine zwischengespeicherte Datei auf der Festplatte, ein Compiler nicht."
+    ],
+    "correct_index": 1,
+    "explanation": "Der zentrale Unterschied liegt im Ausführungsmodell: Ein Compiler (Compiler) nimmt das gesamte Quellprogramm, analysiert es und erzeugt ein eigenständiges Zielprogramm (meist Binärcode/Maschinencode), das später ausgeführt wird. Ein Interpreter (Interpreter) hingegen liest und führt das Quellprogramm Schritt für Schritt zur Laufzeit aus, ohne eine separate Binärdatei zu erzeugen. Folie 11 illustriert dies grafisch."
+  },
+  {
+    "question": "Warum galt die Entwicklung des FORTRAN I Compilers in den 1950er Jahren als revolutionär?",
+    "options": [
+      "Er war der erste Interpreter, der jemals geschrieben wurde.",
+      "Er bewies, dass hochsprachlicher Code automatisch in effizienten Assembler-Code übersetzt werden kann, der fast so schnell ist wie handgeschriebener Code.",
+      "Er führte als erster Sprache das Konzept der Objektorientierung ein.",
+      "Er eliminierte die Notwendigkeit für Hardware komplett."
+    ],
+    "correct_index": 1,
+    "explanation": "Vor FORTRAN I herrschte die Meinung, dass nur handgeschriebener Assembler-Code effizient genug sein könnte. Das FORTRAN I Projekt (1954-57) widerlegte dies, indem es zeigte, dass ein Compiler Code erzeugen kann, dessen Performance nahe an handoptimiertem Assembler liegt, während sich die Entwicklungszeit halbierte. Dies legte den Grundstein für die moderne Compilerforschung (Folien 15-16)."
+  },
+  {
+    "question": "Welche der folgenden Phasen gehört NICHT zu den fünf klassischen Hauptschritten der Compiler-Struktur, wie sie in der Vorlesung analog zur menschlichen Sprachverarbeitung beschrieben wurden?",
+    "options": [
+      "Lexical Analysis (Worterkennung)",
+      "Parsing (Satzstruktur)",
+      "Semantic Analysis (Bedeutungsprüfung)",
+      "Linking (Verknüpfung mit Bibliotheken)"
+    ],
+    "correct_index": 3,
+    "explanation": "Die Vorlesung definiert fünf Kernphasen: 1. Lexical Analysis, 2. Parsing, 3. Semantic Analysis, 4. Optimization, 5. Code Generation (Folie 17). 'Linking' ist zwar ein wichtiger Schritt im gesamten Build-Prozess, wird aber in diesem spezifischen 5-Phasen-Modell des Compilers selbst nicht als eigene Kernphase der Analyse/Transformation aufgeführt, sondern erfolgt oft nach der Code-Generierung."
+  },
+  {
+    "question": "Was ist die Hauptaufgabe der 'Lexical Analysis' (Lexing)?",
+    "options": [
+      "Den syntaktischen Baum des Programms zu erstellen.",
+      "Den Programmtext in die kleinste sinntragende Einheiten, sogenannte 'Tokens' oder 'Wörter', zu zerlegen.",
+      "Die Typkompatibilität von Variablen zu prüfen.",
+      "Den Maschinencode für die Zielarchitektur zu generieren."
+    ],
+    "correct_index": 1,
+    "explanation": "Die Lexical Analysis ist der erste Schritt. Sie liest den rohen Zeichenstrom (Character Stream) und gruppiert ihn zu sinnvollen Einheiten wie Keywords, Identifikatoren, Operatoren und Literalen, den sogenannten Tokens. Sie kümmert sich nicht um die Satzstruktur (das ist Parsing) oder die Bedeutung (Semantic Analysis) (Folien 18-21)."
+  },
+  {
+    "question": "Warum ist die Lexical Analysis nicht trivial, wie am Beispiel mit dem Entfernen von Leerzeichen gezeigt wird?",
+    "options": [
+      "Weil Leerzeichen in allen Programmiersprachen syntaktisch irrelevant sind.",
+      "Weil das Entfernen oder Ändern von Trennzeichen (wie Leerzeichen) die Token-Grenzen verschieben und die Bedeutung des Codes völlig verändern kann.",
+      "Weil Compiler keine Leerzeichen verarbeiten können.",
+      "Weil Lexing immer langsamer ist als Parsing."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 19 und 20 zeigen, dass Leerzeichen oft als Trennzeichen dienen (z. B. zwischen 'int' und 'main'). Werden sie entfernt oder durch andere Zeichen ersetzt, können aus mehreren Tokens plötzlich eines werden (z. B. 'ifiz' statt 'if iz') oder die Struktur unkenntlich werden. Der Lexer muss also kontextsensitiv erkennen, wo ein Token endet und das nächste beginnt."
+  },
+  {
+    "question": "Was ist das Ergebnis der Phase 'Parsing'?",
+    "options": [
+      "Eine flache Liste von Tokens.",
+      "Ein Baum (Parse Tree / Syntax Tree), der die hierarchische Struktur des Programms darstellt.",
+      "Eine Liste von Fehlern im Programm.",
+      "Der fertige Maschinencode."
+    ],
+    "correct_index": 1,
+    "explanation": "Das Parsing (Syntaxanalyse) nimmt die Tokens vom Lexer und überprüft, ob sie den Grammatikregeln der Sprache entsprechen. Das Ergebnis ist eine baumartige Struktur (oft Abstract Syntax Tree, AST), die die Verschachtelung und Beziehung der Elemente (z. B. welche Anweisung gehört zum 'else'-Zweig) darstellt. Dies wird in Folie 22-24 mit dem 'Diagramming Sentences' verglichen."
+  },
+  {
+    "question": "Was ist das Hauptziel der 'Semantic Analysis' (Semantische Analyse)?",
+    "options": [
+      "Die Ausführungsgeschwindigkeit des Programms zu maximieren.",
+      "Die logische Konsistenz des Programms zu prüfen, z. B. Typkompatibilität und Gültigkeitsbereiche von Variablen.",
+      "Den Code in Assembler zu übersetzen.",
+      "Die Lesbarkeit des Codes für Menschen zu verbessern."
+    ],
+    "correct_index": 1,
+    "explanation": "Während das Parsing die korrekte Struktur prüft, stellt die Semantische Analyse sicher, dass der Code auch 'Sinn ergibt'. Dazu gehören Typchecks (z. B. darf man einen String zu einer Integer addieren?), die Auflösung von Variablenreferenzen (Scope Analysis) und das Erkennen von Mehrdeutigkeiten. Sie fängt Inkonsistenzen, die syntaktisch korrekt sind, aber semantisch falsch (Folien 25-28)."
+  },
+  {
+    "question": "Warum ist 'Correctness' (Korrektheit) im Compilerbau wichtiger als 'Performance' (Geschwindigkeit des Compilers oder des generierten Codes)?",
+    "options": [
+      "Weil schnelle Compiler immer falschen Code erzeugen.",
+      "Weil ein Compiler, der falschen Code erzeugt, enorme Konsequenzen haben kann, selbst wenn er schnell ist.",
+      "Weil Performance in diesem Kurs gar nicht behandelt wird.",
+      "Weil Hardware heutzutage schnell genug ist, um ineffizienten Code auszugleichen."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 9 betont: 'Correctness is essential'. Ein Compiler ist ein Vertrauenswerkzeug. Wenn er fehlerhaften Maschinencode aus korrekt geschriebenem Quellcode erzeugt, kann dies zu katastrophalen Fehlern in der Software führen (Abstürze, Sicherheitslücken, falsche Berechnungen). Daher hat die Korrektheit der Transformation oberste Priorität vor der Optimierungsgeschwindigkeit."
+  },
+  {
+    "question": "Was sind 'Intermediate Representations' (IR) und warum werden sie verwendet?",
+    "options": [
+      "Sie sind die finale Ausgabe des Compilers für den Nutzer.",
+      "Sie sind Zwischensprachen innerhalb des Compilers, die es erlauben, Optimierungen unabhängig von der Quell- und Zielsprache durchzuführen.",
+      "Sie dienen nur der Dokumentation des Quellcodes.",
+      "Sie ersetzen die Notwendigkeit eines Parsers."
+    ],
+    "correct_index": 1,
+    "explanation": "IRs sind interne Repräsentationen des Programms zwischen den Phasen (Folie 32-33). Sie abstrahieren Details der Quellsprache und bereiten Details der Zielarchitektur vor. Der große Vorteil ist Modularität: Ein Frontend (Quelle zu IR) kann mit verschiedenen Backends (IR zu Ziel) kombiniert werden, und Optimierungen können auf der IR-Ebene für alle Sprachen gleichzeitig wirken."
+  },
+  {
+    "question": "Welche Aussage trifft auf die Entwicklung der Compiler-Phasen von FORTRAN bis heute zu?",
+    "options": [
+      "Lexing und Parsing sind heute die komplexesten und teuersten Phasen.",
+      "Die Optimierungsphase dominiert heute den Aufwand und die Komplexität, während Lexing und Parsing als gelöst und günstig gelten.",
+      "Die Code-Generierung wurde komplett abgeschafft.",
+      "Es gibt heute keine theoretischen Grundlagen mehr für Compiler."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 35 erklärt, dass sich die Gewichtung verschoben hat. In den frühen Tagen waren Lexing und Parsing die größten Herausforderungen. Heute sind diese Phasen gut verstanden und effizient lösbar. Der Löwenanteil der Forschung und Rechenzeit in modernen Compilern fließt in die Optimierungsphase, um maximale Performance aus der Hardware zu holen."
+  },
+  {
+    "question": "Was ist ein Beispiel für eine legale Optimierung, die in Folie 30 genannt wird?",
+    "options": [
+      "Das Ersetzen von `x = y * 0` durch `x = 0`.",
+      "Das Löschen aller Variablendeklarationen.",
+      "Das Ändern der Reihenfolge von Eingabe/Ausgabe-Operationen.",
+      "Das Umwandeln von Schleifen in Rekursion."
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 30 zeigt das Beispiel der 'Zero-Multiplikation'. Da das Multiplizieren mit Null immer Null ergibt, kann der Compiler die teure Multiplikationsinstruktion entfernen und direkt `0` zuweisen. Dies ist eine legale Optimierung, da sie das Ergebnis des Programms nicht verändert, aber Ressourcen spart."
+  },
+  {
+    "question": "Welches Buch wird in der Vorlesung als 'The Purple Dragon Book' bezeichnet und dient als Referenz?",
+    "options": [
+      "Compiler Construction by Niklaus Wirth",
+      "Compilers: Principles, Techniques, and Tools von Aho, Lam, Sethi & Ullman",
+      "Modern Compiler Implementation in ML von Andrew Appel",
+      "Engineering a Compiler von Cooper und Torczon"
+    ],
+    "correct_index": 1,
+    "explanation": "Das Standardwerk 'Compilers: Principles, Techniques, and Tools' von Aho et al. ist bekannt als das 'Drachenbuch'. Die zweite Auflage hat einen lila Drachen auf dem Cover, weshalb es oft 'Purple Dragon Book' genannt wird. Es ist zwar nicht zwingend erforderlich, wird aber als nützliche Referenz empfohlen (Folie 5)."
+  },
+  {
+    "question": "Wie ist das Kursprojekt (Course Project) in CS143 strukturiert?",
+    "options": [
+      "Es besteht aus vier separaten, unabhängigen kleinen Programmen.",
+      "Es ist ein großes Projekt, einen eigenen Compiler zu schreiben, unterteilt in 4 Teile (Lexer, Parser, Type Checker, Code Gen).",
+      "Es ist eine theoretische Hausarbeit ohne Programmierung.",
+      "Man muss einen bestehenden Compiler nur installieren."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 8 zeigt deutlich: 'You will write your own compiler!'. Es ist ein durchgängiges Projekt, das in vier Programmieraufgaben (PA1 bis PA4) unterteilt ist, die schrittweise die Komponenten Lexical Analysis, Parsing, Semantic Analysis (Type Checker) und Code Generation implementieren."
+  },
+  {
+    "question": "Warum führen viele moderne Sprachimplementierungen (wie Java, JavaScript) sowohl Interpreter als auch JIT-Compiler?",
+    "options": [
+      "Weil Interpreter sicherer sind als Compiler.",
+      "Um die Vorteile beider Welten zu nutzen: schnelle Startzeit durch Interpretation und hohe Laufzeit-Performance durch Just-In-Time Kompilierung.",
+      "Weil Compiler allein keinen Code ausführen können.",
+      "Weil es gesetzlich vorgeschrieben ist."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 12 erwähnt diesen Hybrid-Ansatz. Ein Interpreter erlaubt einen schnellen Start (kein Warten auf Kompilierung) und einfache Debugging-Möglichkeiten. Ein JIT-Compiler (Just-In-Time) analysiert zur Laufzeit, welche Code-Teile oft ausgeführt werden ('Hot Paths'), und kompiliert diese spezifischen Teile in schnellen Maschinencode, um die Performance langfristig zu steigern."
+  },
+  {
+    "question": "Was ist die Analogie zwischen 'Optimization' im Compiler und menschlicher Sprachverarbeitung?",
+    "options": [
+      "Es ist wie das Übersetzen in eine andere Sprache.",
+      "Es ist wie das 'Editieren' eines Textes, um die Lesezeit zu minimieren und die kognitive Last zu reduzieren.",
+      "Es ist wie das Erkennen von Wörtern.",
+      "Es ist wie das Finden von Grammatikfehlern."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 29 zieht die Parallele: Optimierung ist wie das 'Editing' (Redigieren). Ein Autor überarbeitet seinen Text, damit er schneller zu lesen ist und der Leser sich weniger merken muss. Ebenso modifiziert der Compiler den Code (ohne die Semantik zu ändern), damit er schneller läuft oder weniger Speicher verbraucht."
+  },
+  {
+    "question": "Welches Problem der natürlichen Sprache wird in der 'Semantic Analysis' als Beispiel für Ambiguität genannt, das in Programmiersprachen vermieden wird?",
+    "options": [
+      "Die Aussprache von Wörtern.",
+      "Die Referenz von Pronomen (z. B. auf wen sich 'sein' oder 'ihr' bezieht).",
+      "Die Länge von Sätzen.",
+      "Die Verwendung von Großbuchstaben."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 25-26 nutzt das Beispiel: 'Jack said Jerry left his assignment...'. Auf wen bezieht sich 'his'? In natürlicher Sprache ist das oft unklar. Programmiersprachen haben strikte Regeln (Scoping), um genau zu definieren, auf welche Variable sich ein Name bezieht (z. B. die innerste Definition), um solche Mehrdeutigkeiten auszuschließen."
+  },
+  {
+    "question": "Was ist die Hauptaufgabe der 'Code Generation' Phase?",
+    "options": [
+      "Das Erstellen von Kommentaren im Code.",
+      "Die Übersetzung der internen Repräsentation (IR) in die Zielsprache, typischerweise Assembly-Code.",
+      "Das Überprüfen der Typen.",
+      "Das Einlesen des Quellcodes."
+    ],
+    "correct_index": 1,
+    "explanation": "Die Code-Generierung ist die letzte Phase (Folie 31). Sie nimmt die optimierte Intermediate Representation und mappt diese auf die spezifischen Instruktionen, Register und Speicheradressen der Zielhardware (Assembly/Maschinencode). Es ist analog zur Übersetzung eines Textes von einer Sprache in eine andere."
+  },
+  {
+    "question": "Warum sind niedrigere Abstraktionsebenen (wie Assembly) für Optimierungen nützlich, aber für das Verständnis der High-Level-Logik hinderlich?",
+    "options": [
+      "Weil Assembly-Code immer länger ist.",
+      "Weil niedrige Ebenen Hardware-Details (Register, Speicher) offenlegen, aber High-Level-Konzepte (Klassen, Loops) verschleiern.",
+      "Weil Compiler Assembly-Code nicht lesen können.",
+      "Weil es auf niedrigen Ebenen keine Variablen gibt."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 33 erklärt diesen Trade-off. Eine IR nahe der Hardware zeigt explizit Register und Speicheradressen, was für ressourcenbezogene Optimierungen nötig ist. Gleichzeitig gehen dabei Informationen über die ursprüngliche Struktur (z. B. dass dies eine 'for'-Schleife oder eine 'Klasse' war) verloren, was andere Arten von Analysen erschwert."
+  },
+  {
+    "question": "Welche Rolle spielt das Sprachdesign (Language Design) für den Compilerbau?",
+    "options": [
+      "Es hat keinen Einfluss; Compiler können jede Sprache gleich gut übersetzen.",
+      "Es bestimmt maßgeblich, welche Aspekte des Compilings einfach und welche schwer zu implementieren sind.",
+      "Es ist nur für die Oberfläche (GUI) relevant.",
+      "Es wird erst nach dem Schreiben des Compilers entschieden."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 34 betont: 'Language design has a big impact on the compiler'. Entscheidungen im Sprachdesign (z. B. strikte Typisierung, Verbot von Mehrfachzuweisungen, explizite Speicherverwaltung) können den Compilerbau massiv vereinfachen oder extrem komplex machen. Es ist ein zentrales Thema des Kurses, diese Trade-offs zu verstehen."
+  },
+  {
+    "question": "Wo werden Programmieraufgaben (Programming Assignments) in diesem Kurs typischerweise eingereicht und ausgeführt?",
+    "options": [
+      "Auf dem lokalen Laptop des Studierenden.",
+      "Auf den Stanford-Servern 'myth.stanford.edu' via AFS.",
+      "In der Cloud bei AWS.",
+      "Per E-Mail an den Dozenten."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 5 weist explizit auf die Computing Resources hin: 'We will use myth for the programming assignments'. Der Pfad `/afs/ir/class/cs143/` wird als Class Folder genannt. Dies stellt sicher, dass alle Studierenden in einer einheitlichen Umgebung arbeiten."
+  },
+  {
+    "question": "Was ist der Zweck von 'Intermediate Representations' (IR) in Bezug auf die Wiederverwendbarkeit von Compiler-Komponenten?",
+    "options": [
+      "Sie ermöglichen es, ein Frontend für Sprache A mit einem Backend für Architektur B zu kombinieren.",
+      "Sie machen den Compiler langsamer.",
+      "Sie ersetzen die Notwendigkeit für einen Lexer.",
+      "Sie sind nur für Interpreter nützlich."
+    ],
+    "explanation": "Durch die Verwendung einer gemeinsamen IR muss man nicht für jede Kombination aus Quellsprache und Zielarchitektur einen eigenen Compiler schreiben. Man entwickelt ein Frontend (Sprache -> IR) und ein Backend (IR -> Architektur). Mit n Sprachen und m Architekturen braucht man so nur n+m Komponenten statt n*m. Dies wird implizit durch die Beschreibung der IR als Zwischenschritt in Folie 32 abgeleitet.",
+    "correct_index": 0
+  },
+  {
+    "question": "Welche Phase des Compilers würde einen Fehler melden, wenn man versucht, eine Ganzzahl mit einem String zu addieren?",
+    "options": [
+      "Lexical Analysis",
+      "Parsing",
+      "Semantic Analysis",
+      "Code Generation"
+    ],
+    "correct_index": 2,
+    "explanation": "Der Ausdruck '5 + Hallo' ist lexikalisch (Tokens sind korrekt) und syntaktisch (Operator zwischen zwei Operanden) oft korrekt. Der Fehler liegt in der Bedeutung (Semantik): Die Typen passen nicht zusammen. Daher ist dies die Aufgabe der Semantischen Analyse (Type Checking), wie in Folie 27-28 angedeutet."
+  },
+  {
+    "question": "Was ist die Hauptbotschaft der Folie zu 'Academic Honesty'?",
+    "options": [
+      "Zusammenarbeit ist verboten.",
+      "Plagiate werden ernst genommen und können durch Software erkannt werden; Quellen müssen zitiert werden.",
+      "Man darf Code aus dem Internet kopieren, solange er funktioniert.",
+      "Es gibt keine Konsequenzen für Plagiate."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 7 warnt deutlich vor Plagiaten ('Don't use work from uncited sources'). Es wird explizit erwähnt, dass Plagiatserkennungssoftware eingesetzt wird und es in vergangenen Kursen bereits viele Fälle gab. Integrität ist ein zentraler Wert des Kurses."
+  },
+  {
+    "question": "Welche historische Entwicklung führte zur Notwendigkeit des ersten Compilers?",
+    "options": [
+      "Die Hardware wurde zu teuer im Vergleich zu den Softwarekosten.",
+      "Die Softwarekosten überstiegen die Hardwarekosten, und Assembly-Programmierung war zu langsam und fehleranfällig.",
+      "Es gab keine Programmierer mehr.",
+      "Die Computer wurden zu schnell für Menschen."
+    ],
+    "correct_index": 1,
+    "explanation": "Folie 13 beschreibt das Problem um 1954: 'Software costs exceeded hardware costs!'. Da alles in Assembly geschrieben wurde, war die Entwicklung sehr teuer und langsam. Die Lösung (FORTRAN) zielte darauf ab, die Entwicklungszeit zu verkürzen, ohne zu viel Performance zu opfern."
+  }
+]
