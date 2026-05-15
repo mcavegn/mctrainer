@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What are the four sequential components of a basic BCI architecture?",
+    "options": [
+      "Signal acquisition, feature extraction, feature translation, device output",
+      "Data collection, noise filtering, pattern recognition, user feedback",
+      "Input processing, storage, analysis, visual output",
+      "Sensor calibration, signal amplification, decoding, actuation"
+    ],
+    "correct_index": 0,
+    "explanation": "According to the presentation (Slide 8), a BCI system consists of four sequential components: (1) signal acquisition, (2) feature extraction, (3) feature translation, and (4) device output."
+  },
+  {
+    "question": "What is the main trade-off between non-invasive and invasive BCIs regarding resolution?",
+    "options": [
+      "Non-invasive BCIs have better temporal resolution but lower spatial resolution",
+      "Invasive BCIs have better temporal resolution but lower spatial resolution",
+      "Non-invasive BCIs have better spatial and temporal resolution",
+      "Invasive BCIs have worse spatial and temporal resolution"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 14 highlights the trade-off: non-invasive methods are generally better in time (temporal resolution) while invasive methods are better in space (spatial resolution)."
+  },
+  {
+    "question": "Which type of BCI derives its outputs from brain activity that is directly consciously controlled by the user?",
+    "options": [
+      "Active BCI",
+      "Reactive BCI",
+      "Passive BCI",
+      "Affective BCI"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 16 defines an Active BCI as a system where outputs are derived from brain activity directly consciously controlled by the user, independently from external events."
+  },
+  {
+    "question": "What characterizes a 'closed-loop' or bi-directional BCI application?",
+    "options": [
+      "It records motor intent and provides sensory feedback to the brain",
+      "It only records brain signals without providing any output",
+      "It only sends signals to the brain without recording activity",
+      "It operates solely on pre-programmed commands without neural input"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 18 explains that a closed-loop system records motor intent (M1) to control a device and uses sensors to send sensory feedback (S1) back to the brain."
+  },
+  {
+    "question": "Which of the following is listed as a neurological limitation of BCIs?",
+    "options": [
+      "Small signal amplitude which can be obscured by noise",
+      "High cost of equipment",
+      "Large size and lack of portability",
+      "Slow data processing speed"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 20 categorizes 'Small signal amplitude which can be obscured by noise (low SNR)' as a neurological limitation, whereas cost, size, and speed are listed as technological limitations."
+  },
+  {
+    "question": "What does the term 'BCI illiteracy' refer to in the context of limitations?",
+    "options": [
+      "Variability among individuals where some cannot effectively control a BCI",
+      "The inability of users to read technical manuals",
+      "The lack of educational programs for BCI users",
+      "The failure of software to translate brain signals"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 20 lists 'Variability among individuals (BCI illiteracy)' as a neurological limitation, implying that some individuals are unable to generate the specific brain signals required to operate the system."
+  },
+  {
+    "question": "What is the primary function of a Reactive BCI?",
+    "options": [
+      "It derives outputs from brain activity arising in reaction to external stimulation",
+      "It operates based on spontaneous brain activity without voluntary control",
+      "It relies on the user's imagination to move a cursor",
+      "It monitors emotional states without user intent"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 16 defines a Reactive BCI as deriving outputs from brain activity that arises in reaction to external stimulation, which is indirectly modulated by the user."
+  },
+  {
+    "question": "In the context of human augmentation, what does the 'Replace' function of a BCI aim to do?",
+    "options": [
+      "Take over the role of a damaged sensory or motor system",
+      "Add additional limbs to the human body",
+      "Improve memory retention capabilities",
+      "Bridge spinal cord injuries to restore movement"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 9 defines 'Replace' as taking over the role of a damaged sensory or motor system, such as in cases of speech impairments."
+  },
+  {
+    "question": "Why are EEG signals considered challenging to process compared to other biological signals like EKG?",
+    "options": [
+      "EEG signals are very small and neurons do not fire synchronously like heart cells",
+      "EEG signals are too large and overload the sensors",
+      "EEG signals are purely chemical and cannot be measured electrically",
+      "EEG signals only occur during sleep"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 20 notes the small signal amplitude and noise. Slide 15 and 20 explain that unlike the heart (EKG) which beats synchronously, brain neurons fire individually ('all or nothing'), making the summed signal on the skin very small and noisy."
+  },
+  {
+    "question": "What is a potential application of Passive BCIs mentioned in the presentation?",
+    "options": [
+      "Fatigue tracking in machinery environments as a warning system",
+      "Controlling a robotic arm with precise movements",
+      "Typing text using a mind-speller",
+      "Restoring vision to blind individuals"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 21 mentions 'Fatigue Tracking' in the machinery area as a warning system, which aligns with the definition of Passive BCIs (monitoring spontaneous activity like concentration or sleepiness without voluntary control) described in Slide 16."
+  }
+]

@@ -27,7 +27,8 @@ verfügbare_fächer = {
     "Compiler Scanner Teil 2":"compiler/lecture4.json",
     "Compiler Parser":"compiler/lecture5_6.json",
     "Compiler Top-Down und Bottom-up":"compiler/lecture7_8.json",
-    "Compiler Syntaxtree und Semantische Analyse":"compiler/syntaxtree_semantischeAnalyse.json"   
+    "Compiler Syntaxtree und Semantische Analyse":"compiler/syntaxtree_semantischeAnalyse.json",  
+    "Neuro 1 Intro to Neuro and BCI":"neuro/01_intro.json",
 }
 
 ausgewähltes_fach = st.sidebar.selectbox("Wähle ein Fach:", list(verfügbare_fächer.keys()))
