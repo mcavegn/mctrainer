@@ -4,12 +4,12 @@ import os
 import random
 
 # -------------------- Einstellungen --------------------
-st.set_page_config(page_title="LernApp", page_icon="📘", layout="centered")
-st.title("📘 Interaktive LernApp")
+st.set_page_config(page_title="MC Trainer", page_icon="📘", layout="centered")
+st.title("✔️ Multiple Choice Trainer")
 
 # -------------------- Fachauswahl --------------------
 st.sidebar.image("mctrainer.jpg", caption="Hallo, ich bin dein Lernassistent", use_container_width=True)
-st.sidebar.title("📚 Fachauswahl")
+st.sidebar.title("📚 Modul")
    
 verfügbare_fächer = {
     "RecSys SW1 Intro": "recsys/sw1_intro.json",
