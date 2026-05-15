@@ -1,0 +1,156 @@
+[
+  {
+    "question": "What is the fundamental difference between Supervised and Unsupervised Learning in the context of BCI?",
+    "options": [
+      "Supervised learning uses no labels, while Unsupervised learning requires precise labels.",
+      "Supervised learning fits a model to paired data and labels (x, y), while Unsupervised learning finds patterns in data (x) without labels.",
+      "Supervised learning is only for images, while Unsupervised learning is only for time series.",
+      "There is no difference; they are interchangeable terms."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 2 explains that Supervised Learning uses paired training examples (data and labels) to reverse-engineer a relationship, whereas Unsupervised Learning looks for latent structures or clusters in data without labels."
+  },
+  {
+    "question": "What is the 'Golden Rule' of Feature Engineering stated in the lecture?",
+    "options": [
+      "The more features you have, the better the model.",
+      "Deep Learning eliminates the need for feature engineering.",
+      "A bad model with good features will outperform a good model with bad features.",
+      "Features should always be normalized to a range of 0 to 1."
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 6 emphasizes this as the most important sentence: 'A bad model with good features will outperform a good model with bad features.' This underscores the importance of domain-specific feature extraction in EEG."
+  },
+  {
+    "question": "Which problem occurs when a model learns the noise in the training data rather than the underlying pattern?",
+    "options": [
+      "Bias (Underfitting)",
+      "Variance (Overfitting)",
+      "Data Leakage",
+      "Class Imbalance"
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 4 defines Variance as the 'tendency to overfit to the training data.' This is common in EEG due to small datasets and high subject variability."
+  },
+  {
+    "question": "Why is 'False Positives per unit time' a more critical metric than Accuracy for a BCI user interface?",
+    "options": [
+      "Because accuracy is impossible to calculate for EEG data.",
+      "Because frequent unintended commands (false alarms) frustrate users and lead to abandonment of the device.",
+      "Because false positives are easier to detect than false negatives.",
+      "Because regulatory bodies only require false positive rates."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 4 highlights BCI-specific metrics. It explains that if a detector (like a jaw clench) fires 10 false alarms an hour, the user will stop using it, making this metric more visceral and important than abstract accuracy."
+  },
+  {
+    "question": "What is the specific benefit of using 'Relative Band Power' as a feature?",
+    "options": [
+      "It captures the absolute voltage of the brain signals.",
+      "It normalizes for individual differences in signal amplitude (e.g., skull thickness, contact quality).",
+      "It removes all high-frequency noise from the signal.",
+      "It allows the use of linear models for non-linear problems."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 6 notes that relative power normalizes for individual differences in overall signal amplitude, which is crucial when comparing across different subjects or sessions with varying electrode contact."
+  },
+  {
+    "question": "Which of the following is a 'Time Domain' feature commonly used in EEG analysis?",
+    "options": [
+      "Absolute Band Power",
+      "Spectral Slope",
+      "Hjorth Parameters",
+      "Relative Band Power"
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 6 lists 'Hjorth parameters', 'Number of zero crossings', and 'Moments' as Time Domain features. Band powers and spectral slopes are Frequency Domain features."
+  },
+  {
+    "question": "In the typical ML pipeline for BCI, what is the role of 'Decision Logic'?",
+    "options": [
+      "To train the model on the labeled data.",
+      "To extract features from the raw EEG signal.",
+      "To convert raw model probabilities into actions using thresholds, hysteresis, and refractory periods.",
+      "To visualize the data for the user."
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 7 and 10 explain that Decision Logic is the engineering step that turns a probability output into a reliable action, using techniques like refractory periods (to prevent double firing) and thresholds."
+  },
+  {
+    "question": "What is the main advantage of 'Brain Foundation Models' (like CBraMod)?",
+    "options": [
+      "They require no data at all to function.",
+      "They can achieve high performance with very few labeled subjects by leveraging pre-training on large unlabeled datasets.",
+      "They are small enough to run on any microcontroller without optimization.",
+      "They provide full explainability of their decisions."
+    ],
+    "correct_index": 1,
+    "explanation": "Slides 8 and 9 explain that Foundation Models are pre-trained on massive unlabeled datasets, allowing them to be fine-tuned for specific tasks with very little labeled data (e.g., beating baselines with only 2 subjects)."
+  },
+  {
+    "question": "What is a significant disadvantage of using Transformer-based Foundation Models for wearable BCIs?",
+    "options": [
+      "They cannot process time-series data.",
+      "They have low explainability and are less edge-compatible (high compute cost).",
+      "They require invasive electrodes to function.",
+      "They only work for sleep staging."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 9 lists the cons: 'Low explainability' (black box) and being 'Less edge-compatible' (computationally heavy), which is a challenge for battery-powered wearables compared to classical ML like SVM."
+  },
+  {
+    "question": "Which detection method mentioned in the case studies relies on physiological artifacts and simple logic rather than Machine Learning?",
+    "options": [
+      "Cognitive Workload detection",
+      "Fine-Grained UX Control (Jaw wiggles)",
+      "HEOG (Eye movement) and Jaw Clench detection",
+      "Sleep Stage Classification"
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 11 explicitly states for HEOG and Jaw Clench: 'No ML needed.' These use the strong physiological nature of the artifacts (corneo-retinal dipole shift, high-freq EMG) combined with simple thresholds."
+  },
+  {
+    "question": "What is 'Data Drift' in the context of MLOps?",
+    "options": [
+      "The model becoming more accurate over time.",
+      "The shift in the distribution of input data (x) over time (e.g., new users, hardware changes).",
+      "The change in the relationship between input and output (the function y=f(x) changes).",
+      "The loss of data due to network errors."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 12 defines Data Drift as the situation where the input data distribution shifts (e.g., different population, electrode fit changes), which can cause a trained model to perform poorly if not monitored."
+  },
+  {
+    "question": "What is 'Concept Drift'?",
+    "options": [
+      "The change in the underlying function or relationship between data and labels over time.",
+      "The physical movement of electrodes on the scalp.",
+      "The increase in computational cost during training.",
+      "The process of converting raw EEG to features."
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 12 distinguishes Concept Drift from Data Drift: Concept Drift occurs when the function itself shifts (e.g., the user's brain patterns for 'focus' change over time or with training), making the old model invalid."
+  },
+  {
+    "question": "Why is 'Label Quality' a major challenge in BCI datasets?",
+    "options": [
+      "Because EEG machines cannot record labels.",
+      "Because labels are often noisy or inaccurate (e.g., a user labeled as 'focused' might be daydreaming).",
+      "Because labels are too expensive to store.",
+      "Because labels are only available for invasive BCIs."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 6 highlights that label quality is underappreciated. If a 2-minute epoch is labeled 'high workload' but the user daydreamed for 90 seconds, that noise enters the training data and degrades the model."
+  },
+  {
+    "question": "What is the purpose of a 'Refractory Period' in real-time BCI decision logic?",
+    "options": [
+      "To increase the sensitivity of the detector.",
+      "To prevent double-firing or multiple triggers from a single intentional event.",
+      "To reduce the power consumption of the device.",
+      "To smooth the raw EEG signal before feature extraction."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 10 mentions 'Refractory periods' as a key part of decision logic. This is a waiting time after a detection during which new detections are ignored, preventing a single jaw clench from triggering multiple 'skip track' commands."
+  }
+]

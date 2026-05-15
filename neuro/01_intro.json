@@ -85,7 +85,7 @@
       "Bridge spinal cord injuries to restore movement"
     ],
     "correct_index": 0,
-    "explanation": "Slide 9 defines 'Replace' as taking over the role of a damaged sensory or motor system, such as in cases of speech impairments."
+    "explanation": "Slide 9 defines 'Replace' as taking over the role of a damaged sensory or motor system (speech impairments), such as in cases of speech impairments."
   },
   {
     "question": "Why are EEG signals considered challenging to process compared to other biological signals like EKG?",
@@ -108,5 +108,60 @@
     ],
     "correct_index": 0,
     "explanation": "Slide 21 mentions 'Fatigue Tracking' in the machinery area as a warning system, which aligns with the definition of Passive BCIs (monitoring spontaneous activity like concentration or sleepiness without voluntary control) described in Slide 16."
+  },
+  {
+    "question": "What is the primary goal of the 'Restore' function in BCI applications?",
+    "options": [
+      "Bridging spinal cord injuries with neural interfaces to help restore movement in paralyzed limbs",
+      "Taking over the role of a completely damaged sensory system permanently",
+      "Adding extra limbs to the human body for enhanced productivity",
+      "Improving the speed of sensory processing in healthy individuals"
+    ],
+    "correct_index": 0,
+    "explanation": "According to Slide 9, 'Restore' is defined as bridging spinal cord injuries with neural interfaces to help restore movement in paralyzed limbs."
+  },
+  {
+    "question": "How does the 'Enhance' function of a BCI aim to modify brain performance?",
+    "options": [
+      "By improving memory or attention to make the brain more efficient at retaining information",
+      "By replacing a damaged motor system with a robotic prosthetic",
+      "By allowing the control of additional limbs beyond the natural human body",
+      "By making sensory processing faster and more accurate through external stimulation"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 9 states that 'Enhance' aims to improve memory or attention to make the brain more efficient to retain information."
+  },
+  {
+    "question": "What does the 'Supplement' function of a BCI enable a user to do?",
+    "options": [
+      "Add additional limbs or control drones directly with the mind",
+      "Restore movement in limbs paralyzed by spinal cord injuries",
+      "Take over the role of a damaged sensory system like speech",
+      "Increase the speed and accuracy of existing sensory processing"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 9 defines 'Supplement' as adding additional limbs or controlling drones directly with the mind, leveraging neuroplasticity."
+  },
+  {
+    "question": "What is the specific objective of the 'Improve' function in BCI applications?",
+    "options": [
+      "Making sensory processing faster and more accurate",
+      "Bridging neural gaps to restore lost motor functions",
+      "Enhancing cognitive abilities like memory and attention span",
+      "Replacing a non-functional sensory organ with a digital equivalent"
+    ],
+    "correct_index": 0,
+    "explanation": "According to Slide 9, 'Improve' is focused on making sensory processing faster and more accurate."
+  },
+  {
+    "question": "What characterizes a Passive or Affective BCI?",
+    "options": [
+      "It derives outputs from spontaneous brain activity without the purpose of voluntary control",
+      "It requires the user to consciously modulate brain signals to control an application",
+      "It relies entirely on external stimulation to evoke a measurable brain response",
+      "It is used exclusively for controlling robotic prosthetics in real-time"
+    ],
+    "correct_index": 0,
+    "explanation": "Slide 16 defines a Passive or Affective BCI as a system that derives its outputs from spontaneous brain activity (such as concentration or emotional state) without the user intending voluntary control."
   }
 ]

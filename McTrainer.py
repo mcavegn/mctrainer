@@ -29,6 +29,13 @@ verfügbare_fächer = {
     "Compiler Top-Down und Bottom-up":"compiler/lecture7_8.json",
     "Compiler Syntaxtree und Semantische Analyse":"compiler/syntaxtree_semantischeAnalyse.json",  
     "Neuro 1 Intro to Neuro and BCI":"neuro/01_intro.json",
+    "Neuro 2 Neuroscientific Fundamentals":"neuro/02_fundamentals.json",    
+    "Neuro 3 Signal Acquisition":"neuro/03_signal_acquisition.json",    
+    "Neuro 4 Building a BCI":"neuro/04_building_a_BCI.json",   
+    "Neuro 5 Product Development":"neuro/05_product_development.json",
+    "Neuro 6 ML":"neuro/06_ML.json",
+
+    "Neuro 10 Visualisation":"neuro/10_visualisation.json",
 }
 
 ausgewähltes_fach = st.sidebar.selectbox("Wähle ein Fach:", list(verfügbare_fächer.keys()))

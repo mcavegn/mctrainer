@@ -1,0 +1,134 @@
+[
+  {
+    "question": "Which formula is used in the 'Trend Mapping' method to predict future scenarios?",
+    "options": [
+      "As a [persona], I [want to], [so that].",
+      "If [X] exists, then [Y] is possible, and [Z] will happen.",
+      "[feature] exists and performs [function].",
+      "When [trend] occurs, [market] will shift by [percentage]."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 11 defines Trend Mapping with the formula: 'If [X] exists, then [Y] is possible, and [Z] will happen.' This helps predict societal and technological shifts."
+  },
+  {
+    "question": "How is a 'User Story' formally defined in the product development process?",
+    "options": [
+      "If [technology] is available, then [product] can be built.",
+      "[Feature] must perform [function] within [timeframe].",
+      "As a [persona], I [want to], [so that].",
+      "The user needs [solution] because of [problem]."
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 11 explicitly states the User Story format: 'As a [persona], I [want to], [so that].' This focuses on the user's need and the value derived."
+  },
+  {
+    "question": "What is the definition of a 'Requirement' in the context of BCI product development?",
+    "options": [
+      "A description of the user's emotional state.",
+      "A prediction of future market trends.",
+      "A statement that [feature] exists and performs [function].",
+      "A list of all possible technical failures."
+    ],
+    "correct_index": 2,
+    "explanation": "According to Slide 11, Requirements define what a product needs to do: '[feature] exists and performs [function].' This translates user stories into technical specs."
+  },
+  {
+    "question": "Which BCI method is characterized as 'invasive' and involves placing electrodes directly on the cortex?",
+    "options": [
+      "EEG",
+      "fNIRS",
+      "ECoG",
+      "MEG"
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 14 lists BCI methods. ECoG (Electrocorticography) is shown as an invasive method, whereas EEG, fNIRS, and MEG are non-invasive."
+  },
+  {
+    "question": "What is the primary advantage of 'Relative Band Power' over 'Absolute Band Power' when creating Neuromarkers?",
+    "options": [
+      "It is computationally cheaper to calculate.",
+      "It normalizes for individual differences in signal amplitude (e.g., skull thickness).",
+      "It removes the need for filtering noise.",
+      "It works only for Beta waves, not Alpha waves."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 47 (and implied in Slide 6 of ML lecture) highlights that relative power normalizes for individual differences in overall signal amplitude, making comparisons across subjects more robust."
+  },
+  {
+    "question": "How is the 'Calm Score' neuromarker calculated?",
+    "options": [
+      "Theta / Delta",
+      "Beta / Alpha",
+      "Alpha / Beta",
+      "Gamma / Theta"
+    ],
+    "correct_index": 2,
+    "explanation": "Slide 46 explicitly defines the Calm Score as the ratio of Alpha to Beta bands (Alpha / Beta), where Alpha indicates relaxation and Beta indicates active thinking."
+  },
+  {
+    "question": "What does the 'Exposome' refer to in the context of brain aging studies?",
+    "options": [
+      "The genetic makeup of an individual.",
+      "The cumulative measure of environmental influences and biological responses throughout life.",
+      "The total amount of EEG data collected from a user.",
+      "The internal metabolic state of the brain."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 24 discusses the Exposome, defining it as social and physical environmental variables (73 variables mentioned) that significantly impact brain aging, explaining up to 15x more variance than individual factors."
+  },
+  {
+    "question": "In the IDUN Guardian system architecture, where does the 'Classifier Output' (e.g., Engagement, Relaxation) primarily happen before being sent to the cloud?",
+    "options": [
+      "Only in the Consumer App on the smartphone.",
+      "On the Edge device (using eNPU/DSP) and Near-Edge.",
+      "Exclusively in the Cloud Data Lake.",
+      "In the manufacturing partner's facility."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 31 shows the architecture where 'Near-Edge Classifiers' and the 'eNPU' on the device process raw EEG into cognitive metrics (Engagement, Relaxation) before sending them via Bluetooth to the app/cloud."
+  },
+  {
+    "question": "What is the purpose of 'Agentic Engineering' in the development process?",
+    "options": [
+      "To replace human developers entirely with AI.",
+      "To use AI agents (LLMs) to assist in generating code, architecture diagrams, and analyzing data based on human-defined inputs.",
+      "To automatically collect EEG data from users without consent.",
+      "To manage the battery life of the BCI device."
+    ],
+    "correct_index": 1,
+    "explanation": "Slides 32-35 describe Agentic Engineering as using AI agents (with skills and knowledge bases) to help generate prototypes, code, and designs, while emphasizing that humans remain responsible for the final output."
+  },
+  {
+    "question": "What is the specific goal of 'Phase 1: Test Hypothesis (PoC)' in the product development cycle?",
+    "options": [
+      "To release the final product to the market.",
+      "To de-risk development with a small study (N=5-10) and build a Proof of Concept.",
+      "To optimize the algorithm for thousands of users.",
+      "To write the marketing materials for the product."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 49 defines Phase 1 as creating a dataset and results that de-risk development, typically involving a small internal study (N=5-10) to prove the concept works."
+  },
+  {
+    "question": "Why is 'Data Drift' a critical concern in the MLOps phase of a BCI product?",
+    "options": [
+      "Because the model might become too accurate over time.",
+      "Because the input data distribution (e.g., new users, electrode fit) may shift, causing the model to degrade.",
+      "Because it indicates the battery is running low.",
+      "Because it means the code needs to be rewritten from scratch."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 12 (ML lecture, but applicable to Product Dev lifecycle) and Slide 49 (Implementation phase) highlight that monitoring is key. Data drift (changes in input data characteristics over time) can silently reduce model performance."
+  },
+  {
+    "question": "Which deliverable is created during the 'Ideation' phase?",
+    "options": [
+      "Technical Specs and Requirements Document.",
+      "Ideation Sketching and Product Mood.",
+      "Architecture Diagram and Data Flow.",
+      "Final User Flow Diagram."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 25 lists 'Ideation Sketching', 'Product Mood', and 'Trends' as key deliverables for the Ideation phase, preceding technical specifications."
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "question": "Welche zwei Domänen werden laut Folie 5 zur Interpretation von EEG-Daten unterschieden?",
+    "options": [
+      "Zeitbereich (Time domain) und Frequenzbereich (Frequency domain)",
+      "Raumbereich (Space domain) und Energiebereich (Energy domain)",
+      "Analogbereich und Digitalbereich",
+      "Mikrobereich und Makrobereich"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 5 unterscheidet explizit zwischen dem Zeitbereich (für Anomalieerkennung) und dem Frequenzbereich (für Feature-Extraktion und Zustandscharakterisierung, z.B. via FFT)."
+  },
+  {
+    "question": "Was ist der Hauptzweck des 'Epoching' im Preprocessing-Prozess (Folie 13–14)?",
+    "options": [
+      "Das Signal in kurze Segmente zu teilen, um gute von schlechten Epochen (Artefakten) zu trennen",
+      "Das gesamte Signal auf einmal zu filtern, um Rechenzeit zu sparen",
+      "Die Sampling-Rate des Signals zu erhöhen",
+      "Das Signal direkt in Bilder umzuwandeln"
+    ],
+    "correct_index": 0,
+    "explanation": "Laut Folie 13 und 14 wird das Signal in Segmente (Epochen) unterteilt, um Bewegungsartefakte zu identifizieren und nur die 'guten' Epochen für die weitere Analyse zu verwenden, anstatt das gesamte Signal zu verwerfen."
+  },
+  {
+    "question": "Welche Python-Funktion wird auf Folie 15 zur Berechnung der Power Spectral Density (PSD) empfohlen?",
+    "options": [
+      "scipy.signal.welch",
+      "numpy.fft.fft",
+      "matplotlib.pyplot.psd",
+      "pandas.signal.analysis"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 15 zeigt explizit den Code-Aufruf 'scipy.signal.welch' mit Parametern wie fs, window, nperseg und noverlap zur Berechnung der spektralen Leistungsdichte."
+  },
+  {
+    "question": "Welches Ergebnis wurde bei der 'Brain Music Analysis' unter der 'Audicin'-Bedingung im Vergleich zur Kontrollbedingung beobachtet (Folie 17)?",
+    "options": [
+      "Höhere Leistung in den Alpha- und Beta-Bändern",
+      "Niedrigere Leistung in allen Frequenzbändern",
+      "Eine Verschiebung ausschliesslich in die Gamma-Bänder",
+      "Kein messbarer Unterschied zwischen den Bedingungen"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 17 besagt, dass Probanden während der freien Aktivität unter der Audicin-Bedingung eine höhere Leistung (Power) in den Alpha- und Beta-Bändern zeigten als unter der Kontrollbedingung (Pink Noise)."
+  },
+  {
+    "question": "Welche Tools werden auf den Folien 21–22 für die Erstellung von generativer Echtzeit-Kunst genannt?",
+    "options": [
+      "TouchDesigner und p5.js",
+      "Photoshop und Illustrator",
+      "Unity und Unreal Engine",
+      "MATLAB und Simulink"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 21 erwähnt 'TouchDesigner' für Performance Generative Art und Folie 24 verlinkt auf 'p5.js' für Creative Coding im Web als Werkzeuge zur Visualisierung."
+  },
+  {
+    "question": "Wie funktioniert der 'Brain Image Generator' laut dem User Flow auf Folie 26?",
+    "options": [
+      "Der Calm State wird in einen Text-Prompt übersetzt, der an eine Bild-KI (OpenAI API) gesendet wird",
+      "Das EEG-Signal wird direkt als Pixelwerte an einen Monitor gesendet",
+      "Der Nutzer wählt manuell ein Bild aus einer Datenbank basierend auf seinem Gefühl",
+      "Das System zeichnet die Gehirnwellen als Liniengrafik auf"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 26 beschreibt den Prozess: Der 'Calm State' des Besuchers wird in einen Text-Prompt übersetzt, welcher dann an die OpenAI API gesendet wird, um ein generiertes Bild zu erzeugen."
+  },
+  {
+    "question": "Welche Strategie wird auf Folie 36 vorgeschlagen, um EEG-Features (wie den Calm Score) in Text-Prompts zu übersetzen?",
+    "options": [
+      "Ein Look-up Table Ansatz, der Wertebereichen spezifische Beschreibungen zuordnet",
+      "Eine zufällige Generierung von Wörtern für jede Messung",
+      "Die Verwendung von nur zwei Prompts: 'Calm' und 'Stressed'",
+      "Das manuelle Eingeben von Prompts durch den Nutzer in Echtzeit"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 36 zeigt eine 'Prompt Look-up Table', die den Calm Score (0 bis 1) in Intervalle unterteilt (z.B. 0–0.2, 0.21–0.4) und jedem Intervall eine spezifische Bildbeschreibung zuweist."
+  },
+  {
+    "question": "Was ist laut Folie 38 ein visuelles Merkmal für einen sehr hohen Calmness-Wert (Level 10)?",
+    "options": [
+      "Helle, harmonische Farben, weiche Gradienten und fliessende Texturen",
+      "Dunkle, kollidierende Farben und scharfe, eckige Formen",
+      "Schwarze und weisse Streifen ohne Farben",
+      "Realistische Abbildungen von Menschen und Tieren"
+    ],
+    "correct_index": 0,
+    "explanation": "Der Beispiel-Prompt auf Folie 38 definiert für Calmness 10: 'rich palette of bright, harmonious colors, ethereal lighting, fluid, dreamlike shapes, and soft gradients'."
+  },
+  {
+    "question": "Welcher Bestandteil ist im Testprotokoll (Folie 16) für die Messung der Reaktionszeit und Müdigkeit vorgesehen?",
+    "options": [
+      "PVT (Psychomotor Vigilance Task)",
+      "KSS (Karolinska Sleepiness Scale)",
+      "Stroop-Test",
+      "Baseline-Messung"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 16 listet den PVT als Test zur Messung der Reaktionszeit ('measuring reaction time -> tells how fautige') auf, während KSS ein Fragebogen und Stroop ein kognitiver Interferenztest ist."
+  },
+  {
+    "question": "Was ist das Ziel des 'Prompt Engineering' im Kontext des Brain Image Generators (Folie 33–35)?",
+    "options": [
+      "EEG-Features so in Text zu übersetzen, dass sie visuelle Parameter wie Farbe, Form und Komplexität steuern",
+      "Den schnellsten Weg zu finden, um Bilder zu generieren",
+      "Die EEG-Daten direkt ohne Textumwandlung an die KI zu senden",
+      "Eine Datenbank mit vorgefertigten Bildern zu erstellen"
+    ],
+    "correct_index": 0,
+    "explanation": "Folie 33 und 35 zeigen, dass Prompt Engineering darauf abzielt, EEG-Metriken (wie den Calm Score) in eine Textarchitektur zu übersetzen, die spezifische Bildmerkmale (Farben, Linienlänge, Kontrast) definiert."
+  }
+]
