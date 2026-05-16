@@ -12,6 +12,14 @@ st.sidebar.image("mctrainer.jpg", caption="Hallo, ich bin dein Lernassistent", u
 st.sidebar.title("📚 Modul")
    
 verfügbare_fächer = {
+    "Neuro 1 Intro to Neuro and BCI":"neuro/01_intro.json",
+    "Neuro 2 Neuroscientific Fundamentals":"neuro/02_fundamentals.json",    
+    "Neuro 3 Signal Acquisition":"neuro/03_signal_acquisition.json",    
+    "Neuro 4 Building a BCI":"neuro/04_building_a_BCI.json",   
+    "Neuro 5 Product Development":"neuro/05_product_development.json",
+    "Neuro 6 ML":"neuro/06_ML.json",
+    "Neuro 7 Processing":"neuro/07_processing.json",
+    "Neuro 10 Visualisation":"neuro/10_visualisation.json",
     "RecSys SW1 Intro": "recsys/sw1_intro.json",
     "RecSys SW2 Eval": "recsys/sw2_eval.json",
     "RecSys SW3 Collab-Filtering": "recsys/sw3_collab.json",
@@ -28,14 +36,6 @@ verfügbare_fächer = {
     "Compiler Parser":"compiler/lecture5_6.json",
     "Compiler Top-Down und Bottom-up":"compiler/lecture7_8.json",
     "Compiler Syntaxtree und Semantische Analyse":"compiler/syntaxtree_semantischeAnalyse.json",  
-    "Neuro 1 Intro to Neuro and BCI":"neuro/01_intro.json",
-    "Neuro 2 Neuroscientific Fundamentals":"neuro/02_fundamentals.json",    
-    "Neuro 3 Signal Acquisition":"neuro/03_signal_acquisition.json",    
-    "Neuro 4 Building a BCI":"neuro/04_building_a_BCI.json",   
-    "Neuro 5 Product Development":"neuro/05_product_development.json",
-    "Neuro 6 ML":"neuro/06_ML.json",
-
-    "Neuro 10 Visualisation":"neuro/10_visualisation.json",
 }
 
 ausgewähltes_fach = st.sidebar.selectbox("Wähle ein Fach:", list(verfügbare_fächer.keys()))
