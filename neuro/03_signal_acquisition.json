@@ -1,6 +1,6 @@
 [
   {
-    "question": "What was the first documented interest in the brain and nervous system according to the history of neural signal acquisition (Slide 3)?",
+    "question": "What was the first documented interest in the brain and nervous system according to the history of neural signal acquisition?",
     "options": [
       "The Papyrus Edwin Smith (1550 BC) describing anatomy of the brain",
       "Galvani's frog experiment in 1791 AD",
@@ -11,7 +11,7 @@
     "explanation": "Slide 3 shows the Papyrus Edwin Smith from 1550 BC as the earliest documented reference to understanding the brain and nervous system, followed by developments in anatomy, understanding of nerves as electrical conductors, and functional localization."
   },
   {
-    "question": "What breakthrough occurred in 1791 AD regarding the understanding of neural function (Slide 3)?",
+    "question": "What breakthrough occurred in 1791 AD regarding the understanding of neural function?",
     "options": [
       "Galvani's frog experiment demonstrated that nerves operate as electrical conductors",
       "The first EEG measurements were successfully recorded",
@@ -22,7 +22,7 @@
     "explanation": "Slide 3 highlights Galvani's frog experiment (1791 AD) as a key breakthrough, establishing that nerves function as electrical conductors, which laid the foundation for modern electrophysiology."
   },
   {
-    "question": "Who performed the first EEG measurements, and in what year (Slide 4)?",
+    "question": "Who performed the first EEG measurements, and in what year?",
     "options": [
       "Psychiatrist H. Berger in 1924",
       "Luigi Galvani in 1791",
@@ -33,7 +33,7 @@
     "explanation": "Slide 4 clearly states that psychiatrist H. Berger performed 'The first EEG measurements' in 1924, marking the beginning of electroencephalography as a neuroimaging technique."
   },
   {
-    "question": "What was the technical challenge in early EEG recordings around 1928 (Slide 4)?",
+    "question": "What was the technical challenge in early EEG recordings around 1928?",
     "options": [
       "Converting signals measured in microvolts to readable EEG recordings",
       "Developing electrodes that could contact the scalp",
@@ -44,7 +44,7 @@
     "explanation": "Slide 4 indicates that a major technical challenge was 'From microvolts to EEG,' referring to the difficulty of amplifying and recording the very small electrical signals produced by the brain."
   },
   {
-    "question": "What is the primary purpose of the 10-20 system in electroencephalography (Slide 5)?",
+    "question": "What is the primary purpose of the 10-20 system in electroencephalography?",
     "options": [
       "To standardize electrode placement across EEG recordings for consistency and comparability",
       "To define the frequency bands used in EEG analysis",
@@ -55,7 +55,7 @@
     "explanation": "Slide 5 states that 'The standardized 10-20 system is used in electroencephalography (EEG),' establishing uniform electrode positioning to ensure consistent and comparable recordings across different subjects and studies."
   },
   {
-    "question": "According to Slide 6, which of the following is NOT listed as a state-of-the-art non-invasive neuroimaging technology?",
+    "question": "Which of the following is NOT listed as a state-of-the-art non-invasive neuroimaging technology?",
     "options": [
       "Invasive intracranial electrodes",
       "fMRI",
@@ -66,7 +66,7 @@
     "explanation": "Slide 6 presents state-of-the-art clinical non-invasive neuroimaging technologies, which would include fMRI, PET, and EEG. Invasive intracranial electrodes are by definition invasive, not non-invasive."
   },
   {
-    "question": "What is the first major challenge for mass adoption of Brain-Computer Interfaces according to Slide 7 (EXAM RELEVANT)?",
+    "question": "What is the first major challenge for mass adoption of Brain-Computer Interfaces (EXAM RELEVANT)?",
     "options": [
       "Wearability and comfort - devices must become unnoticeable and integrate seamlessly into existing wearables",
       "Data privacy and security concerns",
@@ -77,7 +77,7 @@
     "explanation": "Slide 7 lists 'Wearability and comfort' as the first challenge, stating that 'Consumers will not accept an obtrusive device' and BCIs must integrate seamlessly into existing wearables through miniaturization and electronics innovation."
   },
   {
-    "question": "Why is establishing a clear 'use case and value add' critical for BCI mass adoption (Slide 7 - EXAM RELEVANT)?",
+    "question": "Why is establishing a clear 'use case and value add' critical for BCI mass adoption (EXAM RELEVANT)?",
     "options": [
       "The killer use case for consumer BCI has not yet been proven; value proposition must be established to achieve product-market-fit",
       "The technology is not yet developed enough for consumer applications",
@@ -88,7 +88,7 @@
     "explanation": "Slide 7 explains that 'The killer use case for consumer BCI has not yet been proven in the market. In contrast to clinical EEG, the value proposition is not clear,' making this a critical hurdle for mass adoption."
   },
   {
-    "question": "How does user brain variability impact BCI development according to Slide 7 (EXAM RELEVANT)?",
+    "question": "How does user brain variability impact BCI development (EXAM RELEVANT)?",
     "options": [
       "Brain diversity complicates generalized classifier development; adaptive algorithms are needed to adjust to individual brain patterns",
       "All brains are identical, making BCI development straightforward",
@@ -99,7 +99,7 @@
     "explanation": "Slide 7 states that 'Brains are as diverse as we are as human beings. That complicates the development and deployment of generalized classifiers,' requiring ML and adaptation to develop individual-specific algorithms."
   },
   {
-    "question": "What special protection is required for brain data according to Slide 7 (EXAM RELEVANT)?",
+    "question": "What special protection is required for brain data (EXAM RELEVANT)?",
     "options": [
       "Brain data is a special category of personal data requiring state-of-the-art encryption, transparent communication, and dynamic consent models to preserve cognitive liberty",
       "Brain data requires the same protection as any other medical data",
@@ -110,7 +110,7 @@
     "explanation": "Slide 7 emphasizes that 'Brain data is a special category of personal data that needs to be protected to preserve our cognitive liberty (right to self-determination over our brains and mental experiences).'"
   },
   {
-    "question": "What cost target is mentioned on Slide 7 to achieve mass scalability of BCIs?",
+    "question": "What cost target is mentioned to achieve mass scalability of BCIs?",
     "options": [
       "Less than 1 USD per unit through standardization and scalable production methods like injection molding",
       "Less than 10 USD per unit",
@@ -121,7 +121,7 @@
     "explanation": "Slide 7 specifies that to 'enable mass scalability, brain-sensing capabilities need to integrate lego-brick style' and 'Standardization and scalable production methods (like injection molding) will bring the cost down to < 1 USD range.'"
   },
   {
-    "question": "What vehicle for mass adoption of BCIs is highlighted on Slide 8?",
+    "question": "What vehicle for mass adoption of BCIs is highlighted?",
     "options": [
       "Hearables - wearable devices that integrate brain-sensing capabilities into headphones and earbuds",
       "Implantable neural devices",
@@ -132,7 +132,7 @@
     "explanation": "Slide 8 presents hearables as 'a vehicle to mass adoption of BCIs,' showing how brain-sensing can be integrated into consumer audio devices that people already wear daily."
   },
   {
-    "question": "Which companies are mentioned on Slide 9 as developing 1st generation wearable BCIs using headbands?",
+    "question": "Which companies are mentioned as developing 1st generation wearable BCIs using headbands?",
     "options": [
       "Emotiv, MN8, Neurable, and IDUN Guardian",
       "Apple, Neurosity, Notion, and Dreem",
@@ -143,7 +143,7 @@
     "explanation": "Slide 9 categorizes '1st generation wearable BCIs - Headbands' and lists companies including Emotiv, MN8, Neurable, and IDUN Guardian in this category."
   },
   {
-    "question": "According to Slide 9, which generation of wearable BCIs includes earbuds and headphones?",
+    "question": "Which generation of wearable BCIs includes earbuds and headphones?",
     "options": [
       "2nd generation wearable BCIs include earbuds and headphones such as Next Sense, Muse 2, Neurosity Notion, and Dreem",
       "1st generation devices are earbuds",
@@ -154,7 +154,7 @@
     "explanation": "Slide 9 explicitly labels '2nd gen wearable BCIs – Earbuds and headphones' and lists products like Next Sense, Muse 2, Neurosity Notion, and Dreem in this category, suggesting Apple as a potential future entrant."
   },
   {
-    "question": "What four main components are shown in the 'Deep dive into brain-sensing hearables' on Slide 10?",
+    "question": "What four main components are shown in the 'Deep dive into brain-sensing hearables'?",
     "options": [
       "In-ear Sensor (Hardware), Software, Cloud, and Data",
       "Microphone, Speaker, Battery, and Antenna",
@@ -165,7 +165,7 @@
     "explanation": "Slide 10 presents a comprehensive architecture showing the four key components of brain-sensing hearables: In-ear Sensor Hardware, Software layer, Cloud connectivity, and Data management."
   },
   {
-    "question": "What four quality aspects are emphasized for the IDUN Guardian in-ear sensor according to Slide 11?",
+    "question": "What four quality aspects are emphasized for the IDUN Guardian in-ear sensor?",
     "options": [
       "Quality, Reusability, Cost, and User experience",
       "Sensitivity, Selectivity, Specificity, and Accuracy",
@@ -176,7 +176,7 @@
     "explanation": "Slide 11 highlights four key considerations for the IDUN Guardian: Quality, Re-usability, Cost, and User experience, with special mention of the 'QRC-X' (likely referring to Quality-Reusability-Cost-Experience)."
   },
   {
-    "question": "What manufacturing process is used for mass production of the IDUN Guardian sensors according to Slide 12?",
+    "question": "What manufacturing process is used for mass production of the IDUN Guardian sensors?",
     "options": [
       "Injection molding, preceded by compounding and pellet formation",
       "3D printing and post-processing",
@@ -187,7 +187,7 @@
     "explanation": "Slide 12 describes the IDUN Guardian mass manufacturing process as: '1. Compounding, 2. Pellets, 3. Injection molding, 4. Finished sensors,' representing a scalable, automated production method."
   },
   {
-    "question": "What patent status is mentioned for the IDUN Guardian manufacturing process (Slide 12)?",
+    "question": "What patent status is mentioned for the IDUN Guardian manufacturing process?",
     "options": [
       "Patent pending",
       "Patent already granted",
@@ -209,7 +209,7 @@
     "explanation": "Slide 16 lists scientific validation studies for ear-EEG across multiple applications: Event-related potentials, Auditory attention decoding (AAD), Sleep staging, and Cognitive workload monitoring."
   },
   {
-    "question": "What capability did Fiedler et al. (2017) demonstrate with single-channel in-ear EEG according to Slide 16 (EXAM RELEVANT)?",
+    "question": "What capability did Fiedler et al. (2017) demonstrate with single-channel in-ear EEG (EXAM RELEVANT)?",
     "options": [
       "Single-channel in-ear-EEG can detect the focus of auditory attention to concurrent tone streams and mixed speech",
       "In-ear EEG requires multiple channels to be effective",
@@ -220,7 +220,7 @@
     "explanation": "Slide 16 references Fiedler, Lorenz, et al. (2017) in the Journal of Neural Engineering, demonstrating that 'Single-channel in-ear-EEG detects the focus of auditory attention to concurrent tone streams and mixed speech.'"
   },
   {
-    "question": "According to Mikkelsen et al. (2015), what did research characterize about the ear-EEG method (Slide 16 - EXAM RELEVANT)?",
+    "question": "According to Mikkelsen et al. (2015), what did research characterize about the ear-EEG method (EXAM RELEVANT)?",
     "options": [
       "They characterized the ear-EEG method's properties, establishing it as a viable alternative to conventional EEG",
       "They proved ear-EEG was inferior to scalp EEG",
@@ -231,7 +231,7 @@
     "explanation": "Slide 16 cites Mikkelsen, Kaare B., et al. (2015) 'EEG recorded from the ear: characterizing the ear-EEG method' in Frontiers in Neuroscience, establishing the scientific foundation for ear-EEG as a valid neuroimaging approach."
   },
   {
-    "question": "What sleep-related capability was demonstrated by Nakamura et al. (2020) using in-ear EEG (Slide 16 - EXAM RELEVANT)?",
+    "question": "What sleep-related capability was demonstrated by Nakamura et al. (2020) using in-ear EEG (EXAM RELEVANT)?",
     "options": [
       "Automatic overnight sleep monitoring and sleep stage classification using standardized in-ear EEG sensor",
       "Only daytime nap detection",
@@ -242,7 +242,7 @@
     "explanation": "Slide 16 references Nakamura et al. (2020) in IEEE Transactions on Biomedical Engineering, demonstrating 'Hearables: Automatic Overnight Sleep Monitoring With Standardized In-Ear EEG Sensor.'"
   },
   {
-    "question": "What was the focus of Crétot-Richert et al. (2023) research mentioned on Slide 16 (EXAM RELEVANT)?",
+    "question": "What was the focus of Crétot-Richert et al. (2023) research (EXAM RELEVANT)?",
     "options": [
       "Comparative study between conventional cap EEG and mobile in-and around-the-ear EEG systems for assessing focus",
       "Proving mobile EEG systems are always superior to clinical systems",
@@ -253,7 +253,7 @@
     "explanation": "Slide 16 cites 'Assessing focus through ear-EEG: a comparative study between conventional cap EEG and mobile in-and around-the-ear EEG systems' by Crétot-Richert et al. (2023) in Frontiers in Neuroscience."
   },
   {
-    "question": "What is the primary objective of the practical exercise described on Slide 19?",
+    "question": "What is the primary objective of the practical exercise?",
     "options": [
       "Measure cognitive workload using an in-ear BCI by recording resting-state and task-based EEG, calculating relative band powers, and analyzing the effect on EEG",
       "To learn the complete history of EEG development",
@@ -264,7 +264,7 @@
     "explanation": "Slide 19 outlines the applied knowledge exercise: conducting a 5-minute resting-state recording, easy and hard arithmetic task recordings (5-min blocks each), deriving relative band powers, visualizing results, and discussing cognitive workload effects on EEG."
   },
   {
-    "question": "What are the specific recording tasks in the cognitive workload practical exercise (Slide 19)?",
+    "question": "What are the specific recording tasks in the cognitive workload practical exercise?",
     "options": [
       "5-minute resting-state EEG recording followed by separate 5-minute blocks of easy and hard arithmetic tasks",
       "Continuous 20-minute recording with no task variation",
@@ -275,7 +275,7 @@
     "explanation": "Slide 19 specifies: 'Perform a 5min resting-state EEG recording. Record while performing easy and hard arithmetic tasks (5min blocks each),' allowing comparison of brain states across conditions."
   },
   {
-    "question": "What analysis steps are required in the cognitive workload exercise according to Slide 19?",
+    "question": "What analysis steps are required in the cognitive workload exercise?",
     "options": [
       "Derive the relative band powers, visualize the results, and discuss the effect of cognitive workload on EEG",
       "Only perform visual inspection of raw EEG traces",
@@ -286,7 +286,7 @@
     "explanation": "Slide 19 lists the analysis tasks: 'Derive the relative band powers, Visualize the results, Discuss the effect of cognitive workload on EEG,' with homework to automate these steps using tools like PsychoPy."
   },
   {
-    "question": "What is suggested as homework for the cognitive workload exercise (Slide 19)?",
+    "question": "What is suggested as homework for the cognitive workload exercise?",
     "options": [
       "Automate steps 1-4 (recording and analysis) using tools like PsychoPy",
       "Manually calculate all frequency bands by hand",

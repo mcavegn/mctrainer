@@ -1,6 +1,6 @@
 [
   {
-    "question": "What distinguishes a Real-Time BCI from a Batch BCI according to Slides 3 and 34?",
+    "question": "What distinguishes a Real-Time BCI from a Batch BCI?",
     "options": [
       "Real-Time BCIs operate in a continuous closed feedback loop, whereas Batch BCIs analyze data after recording",
       "Real-Time BCIs are only used for medical applications, while Batch BCIs are for consumer use",
@@ -11,7 +11,7 @@
     "explanation": "Slides 3 and 11 highlight that Real-Time BCIs function in a 'continuous closed feedback loop' where the system responds immediately, unlike Batch mode which processes a 'Full Dataset' (e.g., CSV file) after the fact for insights or reports."
   },
   {
-    "question": "Which of the following is NOT one of the five steps in the 'Closed Loop' process shown in Slide 4?",
+    "question": "Which of the following is NOT one of the five steps in the 'Closed Loop' process?",
     "options": [
       "Record Data",
       "Prepare Data for Interpretation",
@@ -44,7 +44,7 @@
     "explanation": "Slide 5 ('Triggers') clearly states the requirements: 'Use Any Signal That Means Something Interesting', which is broken down into 'Reliable Signal' and 'Useful Application'."
   },
   {
-    "question": "Which of the following is categorized as a 'Muscle Response' in Slide 18 and visualized in Slide 20?",
+    "question": "Which of the following is categorized as a 'Muscle Response'?",
     "options": [
       "Sleep Spindles",
       "Jaw Clenches",
@@ -52,7 +52,7 @@
       "Auditory Steady-State Responses"
     ],
     "correct_index": 1,
-    "explanation": "Slide 6 lists 'Jaw Clenches' and 'Eye Movements' under 'Muscle Responses'. It visually demonstrates the massive broadband burst in the EEG signal caused by 'Jaw Clenching', distinguishing it from other activities."
+    "explanation": "Slide 5 lists 'Jaw Clenches' and 'Eye Movements' under 'Muscle Responses'. Slide 6 visually demonstrates the massive broadband burst in the EEG signal caused by 'Jaw Clenching', distinguishing it from other activities."
   },
   {
     "question": "What physiological phenomenon causes the signal change known as the 'Alpha Effect'?",
@@ -88,7 +88,7 @@
     "explanation": "Slide 9 ('Productivity Responses') shows a graph where the 'Mental Effort' line jumps up significantly at the transition point. The notes confirm: 'mental effort rises measurably when switching from easy to hard arithmetic. The signal is noisy per-trial but robust in the mean.'"
   },
   {
-    "question": "Which sleep features are detectable even from a single in-ear channel (IDUN Guardian) as shown in Slide 24?",
+    "question": "Which sleep features are detectable even from a single in-ear channel (IDUN Guardian)?",
     "options": [
       "REM cycles and Dream content",
       "Sleep Spindles and K-Complexes",

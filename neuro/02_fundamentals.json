@@ -1,6 +1,6 @@
 [
   {
-    "question": "What are the two main divisions of the nervous system according to Slide 2-3?",
+    "question": "What are the two main divisions of the nervous system?",
     "options": [
       "Central Nervous System (CNS) and Peripheral Nervous System (PNS)",
       "Somatic Nervous System and Motor Nervous System",
@@ -11,7 +11,7 @@
     "explanation": "Slide 2 clearly distinguishes that the nervous system consists of two parts: the Central Nervous System (CNS) comprising the brain and spinal cord, and the Peripheral Nervous System (PNS) which lies outside the brain and spinal cord."
   },
   {
-    "question": "What is the primary role of the Central Nervous System (CNS) as described in Slide 3?",
+    "question": "What is the primary role of the Central Nervous System (CNS)?",
     "options": [
       "It is the core processing unit of the body, comprising the brain and spinal cord, responsible for integrating sensory information and coordinating activity",
       "It transmits signals from the body back to the brain only",
@@ -22,7 +22,7 @@
     "explanation": "Slide 3 defines the CNS as 'the core processing unit of the body, comprising the brain and spinal cord, responsible for integrating sensory information and coordinating and influencing the activity of all parts of the body.'"
   },
   {
-    "question": "Which of the following describes the primary function of the Peripheral Nervous System (PNS) according to Slide 4?",
+    "question": "Which of the following describes the primary function of the Peripheral Nervous System (PNS)?",
     "options": [
       "Sending information from different body areas back to the brain and carrying out commands from the brain to various body parts",
       "Processing all sensory information before sending it to the brain",
@@ -33,7 +33,7 @@
     "explanation": "Slide 4 explicitly states that the PNS 'plays key role in both sending information from different areas of your body back to your brain, as well as carrying out commands from your brain to various parts of your body.'"
   },
   {
-    "question": "What simple tool is mentioned on Slide 5 to influence the autonomic nervous system?",
+    "question": "What simple tool is mentioned to influence the autonomic nervous system?",
     "options": [
       "Breathing",
       "Exercise",
@@ -44,7 +44,7 @@
     "explanation": "Slide 5 states that 'A very simple one: breathing' can be used to influence the autonomic nervous system, even though it is typically outside our conscious control."
   },
   {
-    "question": "How are afferent neurons defined on Slide 6?",
+    "question": "How are afferent neurons?",
     "options": [
       "Nerve cells that carry information toward the central nervous system",
       "Nerve cells that carry information away from the brain or spinal cord",
@@ -55,7 +55,7 @@
     "explanation": "Slide 6 defines afferent neurons as 'nerve cells that carry information toward the central nervous system (or farther centrally within the spinal cord and brain).'"
   },
   {
-    "question": "How are efferent neurons defined on Slide 6?",
+    "question": "How are efferent neurons?",
     "options": [
       "Nerve cells that carry information away from the brain or spinal cord",
       "Nerve cells that carry information toward the central nervous system",
@@ -66,7 +66,7 @@
     "explanation": "Slide 6 defines efferent neurons as 'nerve cells that carry information away from the brain or spinal cord (or away from the circuit in question).'"
   },
   {
-    "question": "What is the key characteristic of the knee-jerk reflex arc described on Slide 7?",
+    "question": "What is the key characteristic of the knee-jerk reflex arc?",
     "options": [
       "It occurs without involving the brain, ensuring a rapid response",
       "It requires the brain to process the signal before triggering the muscle response",
@@ -77,7 +77,7 @@
     "explanation": "Slide 7 emphasizes that the reflex arc 'showcases the integration of sensory input with motor output, facilitated by the coordinated action of afferent (sensory) and efferent (motor) nerves, without involving the brain, ensuring a rapid response.'"
   },
   {
-    "question": "What structures act as 'relay stations' in sensory signal processing, as described on Slide 8?",
+    "question": "What structures act as 'relay stations' in sensory signal processing?",
     "options": [
       "Brainstem and thalamus",
       "Cerebellum and hippocampus",
@@ -88,7 +88,7 @@
     "explanation": "Slide 8 states that 'sensory information then travels up to the cerebral cortex for processing, passing through the brainstem and the thalamus, which act as relay stations, refining and directing the sensory signals.'"
   },
   {
-    "question": "According to Slide 10, what is the fundamental role of neurons in the nervous system?",
+    "question": "What is the fundamental role of neurons in the nervous system?",
     "options": [
       "Receiving sensory input, sending motor commands, and relaying electrical signals",
       "Only processing visual information from the eyes",
@@ -99,7 +99,7 @@
     "explanation": "Slide 10 defines neurons as 'the fundamental units of the brain and nervous system, the cells responsible for receiving sensory input from the external world, for sending motor commands to our muscles, and for transforming and relaying the electrical signals.'"
   },
   {
-    "question": "What are the three key functions that synapses ensure, according to Slide 12 (EXAM RELEVANT)?",
+    "question": "What are the three key functions that synapses ensure (EXAM RELEVANT)?",
     "options": [
       "Unidirectional signal propagation, excitation-to-inhibition complexity, and integration of multiple signals from different sources",
       "Amplification of electrical signals, direct transmission between neurons, and storage of neurotransmitters",
@@ -132,7 +132,7 @@
     "explanation": "Slide 12 notes that synapses allow 'for greater complexity with excitation to inhibition,' enabling nuanced neural processing through both excitatory and inhibitory signals."
   },
   {
-    "question": "What is the resting membrane potential of a neuron as stated on Slide 13?",
+    "question": "What is the resting membrane potential of a neuron?",
     "options": [
       "-70mV",
       "-55mV",
@@ -143,7 +143,7 @@
     "explanation": "Slide 13 states that 'Neurons are electrically polarized (-70mV) at rest because of ion concentration differences across the plasma membrane and differential ion permeability.'"
   },
   {
-    "question": "At what threshold does a neuron fire an action potential, according to Slide 14?",
+    "question": "At what threshold does a neuron fire an action potential?",
     "options": [
       "Approximately -55 millivolts",
       "-70 millivolts",
@@ -154,7 +154,7 @@
     "explanation": "Slide 14 specifies that 'a neuron will fire an action potential of a consistent magnitude if the stimulus is strong enough to cross the threshold level, typically around -55 millivolts.'"
   },
   {
-    "question": "What is the 'all or nothing' principle in the context of action potentials (Slide 14)?",
+    "question": "What is the 'all or nothing' principle in the context of action potentials?",
     "options": [
       "A neuron either fires a full action potential or none at all, depending on whether threshold is reached",
       "A neuron can fire partial action potentials if the stimulus is weak",
@@ -165,7 +165,7 @@
     "explanation": "Slide 14 explains that 'Neurons, upon reaching a specific threshold in response to stimuli, trigger an action potential, adhering to an \"all or nothing\" principle. If the stimulus fails to meet this threshold, no action potential occurs.'"
   },
   {
-    "question": "How does the nervous system encode stimulus intensity, such as pressure on skin, according to Slide 15?",
+    "question": "How does the nervous system encode stimulus intensity, such as pressure on skin?",
     "options": [
       "Through the frequency of action potentials",
       "Through the amplitude of individual action potentials",
@@ -176,7 +176,7 @@
     "explanation": "Slide 15 states that 'Nerves encode stimulus strength, like pressure on hand sensory cells, through the frequency of action potentials. Light pressure triggers a low frequency of impulses, while stronger pressure increases this frequency.'"
   },
   {
-    "question": "Which system of the nervous system is responsible for regulating involuntary bodily functions according to Slide 16?",
+    "question": "Which system of the nervous system is responsible for regulating involuntary bodily functions?",
     "options": [
       "Autonomic nervous system",
       "Somatic nervous system",
@@ -187,7 +187,7 @@
     "explanation": "Slide 16 states that 'The autonomic nervous system is responsible for regulating involuntary bodily functions, such as heart rate, digestion, respiratory rate, and pupillary response.'"
   },
   {
-    "question": "What does the homunculus represent according to Slide 21?",
+    "question": "What does the homunculus represent?",
     "options": [
       "A conceptual representation of the human body within the brain, showing disproportionate space dedicated to different sensory and motor functions",
       "A model of how the spinal cord processes motor commands",
@@ -198,7 +198,7 @@
     "explanation": "Slide 21 defines the homunculus as 'a conceptual representation of the human body within the brain, highlighting the disproportionate amount of brain space dedicated to different sensory and motor functions.'"
   },
   {
-    "question": "Why is understanding the homunculus important for Brain-Computer Interface (BCI) design, according to Slide 21?",
+    "question": "Why is understanding the homunculus important for Brain-Computer Interface (BCI) design?",
     "options": [
       "It aids in optimizing electrode placement for capturing and stimulating brain activity, enhancing BCI functionality",
       "It determines the maximum sampling rate for EEG devices",
@@ -209,7 +209,7 @@
     "explanation": "Slide 21 explains that understanding the homunculus 'is essential for creating effective BCIs, particularly for applications like prosthetic limbs' and 'aids in optimizing electrode placement for capturing and stimulating brain activity.'"
   },
   {
-    "question": "What is the difference in language representation between early and late bilinguals in Broca's area, according to Slide 23?",
+    "question": "What is the difference in language representation between early and late bilinguals in Broca's area?",
     "options": [
       "Early bilinguals map both languages to the same locus; late bilinguals map to adjacent but distinct loci",
       "Late bilinguals have better language processing due to separate areas",
@@ -242,7 +242,7 @@
     "explanation": "Slide 25 references 'Fluent Aphasia (Wernicke's Aphasia),' indicating that Wernicke's area is involved in language comprehension and fluent speech production."
   },
   {
-    "question": "What percentage of the body's energy does the brain consume despite representing only 2% of body weight, according to Slide 20?",
+    "question": "What percentage of the body's energy does the brain consume despite representing only 2% of body weight?",
     "options": [
       "About 20%",
       "About 10%",
@@ -253,7 +253,7 @@
     "explanation": "Slide 20 states that 'The brain is an energy-intensive organ, consuming about 20% of the body's energy despite making up only 2% of its weight.'"
   },
   {
-    "question": "How does brain specialization optimize energy consumption according to Slide 20?",
+    "question": "How does brain specialization optimize energy consumption?",
     "options": [
       "Only necessary regions are activated for a given task, rather than engaging the entire brain",
       "The entire brain is always fully active to ensure maximum efficiency",
@@ -264,7 +264,7 @@
     "explanation": "Slide 20 explains that 'Specialization helps to optimize energy consumption by ensuring that only the necessary regions are activated for a given task, rather than engaging the entire brain.'"
   },
   {
-    "question": "What is an EEG (Electroencephalography) signal, according to Slide 31?",
+    "question": "What is an EEG (Electroencephalography) signal?",
     "options": [
       "A recording of the electrical activity of the brain",
       "A measurement of blood flow in the brain",
@@ -275,7 +275,7 @@
     "explanation": "Slide 31 defines EEG as 'a recording of the electrical activity of the brain' and notes that it 'is a continuous, time-varying signal including a spatial dimension (based on electrode placement).'"
   },
   {
-    "question": "What two characteristics define EEG signals according to Slide 31?",
+    "question": "What two characteristics define EEG signals?",
     "options": [
       "Frequency (speed of waves) and amplitude (height of waves)",
       "Color and intensity",
@@ -286,7 +286,7 @@
     "explanation": "Slide 31 states that 'EEG signals are characterized by their frequency (speed of the waves) and amplitude (height of the waves).'"
   },
   {
-    "question": "What advantages does EEG offer compared to other brain imaging techniques, according to Slide 31?",
+    "question": "What advantages does EEG offer compared to other brain imaging techniques?",
     "options": [
       "Non-invasive nature, relatively low cost, and high temporal resolution",
       "High spatial resolution, ability to measure chemical activity, and portability",
@@ -297,7 +297,7 @@
     "explanation": "Slide 31 states that 'The non-invasive nature of EEG, its relatively low cost compared to other imaging techniques, and its high temporal resolution (ability to detect changes over very short periods of time) make it a valuable tool.'"
   },
   {
-    "question": "How is time domain EEG data plotted according to Slide 32?",
+    "question": "How is time domain EEG data plotted?",
     "options": [
       "Time on the x-axis and potential (voltage) on the y-axis",
       "Frequency on the x-axis and amplitude on the y-axis",
@@ -308,7 +308,7 @@
     "explanation": "Slide 32 states that 'Time domain data is plotted on the x axis with potential (voltage) on the y axis.'"
   },
   {
-    "question": "What mathematical transformation is typically used to convert EEG data from time domain to frequency domain, according to Slide 33?",
+    "question": "What mathematical transformation is typically used to convert EEG data from time domain to frequency domain?",
     "options": [
       "Fast Fourier Transform (FFT)",
       "Laplace Transform",
@@ -319,7 +319,7 @@
     "explanation": "Slide 33 states that 'EEG can also be viewed in the frequency domain. With a mathematical transformation, typically a fast Fourier transform (FFT).'"
   },
   {
-    "question": "What is the fundamental principle underlying the FFT for EEG analysis according to Slide 33?",
+    "question": "What is the fundamental principle underlying the FFT for EEG analysis?",
     "options": [
       "Any time-varying signal can be created or broken down into a set of sine waves of varying frequencies and amplitudes",
       "Complex signals can only be analyzed by breaking them into their component frequencies",
@@ -330,7 +330,7 @@
     "explanation": "Slide 33 explains that the FFT is 'based on the principle that any time-varying signal can be created or broken down into a set of sine waves of varying frequencies and amplitudes.'"
   },
   {
-    "question": "In frequency domain analysis, what term is used to describe the amplitude of each frequency, according to Slide 33?",
+    "question": "In frequency domain analysis, what term is used to describe the amplitude of each frequency?",
     "options": [
       "Power",
       "Magnitude",
@@ -341,7 +341,7 @@
     "explanation": "Slide 33 notes that 'in the frequency domain, the amplitude of each frequency is generally referred to as power, not amplitude,' and these results are plotted as a 'power spectrum.'"
   },
   {
-    "question": "What is the primary advantage of time domain analysis for EEG signals, according to Slide 34?",
+    "question": "What is the primary advantage of time domain analysis for EEG signals?",
     "options": [
       "It is best for viewing and analyzing aperiodic signals",
       "It provides better frequency resolution",
@@ -352,7 +352,7 @@
     "explanation": "Slide 34 states that 'The time domain is typically best for viewing and analyzing aperiodic signals, and this is the basis of much cognitive neuroscience research using event-related potentials (ERPs).'"
   },
   {
-    "question": "Why is frequency domain analysis better for analyzing periodic brain activity, according to Slide 34?",
+    "question": "Why is frequency domain analysis better for analyzing periodic brain activity?",
     "options": [
       "The brain appears to use different ranges of frequencies, called frequency bands, to perform different tasks",
       "Frequency domain analysis eliminates all types of noise",
@@ -363,7 +363,7 @@
     "explanation": "Slide 34 explains that 'the frequency domain is better for viewing and analyzing periodic signals...the brain appears to use different ranges of frequencies, called frequency bands, to perform different tasks.'"
   },
   {
-    "question": "What are some of the main EEG frequency bands listed on Slide 35?",
+    "question": "What are some of the main EEG frequency bands?",
     "options": [
       "Delta, Theta, Alpha, Beta, and Gamma",
       "Low, Medium, High, and Ultra-High",
@@ -374,7 +374,7 @@
     "explanation": "Slide 35 presents a table of frequency bands which typically includes Delta, Theta, Alpha, Beta, and Gamma bands, each associated with different brain states and functions."
   },
   {
-    "question": "What important caveat is mentioned on Slide 36 regarding EEG frequency bands?",
+    "question": "What important caveat is mentioned regarding EEG frequency bands?",
     "options": [
       "EEG oscillations can reflect different mechanisms depending on context, and signals from multiple brain regions are composited at scalp electrodes",
       "Frequency bands have absolute meanings regardless of brain state",
@@ -385,7 +385,7 @@
     "explanation": "Slide 36 emphasizes that 'EEG oscillations can reflect different mechanisms depending on the context' and that 'an electrode on the scalp captures a mix of signals from various active regions,' meaning 'any brain signal can theoretically be detected from any scalp location.'"
   },
   {
-    "question": "According to Slide 38, why is understanding brain anatomy and signal sources crucial for designing Brain-Computer Interface (BCI) systems?",
+    "question": "Why is understanding brain anatomy and signal sources crucial for designing Brain-Computer Interface (BCI) systems?",
     "options": [
       "It ensures accuracy and specificity in interpreting neural signals for targeted monitoring and stimulation",
       "It eliminates the need for signal preprocessing",
@@ -396,7 +396,7 @@
     "explanation": "Slide 38 states that 'Understanding brain anatomy and signal sources is crucial for designing Brain-Computer Interface (BCI) systems because it ensures accuracy and specificity in interpreting neural signals' and 'allows for targeted monitoring and stimulation.'"
   },
   {
-    "question": "How does the sensory system in the human nervous system correspond to computer systems, according to Slide 38?",
+    "question": "How does the sensory system in the human nervous system correspond to computer systems?",
     "options": [
       "Just as computers receive input through devices like keyboards and mice, the nervous system receives input through the sensory system",
       "The sensory system stores data like computer memory",
@@ -407,7 +407,7 @@
     "explanation": "Slide 38 makes this direct analogy: 'Just as computers receive input through devices like keyboards and mice, the human nervous system receives input through the sensory system, capturing information from the external environment.'"
   },
   {
-    "question": "How does the brain's parallel processing capability compare to computers, according to Slide 39?",
+    "question": "How does the brain's parallel processing capability compare to computers?",
     "options": [
       "The brain employs massively parallel processing while computers predominantly execute tasks sequentially",
       "Computers are superior at parallel processing compared to the brain",
@@ -418,7 +418,7 @@
     "explanation": "Slide 39 explains that 'The brain...employs massively parallel processing, activating numerous neurons and connections for concurrent information analysis' while 'Computers execute tasks sequentially, which, while precise, limits their ability to handle multiple operations simultaneously.'"
   },
   {
-    "question": "What example is given on Slide 39 to demonstrate the brain's parallel processing advantage?",
+    "question": "What example is given to demonstrate the brain's parallel processing advantage?",
     "options": [
       "How the brain processes visual information when tracking a fast-moving tennis ball",
       "How the brain stores long-term memories",
@@ -428,15 +428,4 @@
     "correct_index": 0,
     "explanation": "Slide 39 describes how 'Photoreceptors in the eye simultaneously capture various aspects of the ball's motion—location, direction, speed—and through parallel circuits, this information is rapidly integrated and responded to, enabling actions like hitting a tennis ball with precision.'"
   },
-  {
-    "question": "What is the primary objective of the practical exercise described in Slide 40?",
-    "options": [
-      "To familiarize participants with the IDUN Guardian device and Python SDK environment, and to conduct an eyes open eyes closed experiment with data visualization",
-      "To teach advanced machine learning techniques for BCI applications",
-      "To measure individual differences in brain anatomy",
-      "To develop new EEG preprocessing algorithms"
-    ],
-    "correct_index": 0,
-    "explanation": "Slide 40 clearly states the objective: 'To familiarize participants with the IDUN Guardian device and Python SDK environment, and to conduct an eyes open eyes closed experiment, followed by data visualization.'"
-  }
 ]
