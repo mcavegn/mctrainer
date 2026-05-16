@@ -8,7 +8,7 @@
       "Real-Time BCIs record data for longitudinal review, while Batch BCIs trigger immediate actions"
     ],
     "correct_index": 0,
-    "explanation": "Slides 3 and 34 highlight that Real-Time BCIs function in a 'continuous closed feedback loop' where the system responds immediately, unlike Batch mode which processes a 'Full Dataset' (e.g., CSV file) after the fact for insights or reports."
+    "explanation": "Slides 3 and 11 highlight that Real-Time BCIs function in a 'continuous closed feedback loop' where the system responds immediately, unlike Batch mode which processes a 'Full Dataset' (e.g., CSV file) after the fact for insights or reports."
   },
   {
     "question": "Which of the following is NOT one of the five steps in the 'Closed Loop' process shown in Slide 4?",
@@ -19,10 +19,10 @@
       "Trigger A Feedback Event"
     ],
     "correct_index": 2,
-    "explanation": "Slide 4 outlines the loop as: Record → Prepare → Interpret → Detect → Trigger. 'Store Data for Longitudinal Review' is a characteristic of Batch mode (Slide 34), not a step in the real-time closed loop."
+    "explanation": "Slide 3 outlines the loop as: Record → Prepare → Interpret → Detect → Trigger. 'Store Data for Longitudinal Review' is a characteristic of Batch mode (Slide 34), not a step in the real-time closed loop."
   },
   {
-    "question": "In the modular processing pipeline shown in Slide 11, what is the output of the 'Modularised Algo Function'?",
+    "question": "In the modular processing pipeline, what is the output of the 'Modularised Algo Function'?",
     "options": [
       "A Boolean value (True/False)",
       "An Algo 'Score' (numerical value)",
@@ -30,10 +30,10 @@
       "Filtered Data"
     ],
     "correct_index": 1,
-    "explanation": "Slide 11 explicitly shows the flow: 'Input Structured Data' → 'Modularised Algo Function' → 'Output Algo Score'. This score is then fed into the 'Relevant Value Detection Function' to produce a Boolean output."
+    "explanation": "Slide 4 explicitly shows the flow: 'Input Structured Data' → 'Modularised Algo Function' → 'Output Algo Score'. This score is then fed into the 'Relevant Value Detection Function' to produce a Boolean output."
   },
   {
-    "question": "According to Slide 18, what are the two main criteria for a signal to be used as a trigger in a BCI?",
+    "question": "What are the two main criteria for a signal to be used as a trigger in a BCI?",
     "options": [
       "It must be high-frequency and low-amplitude",
       "It must be a 'Reliable Signal' and have a 'Useful Application'",
@@ -41,7 +41,7 @@
       "It must be recorded from the occipital lobe"
     ],
     "correct_index": 1,
-    "explanation": "Slide 18 ('Triggers') clearly states the requirements: 'Use Any Signal That Means Something Interesting', which is broken down into 'Reliable Signal' and 'Useful Application'."
+    "explanation": "Slide 5 ('Triggers') clearly states the requirements: 'Use Any Signal That Means Something Interesting', which is broken down into 'Reliable Signal' and 'Useful Application'."
   },
   {
     "question": "Which of the following is categorized as a 'Muscle Response' in Slide 18 and visualized in Slide 20?",
@@ -52,10 +52,10 @@
       "Auditory Steady-State Responses"
     ],
     "correct_index": 1,
-    "explanation": "Slide 18 lists 'Jaw Clenches' and 'Eye Movements' under 'Muscle Responses'. Slide 20 visually demonstrates the massive broadband burst in the EEG signal caused by 'Jaw Clenching', distinguishing it from other activities."
+    "explanation": "Slide 6 lists 'Jaw Clenches' and 'Eye Movements' under 'Muscle Responses'. It visually demonstrates the massive broadband burst in the EEG signal caused by 'Jaw Clenching', distinguishing it from other activities."
   },
   {
-    "question": "What physiological phenomenon causes the signal change known as the 'Alpha Effect' shown in Slide 21?",
+    "question": "What physiological phenomenon causes the signal change known as the 'Alpha Effect'?",
     "options": [
       "Opening the eyes, which increases beta activity",
       "Closing the eyes, which increases alpha band activity in the occipital lobe",
@@ -63,10 +63,10 @@
       "Listening to a 40 Hz tone, which creates an ASSR"
     ],
     "correct_index": 1,
-    "explanation": "Slide 21 ('Frequency Analysis') and the corresponding notes explain that 'Simply closing one's eyes tends to increase the amount of EEG activity in the alpha band', which is especially visible on occipital channels (O2) as shown in the Topography Map and PSD plots."
+    "explanation": "Slide 7 ('Frequency Analysis') and the corresponding notes explain that 'Simply closing one's eyes tends to increase the amount of EEG activity in the alpha band', which is especially visible on occipital channels (O2) as shown in the Topography Map and PSD plots."
   },
   {
-    "question": "Which type of Steady-State Response is elicited by a flashing light on a screen, as shown in Slide 22?",
+    "question": "Which type of Steady-State Response is elicited by a flashing light on a screen?",
     "options": [
       "Auditory Steady-State Responses (ASSRs)",
       "Steady-State Somatosensory Evoked Potentials (SSSEPs)",
@@ -74,10 +74,10 @@
       "K-Complexes"
     ],
     "correct_index": 2,
-    "explanation": "Slide 22 ('Sensory Responses') shows three columns. The middle column depicts a monitor with a flashing dot and labels it 'Steady-State Visually Evoked Potentials (SSVEPs)', showing a corresponding peak in the frequency spectrum."
+    "explanation": "Slide 8 ('Sensory Responses') shows three columns. The middle column depicts a monitor with a flashing dot and labels it 'Steady-State Visually Evoked Potentials (SSVEPs)', showing a corresponding peak in the frequency spectrum."
   },
   {
-    "question": "According to Slide 23, how does 'Mental Effort' change when switching from an easy task (20+2) to a hard task (2378-189)?",
+    "question": "How does 'Mental Effort' change when switching from an easy task (20+2) to a hard task (2378-189)?",
     "options": [
       "It decreases significantly",
       "It remains constant",
@@ -85,7 +85,7 @@
       "It becomes too noisy to detect"
     ],
     "correct_index": 2,
-    "explanation": "Slide 23 ('Productivity Responses') shows a graph where the 'Mental Effort' line jumps up significantly at the transition point. The notes confirm: 'mental effort rises measurably when switching from easy to hard arithmetic. The signal is noisy per-trial but robust in the mean.'"
+    "explanation": "Slide 9 ('Productivity Responses') shows a graph where the 'Mental Effort' line jumps up significantly at the transition point. The notes confirm: 'mental effort rises measurably when switching from easy to hard arithmetic. The signal is noisy per-trial but robust in the mean.'"
   },
   {
     "question": "Which sleep features are detectable even from a single in-ear channel (IDUN Guardian) as shown in Slide 24?",
@@ -96,10 +96,10 @@
       "Jaw clenches and Eye movements"
     ],
     "correct_index": 1,
-    "explanation": "Slide 24 ('Sleep Responses') explicitly labels 'Sleep Spindle' and 'K-Complex' in the IDUN Guardian trace, comparing them to the clinical PSG traces. The notes state: 'Sleep spindles and K-complexes are detectable even from a single in-ear channel.'"
+    "explanation": "Slide 10 ('Sleep Responses') explicitly labels 'Sleep Spindle' and 'K-Complex' in the IDUN Guardian trace, comparing them to the clinical PSG traces. The notes state: 'Sleep spindles and K-complexes are detectable even from a single in-ear channel.'"
   },
   {
-    "question": "Which of the following is an example of 'Environmental' feedback modality according to Slide 29?",
+    "question": "Which of the following is an example of 'Environmental' feedback modality?",
     "options": [
       "Playing a beep to communicate a user change",
       "Writing text on a computer screen",
@@ -107,10 +107,10 @@
       "A light automatically adjusting brightness"
     ],
     "correct_index": 2,
-    "explanation": "Slide 29 ('Feedback Modalities') categorizes feedback types. Under 'Environmental', it lists: 'Your seat position is adjusted', 'A robotic arm moves', and 'The computer mouse clicks'. Audio and Visual options are listed in their respective categories."
+    "explanation": "Slide 11 ('Feedback Modalities') categorizes feedback types. Under 'Environmental', it lists: 'Your seat position is adjusted', 'A robotic arm moves', and 'The computer mouse clicks'. Audio and Visual options are listed in their respective categories."
   },
   {
-    "question": "In the comparison between Batch and Realtime BCIs on Slide 35, what is the input unit for the Realtime process?",
+    "question": "In the comparison between Batch and Realtime BCIs, what is the input unit for the Realtime process?",
     "options": [
       "Full Dataset (e.g., entire night's sleep)",
       "Chunk of Data (1s) / Epoch",
@@ -118,10 +118,10 @@
       "CSV File"
     ],
     "correct_index": 1,
-    "explanation": "Slide 35 visually contrasts the two modes. The bottom row (Realtime) starts with 'Chunk of Data (1s)' and labels the processing steps with '/ Epoch', whereas the top row (Batch) starts with a full CSV file."
+    "explanation": "Slide 12/13 visually contrasts the two modes. The bottom row (Realtime) starts with 'Chunk of Data (1s)' and labels the processing steps with '/ Epoch', whereas the top row (Batch) starts with a full CSV file."
   },
   {
-    "question": "According to Slide 37, which engineering decision is crucial for building a Realtime BCI to ensure continuity?",
+    "question": "Which engineering decision is crucial for building a Realtime BCI to ensure continuity?",
     "options": [
       "Use larger data batches",
       "Overlap the epochs",
@@ -129,10 +129,10 @@
       "Use only one sensor modality"
     ],
     "correct_index": 1,
-    "explanation": "Slide 37 ('How To Actually Build in Realtime?') lists key strategies. One of the blue boxes explicitly says 'Overlap the epochs' to ensure continuity in the data stream, alongside 'Use Epoching' and 'Adjust the algos'."
+    "explanation": "Slide 14 ('How To Actually Build in Realtime?') lists key strategies. One of the blue boxes explicitly says 'Overlap the epochs' to ensure continuity in the data stream, alongside 'Use Epoching' and 'Adjust the algos'."
   },
   {
-    "question": "What is the purpose of 'Conducting a Calibration' mentioned in Slide 37?",
+    "question": "What is the purpose of 'Conducting a Calibration'?",
     "options": [
       "To reduce the cost of the hardware",
       "To allow the algorithm to learn the specific user's signal patterns before deployment",
@@ -140,10 +140,10 @@
       "To switch from Realtime to Batch mode"
     ],
     "correct_index": 1,
-    "explanation": "Slide 37 lists 'Conduct a Calibration' as a key step. In the context of BCIs (and supported by the notes on 'reliable signals'), calibration is necessary to adapt the generic algorithm to the individual user's unique brain signals for accurate detection."
+    "explanation": "Slide 14 lists 'Conduct a Calibration' as a key step. In the context of BCIs (and supported by the notes on 'reliable signals'), calibration is necessary to adapt the generic algorithm to the individual user's unique brain signals for accurate detection."
   },
   {
-    "question": "Which of the following is NOT listed as a method to specify for realtime in Slide 37?",
+    "question": "Which of the following is NOT listed as a method to specify for realtime?",
     "options": [
       "Detect contexts",
       "Leverage multimodal sensors",
@@ -151,160 +151,105 @@
       "Adjust the algos to work for each epoch"
     ],
     "correct_index": 2,
-    "explanation": "Slide 37 lists several methods: 'Use Epoching', 'Overlap the epochs', 'Adjust the algos', 'Conduct a Calibration', 'Leverage multimodal sensors', and 'Detect contexts'. Increasing epoch size to 1 minute would contradict the need for low latency in realtime systems (notes mention ~1 second)."
+    "explanation": "Slide 14 lists several methods: 'Use Epoching', 'Overlap the epochs', 'Adjust the algos', 'Conduct a Calibration', 'Leverage multimodal sensors', and 'Detect contexts'. Increasing epoch size to 1 minute would contradict the need for low latency in realtime systems (notes mention ~1 second)."
   },
   {
-    "question": "What distinguishes a Real-Time BCI from a Batch BCI according to Slides 3 and 34?",
+    "question": "Which of the following applications does NOT belong to the 'Medical Applications' category of BCIs?",
     "options": [
-      "Real-Time BCIs operate in a continuous closed feedback loop, whereas Batch BCIs analyze data after recording",
-      "Real-Time BCIs are only used for medical applications, while Batch BCIs are for consumer use",
-      "Real-Time BCIs do not require algorithms, while Batch BCIs do",
-      "Real-Time BCIs record data for longitudinal review, while Batch BCIs trigger immediate actions"
-    ],
-    "correct_index": 0,
-    "explanation": "Slides 3 and 34 highlight that Real-Time BCIs function in a 'continuous closed feedback loop' where the system responds immediately, unlike Batch mode which processes a 'Full Dataset' (e.g., CSV file) after the fact for insights or reports."
-  },
-  {
-    "question": "Which of the following is NOT one of the five steps in the 'Closed Loop' process shown in Slide 4?",
-    "options": [
-      "Record Data",
-      "Prepare Data for Interpretation",
-      "Store Data for Longitudinal Review",
-      "Trigger A Feedback Event"
+      "Neuroprosthetics and Stroke Neurorehabilitation",
+      "Seizure Detection and Neurofeedback",
+      "Gaming and Virtual Reality",
+      "Communication for Locked-in Syndrome"
     ],
     "correct_index": 2,
-    "explanation": "Slide 4 outlines the loop as: Record → Prepare → Interpret → Detect → Trigger. 'Store Data for Longitudinal Review' is a characteristic of Batch mode (Slide 34), not a step in the real-time closed loop."
+    "explanation": "According to Slide 15 ('What Can BCIs Be Used For?'), 'Gaming and Virtual Reality' fall under the 'Entertainment and Lifestyle' category. The other options (Neuroprosthetics, Seizure Detection, Locked-in Syndrome) are explicitly listed under 'Medical Applications'."
   },
   {
-    "question": "In the modular processing pipeline shown in Slide 11, what is the output of the 'Modularised Algo Function'?",
+    "question": "What is a primary reason why neurotechnology is currently still largely limited to the research and clinical market?",
     "options": [
-      "A Boolean value (True/False)",
-      "An Algo 'Score' (numerical value)",
-      "Raw Data",
-      "Filtered Data"
+      "There is a complete lack of scientific interest in consumer applications.",
+      "Current devices are not consumer-friendly, and interpreting the data is difficult.",
+      "The military has monopolized all existing BCI technology.",
+      "There are no viable use cases outside of hospitals."
     ],
     "correct_index": 1,
-    "explanation": "Slide 11 explicitly shows the flow: 'Input Structured Data' → 'Modularised Algo Function' → 'Output Algo Score'. This score is then fed into the 'Relevant Value Detection Function' to produce a Boolean output."
+    "explanation": "Slide 16 ('Unpacking the Challenges: Neurotechnology and Consumer Products') lists key barriers including 'high cost', 'complexity', 'highly regulated', 'interpreting data is hard', and explicitly states that 'current devices are not consumer friendly'."
   },
   {
-    "question": "According to Slide 18, what are the two main criteria for a signal to be used as a trigger in a BCI?",
+    "question": "Which three pillars constitute the IDUN development timeline?",
     "options": [
-      "It must be high-frequency and low-amplitude",
-      "It must be a 'Reliable Signal' and have a 'Useful Application'",
-      "It must be an EEG signal and not an EMG signal",
-      "It must be recorded from the occipital lobe"
+      "Biology, Chemistry, and Physics",
+      "Materials Science, Hardware, and Software",
+      "Research, Marketing, and Sales",
+      "Sensors, Cables, and Batteries"
     ],
     "correct_index": 1,
-    "explanation": "Slide 18 ('Triggers') clearly states the requirements: 'Use Any Signal That Means Something Interesting', which is broken down into 'Reliable Signal' and 'Useful Application'."
+    "explanation": "Slide 17 ('IDUN Development Timeline') visually breaks down the development into three specific areas: 'Materials Science' (proprietary conductive sensor, ETH spin-out), 'Hardware' (evolution from OpenBCI to internal PCBs), and 'Software' (signal processing and cloud ecosystem)."
   },
   {
-    "question": "Which of the following is categorized as a 'Muscle Response' in Slide 18 and visualized in Slide 20?",
+    "question": "Why is the ear canal considered a suitable location for EEG measurements in in-ear devices?",
     "options": [
-      "Sleep Spindles",
-      "Jaw Clenches",
-      "Mental States",
-      "Auditory Steady-State Responses"
+      "Because it is the only place where dry electrodes can function.",
+      "Because it is physically close to the auditory cortex and corresponding dipoles.",
+      "Because it completely eliminates all muscle artifacts (EMG).",
+      "Because it is easier to clean than the scalp."
     ],
     "correct_index": 1,
-    "explanation": "Slide 18 lists 'Jaw Clenches' and 'Eye Movements' under 'Muscle Responses'. Slide 20 visually demonstrates the massive broadband burst in the EEG signal caused by 'Jaw Clenching', distinguishing it from other activities."
+    "explanation": "Slide 18 ('In-Ear EEG Research and Product Development') illustrates the anatomical proximity of the 'Ear Canal' to the 'Cortex' and 'Dipoles'. The geometry allows the sensor to pick up brain signals effectively from this position."
   },
   {
-    "question": "What physiological phenomenon causes the signal change known as the 'Alpha Effect' shown in Slide 21?",
+    "question": "What is the stated 'Vision' of IDUN regarding their product strategy?",
     "options": [
-      "Opening the eyes, which increases beta activity",
-      "Closing the eyes, which increases alpha band activity in the occipital lobe",
-      "Performing complex arithmetic, which increases mental effort",
-      "Listening to a 40 Hz tone, which creates an ASSR"
+      "To offer the most expensive neurotechnology on the market.",
+      "To build a 'Smart Watch for the Brain'.",
+      "To develop exclusively medical-grade devices for hospitals.",
+      "To increase the number of EEG channels to 128 in consumer devices."
     ],
     "correct_index": 1,
-    "explanation": "Slide 21 ('Frequency Analysis') and the corresponding notes explain that 'Simply closing one's eyes tends to increase the amount of EEG activity in the alpha band', which is especially visible on occipital channels (O2) as shown in the Topography Map and PSD plots."
+    "explanation": "Slide 19 ('Ideating Neurotech Products') clearly distinguishes between the Mission ('Make brain insights accessible...') and the Vision, which is explicitly defined as: 'Build a Smart Watch for the Brain'."
   },
   {
-    "question": "Which type of Steady-State Response is elicited by a flashing light on a screen, as shown in Slide 22?",
+    "question": "Which technical specifications are listed for the 'Brainbox' component of the hardware?",
     "options": [
-      "Auditory Steady-State Responses (ASSRs)",
-      "Steady-State Somatosensory Evoked Potentials (SSSEPs)",
-      "Steady-State Visually Evoked Potentials (SSVEPs)",
-      "K-Complexes"
+      "Wi-Fi transmission, 500 Hz sampling rate, 12-hour battery life.",
+      "BLE data transmission, EEG data encryption, 250 Hz sampling rate, and 24+ hours battery life.",
+      "USB-C connection only, 1000 Hz sampling rate, no encryption.",
+      "Wired transmission only, 128 channels, 24-hour battery."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 20 ('Hardware Development') lists the specific features of the 'Brainbox': 'Battery life of 24+ hours', 'BLE data transmission', 'EEG data encryption', and 'Sampling rate of 250 HZ'. It also highlights the use of 'DRYODE sensors' for a one-channel in-ear device."
+  },
+  {
+    "question": "What is the main difference between the 'Console Web App' and the 'Python SDK'?",
+    "options": [
+      "The Web App is for developers with coding skills, while the SDK is for non-technical users.",
+      "The Web App is a no-code solution for users, while the SDK allows developers to write custom scripts and use LSL synchronization.",
+      "The Web App works only offline, while the SDK requires an internet connection.",
+      "There is no difference; both offer exactly the same functionality."
+    ],
+    "correct_index": 1,
+    "explanation": "Slide 21 ('Software Development') describes the 'Console Web App' as a 'no-code, intuitive and user-friendly UI' ideal for research participants. In contrast, the 'Python SDK' is designed for 'developers and researchers with coding skills' to design experiments and synchronize data via 'LSL' (Lab Streaming Layer)."
+  },
+  {
+    "question": "In the '2x2 model' of neurotech futures, how are research-grade devices (like EEG caps) positioned compared to consumer devices?",
+    "options": [
+      "Research devices have high adoptability (cost, comfort) but low quality.",
+      "Consumer devices have high quality (SNR) but low adoptability.",
+      "Research devices are positioned at high quality (SNR, interpretability) but low adoptability (cost, comfort).",
+      "Both device types are located in the same area of the diagram."
     ],
     "correct_index": 2,
-    "explanation": "Slide 22 ('Sensory Responses') shows three columns. The middle column depicts a monitor with a flashing dot and labels it 'Steady-State Visually Evoked Potentials (SSVEPs)', showing a corresponding peak in the frequency spectrum."
+    "explanation": "Slide 22 ('What Is the Future of Neurotech Devices?') displays a matrix with 'Quality' (SNR, longitudinal, personalisable) on the Y-axis and 'Adoptability' (cost, comfort, mobility, aesthetics) on the X-axis. Research devices (represented by the EEG cap image) are in the top-left quadrant (high quality, low adoptability), whereas the goal for consumer devices (represented by the smartwatch icon) is the bottom-right."
   },
   {
-    "question": "According to Slide 23, how does 'Mental Effort' change when switching from an easy task (20+2) to a hard task (2378-189)?",
+    "question": "Which algorithms are listed at the beginning of the 'Algorithm Roadmap' (the starting point of the exponential curve)?",
     "options": [
-      "It decreases significantly",
-      "It remains constant",
-      "It rises measurably, showing a robust signal in the mean",
-      "It becomes too noisy to detect"
-    ],
-    "correct_index": 2,
-    "explanation": "Slide 23 ('Productivity Responses') shows a graph where the 'Mental Effort' line jumps up significantly at the transition point. The notes confirm: 'mental effort rises measurably when switching from easy to hard arithmetic. The signal is noisy per-trial but robust in the mean.'"
-  },
-  {
-    "question": "Which sleep features are detectable even from a single in-ear channel (IDUN Guardian) as shown in Slide 24?",
-    "options": [
-      "REM cycles and Dream content",
-      "Sleep Spindles and K-Complexes",
-      "Alpha waves and Beta bursts",
-      "Jaw clenches and Eye movements"
+      "Mind reading, dream control, and telepathy.",
+      "Mental Workload, Sleep Quality, Meditation, Sleep Staging, and Data Quality.",
+      "Only 'Data Quality' and 'Sleep Staging'.",
+      "Exclusively medical diagnostic algorithms for epilepsy."
     ],
     "correct_index": 1,
-    "explanation": "Slide 24 ('Sleep Responses') explicitly labels 'Sleep Spindle' and 'K-Complex' in the IDUN Guardian trace, comparing them to the clinical PSG traces. The notes state: 'Sleep spindles and K-complexes are detectable even from a single in-ear channel.'"
-  },
-  {
-    "question": "Which of the following is an example of 'Environmental' feedback modality according to Slide 29?",
-    "options": [
-      "Playing a beep to communicate a user change",
-      "Writing text on a computer screen",
-      "A robotic arm moving or a seat position adjusting",
-      "A light automatically adjusting brightness"
-    ],
-    "correct_index": 2,
-    "explanation": "Slide 29 ('Feedback Modalities') categorizes feedback types. Under 'Environmental', it lists: 'Your seat position is adjusted', 'A robotic arm moves', and 'The computer mouse clicks'. Audio and Visual options are listed in their respective categories."
-  },
-  {
-    "question": "In the comparison between Batch and Realtime BCIs on Slide 35, what is the input unit for the Realtime process?",
-    "options": [
-      "Full Dataset (e.g., entire night's sleep)",
-      "Chunk of Data (1s) / Epoch",
-      "Longitudinal Review Report",
-      "CSV File"
-    ],
-    "correct_index": 1,
-    "explanation": "Slide 35 visually contrasts the two modes. The bottom row (Realtime) starts with 'Chunk of Data (1s)' and labels the processing steps with '/ Epoch', whereas the top row (Batch) starts with a full CSV file."
-  },
-  {
-    "question": "According to Slide 37, which engineering decision is crucial for building a Realtime BCI to ensure continuity?",
-    "options": [
-      "Use larger data batches",
-      "Overlap the epochs",
-      "Disable calibration",
-      "Use only one sensor modality"
-    ],
-    "correct_index": 1,
-    "explanation": "Slide 37 ('How To Actually Build in Realtime?') lists key strategies. One of the blue boxes explicitly says 'Overlap the epochs' to ensure continuity in the data stream, alongside 'Use Epoching' and 'Adjust the algos'."
-  },
-  {
-    "question": "What is the purpose of 'Conducting a Calibration' mentioned in Slide 37?",
-    "options": [
-      "To reduce the cost of the hardware",
-      "To allow the algorithm to learn the specific user's signal patterns before deployment",
-      "To eliminate the need for overlapping epochs",
-      "To switch from Realtime to Batch mode"
-    ],
-    "correct_index": 1,
-    "explanation": "Slide 37 lists 'Conduct a Calibration' as a key step. In the context of BCIs (and supported by the notes on 'reliable signals'), calibration is necessary to adapt the generic algorithm to the individual user's unique brain signals for accurate detection."
-  },
-  {
-    "question": "Which of the following is NOT listed as a method to specify for realtime in Slide 37?",
-    "options": [
-      "Detect contexts",
-      "Leverage multimodal sensors",
-      "Increase the epoch size to 1 minute",
-      "Adjust the algos to work for each epoch"
-    ],
-    "correct_index": 2,
-    "explanation": "Slide 37 lists several methods: 'Use Epoching', 'Overlap the epochs', 'Adjust the algos', 'Conduct a Calibration', 'Leverage multimodal sensors', and 'Detect contexts'. Increasing epoch size to 1 minute would contradict the need for low latency in realtime systems (notes mention ~1 second)."
+    "explanation": "Slide 23 ('What Is the Future of Neurotech Algorithms?') shows an exponential curve representing 'Algorithms quality and quantity' over a 'Timeline'. A box at the start of the curve (bottom left) explicitly lists the initial features: 'Mental Workload', 'Sleep Quality', 'Meditation', 'Sleep Staging', and 'Data Quality'."
   }
 ]
